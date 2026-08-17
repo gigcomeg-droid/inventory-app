@@ -1,0 +1,215 @@
+// ---------------------------------------------------------------------------
+// Inventory Management System — Prisma schema
+// Datasource: PostgreSQL, for online hosting (Vercel + Neon/Vercel Postgres).
+// Set DATABASE_URL to your Postgres connection string (see .env.example /
+// README.md / DEPLOYMENT.md). Role/movement/alert "type" fields are kept as
+// plain Strings (not native Postgres enums) so the schema stays portable if
+// you ever move to another provider — application code already constrains
+// valid values (lib/auth.js, lib/services/**).
+// ---------------------------------------------------------------------------
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  // Neon/Vercel Postgres give you two connection strings: a pooled one (for
+  // the running app, many short-lived serverless connections) and a direct
+  // one (for running migrations). If your provider gives you both, put the
+  // pooled string in DATABASE_URL and the direct string in DIRECT_URL. If
+  // you only have one connection string (e.g. a plain local Postgres), set
+  // DIRECT_URL to the same value as DATABASE_URL.
+  directUrl = env("DIRECT_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Users & roles
+// ---------------------------------------------------------------------------
+
+// NOTE: SQLite's Prisma connector does not support native enum types, so
+// role/type fields below are plain Strings constrained by application code
+// (lib/auth.js, lib/services/**) rather than the database. Valid values:
+// Role: "ADMIN" | "MANAGER" | "STAFF" | "VIEWER"
+
+model User {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("STAFF")
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  movements StockMovement[]
+
+  @@map("users")
+}
+
+// ---------------------------------------------------------------------------
+// Storage rooms — no longer fixed at 4; Admins can add/edit/delete rooms
+// from the app. Deletion is a soft delete (isActive=false) so historical
+// stock movements that reference a deleted room stay intact.
+// ---------------------------------------------------------------------------
+
+model StorageRoom {
+  id          String   @id @default(cuid())
+  code        String   @unique // e.g. ROOM1, ROOM2, ROOM3, ROOM4
+  name        String
+  location    String?
+  description String?
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  inventory       InventoryByRoom[]
+  movementsFrom   StockMovement[]   @relation("MovementFromRoom")
+  movementsTo     StockMovement[]   @relation("MovementToRoom")
+  alerts          Alert[]
+
+  @@map("storage_rooms")
+}
+
+// ---------------------------------------------------------------------------
+// Catalog: categories & suppliers
+// ---------------------------------------------------------------------------
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+
+  items Item[]
+
+  @@map("categories")
+}
+
+model Supplier {
+  id          String   @id @default(cuid())
+  name        String
+  contactName String?
+  email       String?
+  phone       String?
+  address     String?
+  notes       String?
+  createdAt   DateTime @default(now())
+
+  items Item[]
+
+  @@map("suppliers")
+}
+
+// ---------------------------------------------------------------------------
+// Items (master catalog — quantities live in InventoryByRoom, NOT here)
+// ---------------------------------------------------------------------------
+
+model Item {
+  id                  String   @id @default(cuid())
+  name                String
+  sku                 String   @unique
+  barcode             String?  @unique
+  unit                String   @default("pcs")
+  defaultMinStockLevel Int     @default(0)
+  notes               String?
+  photoUrl            String?
+  isActive            Boolean  @default(true)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id])
+
+  supplierId String?
+  supplier   Supplier? @relation(fields: [supplierId], references: [id])
+
+  inventory InventoryByRoom[]
+  movements StockMovement[]
+  alerts    Alert[]
+
+  @@index([categoryId])
+  @@index([supplierId])
+  @@map("items")
+}
+
+// ---------------------------------------------------------------------------
+// Per-room stock. This is the table that keeps rooms strictly separated:
+// each (itemId, roomId) pair has its own independent quantity.
+// ---------------------------------------------------------------------------
+
+model InventoryByRoom {
+  id            String   @id @default(cuid())
+  itemId        String
+  roomId        String
+  quantity      Int      @default(0)
+  minStockLevel Int? // optional per-room override of item.defaultMinStockLevel
+  updatedAt     DateTime @updatedAt
+
+  item Item        @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  room StorageRoom @relation(fields: [roomId], references: [id], onDelete: Cascade)
+
+  @@unique([itemId, roomId])
+  @@index([roomId])
+  @@map("inventory_by_room")
+}
+
+// ---------------------------------------------------------------------------
+// Stock movement history — every add/remove/adjust/transfer is logged here.
+// For TRANSFER: fromRoomId and toRoomId are both set.
+// For ADD:      fromRoomId is null, toRoomId is set.
+// For REMOVE:   fromRoomId is set, toRoomId is null.
+// For ADJUST:   adjustmentDelta can be positive or negative; roomId stored in toRoomId.
+//
+// type is a plain String (SQLite has no native enum support): one of
+// "ADD" | "REMOVE" | "ADJUST" | "TRANSFER"
+// ---------------------------------------------------------------------------
+
+model StockMovement {
+  id         String       @id @default(cuid())
+  type       String
+  itemId     String
+  quantity   Int // always a positive magnitude; direction implied by type/from/to
+  fromRoomId String?
+  toRoomId   String?
+  note       String?
+  userId     String?
+  createdAt  DateTime     @default(now())
+
+  item     Item         @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  fromRoom StorageRoom? @relation("MovementFromRoom", fields: [fromRoomId], references: [id])
+  toRoom   StorageRoom? @relation("MovementToRoom", fields: [toRoomId], references: [id])
+  user     User?        @relation(fields: [userId], references: [id])
+
+  @@index([itemId])
+  @@index([createdAt])
+  @@map("stock_movements")
+}
+
+// ---------------------------------------------------------------------------
+// Low-stock alerts, computed per room and persisted so history/acknowledgement
+// can be tracked.
+//
+// type is a plain String (SQLite has no native enum support): one of
+// "LOW_STOCK" | "OUT_OF_STOCK"
+// ---------------------------------------------------------------------------
+
+model Alert {
+  id         String    @id @default(cuid())
+  type       String    @default("LOW_STOCK")
+  itemId     String
+  roomId     String
+  message    String
+  isResolved Boolean   @default(false)
+  createdAt  DateTime  @default(now())
+  resolvedAt DateTime?
+
+  item Item        @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  room StorageRoom @relation(fields: [roomId], references: [id], onDelete: Cascade)
+
+  @@index([itemId, roomId])
+  @@index([isResolved])
+  @@map("alerts")
+}
