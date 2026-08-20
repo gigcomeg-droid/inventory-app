@@ -5,8 +5,10 @@ import Link from 'next/link';
 import apiClient from '@/lib/apiClient';
 import { formatDateTime, roomDisplayName } from '@/lib/formatters';
 import RoleGate from '@/components/RoleGate';
+import { useLocale } from '@/components/LocaleContext';
 
 export default function AlertsPage() {
+  const { t, locale } = useLocale();
   const [alerts, setAlerts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -22,7 +24,7 @@ export default function AlertsPage() {
       const data = await apiClient.get(`/alerts?${params.toString()}`);
       setAlerts(Array.isArray(data) ? data : []);
     } catch (err) {
-      setError(err.message || 'Failed to load alerts.');
+      setError(err.message || t('alerts.loadFailed'));
       setAlerts([]);
     } finally {
       setLoading(false);
@@ -39,7 +41,7 @@ export default function AlertsPage() {
       await apiClient.post(`/alerts/${id}/resolve`);
       await load(showResolved);
     } catch (err) {
-      setError(err.message || 'Failed to resolve alert.');
+      setError(err.message || t('alerts.resolveFailed'));
     } finally {
       setResolvingId(null);
     }
@@ -59,8 +61,8 @@ export default function AlertsPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-semibold tracking-tight text-white">Alerts</h1>
-          <p className="mt-1 text-sm text-base-100/50">Low-stock and out-of-stock alerts, grouped by room.</p>
+          <h1 className="text-xl font-semibold tracking-tight text-white">{t('alerts.title')}</h1>
+          <p className="mt-1 text-sm text-base-100/50">{t('alerts.subtitle')}</p>
         </div>
         <label className="flex items-center gap-1.5 text-xs text-base-100/60">
           <input
@@ -69,7 +71,7 @@ export default function AlertsPage() {
             onChange={(e) => setShowResolved(e.target.checked)}
             className="h-3.5 w-3.5 rounded border-white/20 bg-base-950 text-brand-500 focus:ring-brand-500"
           />
-          Show resolved
+          {t('alerts.showResolved')}
         </label>
       </div>
 
@@ -80,25 +82,25 @@ export default function AlertsPage() {
       )}
 
       {loading ? (
-        <p className="text-sm text-base-100/40">Loading alerts…</p>
+        <p className="text-sm text-base-100/40">{t('alerts.loading')}</p>
       ) : alerts.length === 0 ? (
         <div className="panel p-8 text-center">
           <p className="text-sm text-base-100/50">
-            {showResolved ? 'No resolved alerts.' : 'No open alerts — everything is well-stocked.'}
+            {showResolved ? t('alerts.noResolved') : t('alerts.noOpen')}
           </p>
         </div>
       ) : (
         <div className="space-y-5">
           {grouped.map(([code, roomAlerts]) => (
             <div key={code} className="panel p-5">
-              <h3 className="mb-3 text-sm font-semibold text-white">{roomDisplayName(code)}</h3>
+              <h3 className="mb-3 text-sm font-semibold text-white">{roomDisplayName(code, locale)}</h3>
               <ul className="divide-y divide-white/5">
                 {roomAlerts.map((a) => (
                   <li key={a.id} className="flex items-center justify-between gap-3 py-3">
                     <div className="min-w-0">
                       <p className="text-sm text-base-100/90">
                         <Link href={`/items/${a.item?.id || a.itemId}`} className="font-medium hover:text-brand-300">
-                          {a.item?.name || a.itemName || 'Item'}
+                          {a.item?.name || a.itemName || t('alerts.item')}
                         </Link>{' '}
                         <span
                           className={`badge ml-1 ${
@@ -107,12 +109,14 @@ export default function AlertsPage() {
                               : 'border border-accent-amber/30 bg-accent-amber/10 text-accent-amber'
                           }`}
                         >
-                          {a.type === 'OUT_OF_STOCK' ? 'Out of Stock' : 'Low Stock'}
+                          {a.type === 'OUT_OF_STOCK' ? t('alerts.outOfStock') : t('alerts.lowStock')}
                         </span>
                       </p>
                       <p className="mt-0.5 text-xs text-base-100/40">
-                        {a.message} · {formatDateTime(a.createdAt)}
-                        {a.isResolved && a.resolvedAt ? ` · resolved ${formatDateTime(a.resolvedAt)}` : ''}
+                        {a.message} · {formatDateTime(a.createdAt, locale)}
+                        {a.isResolved && a.resolvedAt
+                          ? ` · ${t('alerts.resolvedOn', { date: formatDateTime(a.resolvedAt, locale) })}`
+                          : ''}
                       </p>
                     </div>
                     {!a.isResolved && (
@@ -123,7 +127,7 @@ export default function AlertsPage() {
                           onClick={() => resolveAlert(a.id)}
                           disabled={resolvingId === a.id}
                         >
-                          {resolvingId === a.id ? 'Resolving…' : 'Resolve'}
+                          {resolvingId === a.id ? t('alerts.resolving') : t('alerts.resolve')}
                         </button>
                       </RoleGate>
                     )}

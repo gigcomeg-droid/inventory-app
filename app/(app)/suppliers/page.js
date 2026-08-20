@@ -5,10 +5,12 @@ import apiClient from '@/lib/apiClient';
 import DataTable from '@/components/DataTable';
 import Modal from '@/components/Modal';
 import RoleGate from '@/components/RoleGate';
+import { useLocale } from '@/components/LocaleContext';
 
 const emptyForm = { name: '', contactName: '', email: '', phone: '', address: '', notes: '' };
 
 export default function SuppliersPage() {
+  const { t, locale } = useLocale();
   const [suppliers, setSuppliers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -25,12 +27,12 @@ export default function SuppliersPage() {
       const data = await apiClient.get('/suppliers');
       setSuppliers(Array.isArray(data) ? data : []);
     } catch (err) {
-      setError(err.message || 'Failed to load suppliers.');
+      setError(err.message || t('suppliers.loadFailed'));
       setSuppliers([]);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     load();
@@ -60,7 +62,7 @@ export default function SuppliersPage() {
   async function handleSubmit(e) {
     e.preventDefault();
     if (!form.name.trim()) {
-      setFormError('Supplier name is required.');
+      setFormError(t('suppliers.nameRequired'));
       return;
     }
     setSaving(true);
@@ -74,27 +76,27 @@ export default function SuppliersPage() {
       setModalOpen(false);
       await load();
     } catch (err) {
-      setFormError(err.message || 'Failed to save supplier.');
+      setFormError(err.message || t('suppliers.saveFailed'));
     } finally {
       setSaving(false);
     }
   }
 
   async function handleDelete(supplier) {
-    if (!window.confirm(`Delete supplier "${supplier.name}"?`)) return;
+    if (!window.confirm(t('suppliers.deleteConfirm', { name: supplier.name }))) return;
     try {
       await apiClient.delete(`/suppliers/${supplier.id}`);
       await load();
     } catch (err) {
-      setError(err.message || 'Failed to delete supplier.');
+      setError(err.message || t('suppliers.deleteFailed'));
     }
   }
 
   const columns = [
-    { key: 'name', header: 'Name', sortable: true },
-    { key: 'contactName', header: 'Contact', sortable: true, render: (r) => r.contactName || '—' },
-    { key: 'email', header: 'Email', render: (r) => r.email || '—' },
-    { key: 'phone', header: 'Phone', render: (r) => r.phone || '—' },
+    { key: 'name', header: t('suppliers.colName'), sortable: true },
+    { key: 'contactName', header: t('suppliers.colContact'), sortable: true, render: (r) => r.contactName || '—' },
+    { key: 'email', header: t('suppliers.colEmail'), render: (r) => r.email || '—' },
+    { key: 'phone', header: t('suppliers.colPhone'), render: (r) => r.phone || '—' },
     {
       key: 'actions',
       header: '',
@@ -103,10 +105,10 @@ export default function SuppliersPage() {
         <RoleGate min="MANAGER">
           <div className="flex justify-end gap-1.5" onClick={(e) => e.stopPropagation()}>
             <button type="button" className="btn-ghost !px-2 !py-1 text-xs" onClick={() => openEdit(r)}>
-              Edit
+              {t('suppliers.edit')}
             </button>
             <button type="button" className="btn-ghost !px-2 !py-1 text-xs text-accent-rose" onClick={() => handleDelete(r)}>
-              Delete
+              {t('suppliers.delete')}
             </button>
           </div>
         </RoleGate>
@@ -118,12 +120,12 @@ export default function SuppliersPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-semibold tracking-tight text-white">Suppliers</h1>
-          <p className="mt-1 text-sm text-base-100/50">Manage vendors linked to catalog items.</p>
+          <h1 className="text-xl font-semibold tracking-tight text-white">{t('suppliers.title')}</h1>
+          <p className="mt-1 text-sm text-base-100/50">{t('suppliers.subtitle')}</p>
         </div>
         <RoleGate min="MANAGER">
           <button type="button" className="btn-primary" onClick={openCreate}>
-            + Add Supplier
+            {t('suppliers.addNew')}
           </button>
         </RoleGate>
       </div>
@@ -141,18 +143,18 @@ export default function SuppliersPage() {
         loading={loading}
         searchable
         searchKeys={['name', 'contactName', 'email']}
-        emptyMessage="No suppliers yet."
+        emptyMessage={t('suppliers.empty')}
       />
 
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing ? 'Edit Supplier' : 'Add Supplier'}>
+      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing ? t('suppliers.editTitle') : t('suppliers.addTitle')}>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <label className="block">
-              <span className="mb-1.5 block text-xs font-medium text-base-100/70">Name *</span>
+              <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('suppliers.name')} *</span>
               <input className="input-field" value={form.name} onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))} />
             </label>
             <label className="block">
-              <span className="mb-1.5 block text-xs font-medium text-base-100/70">Contact Name</span>
+              <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('suppliers.contactName')}</span>
               <input
                 className="input-field"
                 value={form.contactName}
@@ -160,7 +162,7 @@ export default function SuppliersPage() {
               />
             </label>
             <label className="block">
-              <span className="mb-1.5 block text-xs font-medium text-base-100/70">Email</span>
+              <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('suppliers.email')}</span>
               <input
                 type="email"
                 className="input-field"
@@ -169,16 +171,16 @@ export default function SuppliersPage() {
               />
             </label>
             <label className="block">
-              <span className="mb-1.5 block text-xs font-medium text-base-100/70">Phone</span>
+              <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('suppliers.phone')}</span>
               <input className="input-field" value={form.phone} onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))} />
             </label>
           </div>
           <label className="block">
-            <span className="mb-1.5 block text-xs font-medium text-base-100/70">Address</span>
+            <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('suppliers.address')}</span>
             <input className="input-field" value={form.address} onChange={(e) => setForm((f) => ({ ...f, address: e.target.value }))} />
           </label>
           <label className="block">
-            <span className="mb-1.5 block text-xs font-medium text-base-100/70">Notes</span>
+            <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('suppliers.notes')}</span>
             <textarea
               className="input-field min-h-[70px] resize-y"
               value={form.notes}
@@ -194,10 +196,10 @@ export default function SuppliersPage() {
 
           <div className="flex justify-end gap-2 pt-2">
             <button type="button" className="btn-secondary" onClick={() => setModalOpen(false)}>
-              Cancel
+              {t('common.cancel')}
             </button>
             <button type="submit" className="btn-primary" disabled={saving}>
-              {saving ? 'Saving…' : editing ? 'Save Changes' : 'Create Supplier'}
+              {saving ? t('suppliers.saving') : editing ? t('suppliers.saveChanges') : t('suppliers.createSupplier')}
             </button>
           </div>
         </form>

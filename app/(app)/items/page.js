@@ -9,8 +9,10 @@ import LowStockBadge from '@/components/LowStockBadge';
 import ImportExportBar from '@/components/ImportExportBar';
 import ItemFormModal from '@/components/ItemFormModal';
 import RoleGate from '@/components/RoleGate';
+import { useLocale } from '@/components/LocaleContext';
 
 export default function ItemsPage() {
+  const { t, locale } = useLocale();
   const [items, setItems] = useState([]);
   const [rooms, setRooms] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -37,12 +39,12 @@ export default function ItemsPage() {
       const data = await apiClient.get(`/items?${params.toString()}`);
       setItems(Array.isArray(data) ? data : []);
     } catch (err) {
-      setError(err.message || 'Failed to load items.');
+      setError(err.message || t('items.loadFailed'));
       setItems([]);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     apiClient.get('/rooms').then(setRooms).catch(() => {});
@@ -63,23 +65,23 @@ export default function ItemsPage() {
 
   const handleDelete = useCallback(
     async (row) => {
-      if (!window.confirm(`Delete "${row.name}"? This deactivates the item and hides it from active views.`)) {
+      if (!window.confirm(t('items.deleteConfirm', { name: row.name }))) {
         return;
       }
       try {
         await apiClient.delete(`/items/${row.id}`);
         loadItems({ search, category: categoryFilter, supplier: supplierFilter, lowStockOnly });
       } catch (err) {
-        setError(err.message || 'Failed to delete item.');
+        setError(err.message || t('items.deleteFailed'));
       }
     },
-    [loadItems, search, categoryFilter, supplierFilter, lowStockOnly]
+    [loadItems, search, categoryFilter, supplierFilter, lowStockOnly, t]
   );
 
   const columns = [
     {
       key: 'name',
-      header: 'Item',
+      header: t('items.colItem'),
       sortable: true,
       render: (r) => (
         <Link href={`/items/${r.id}`} className="font-medium text-base-100 hover:text-brand-300">
@@ -87,23 +89,23 @@ export default function ItemsPage() {
         </Link>
       ),
     },
-    { key: 'sku', header: 'SKU', sortable: true, className: 'font-mono text-xs' },
-    { key: 'category.name', header: 'Category', sortable: true, render: (r) => r.category?.name || '—' },
-    { key: 'supplier.name', header: 'Supplier', sortable: true, render: (r) => r.supplier?.name || '—' },
+    { key: 'sku', header: t('items.colSku'), sortable: true, className: 'font-mono text-xs' },
+    { key: 'category.name', header: t('items.colCategory'), sortable: true, render: (r) => r.category?.name || '—' },
+    { key: 'supplier.name', header: t('items.colSupplier'), sortable: true, render: (r) => r.supplier?.name || '—' },
     {
       key: 'totalQuantity',
-      header: 'Total (All Rooms)',
+      header: t('items.colTotal'),
       sortable: true,
       align: 'right',
       render: (r) => (
         <span className="font-semibold text-base-100">
-          {formatNumber(r.totalQuantity)} <span className="text-xs font-normal text-base-100/40">{r.unit}</span>
+          {formatNumber(r.totalQuantity, locale)} <span className="text-xs font-normal text-base-100/40">{r.unit}</span>
         </span>
       ),
     },
     {
       key: 'lowStock',
-      header: 'Status',
+      header: t('items.colStatus'),
       render: (r) => {
         const anyLow = (r.perRoom || []).some((pr) => pr.isLowStock);
         return anyLow ? (
@@ -121,14 +123,14 @@ export default function ItemsPage() {
         <RoleGate min="MANAGER">
           <button
             type="button"
-            title="Delete item"
+            title={t('items.deleteItemTitle')}
             className="btn-ghost !px-2 !py-1 text-xs !text-accent-rose hover:!bg-accent-rose/10"
             onClick={(e) => {
               e.stopPropagation();
               handleDelete(r);
             }}
           >
-            Delete
+            {t('items.delete')}
           </button>
         </RoleGate>
       ),
@@ -139,15 +141,15 @@ export default function ItemsPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-semibold tracking-tight text-white">All Items</h1>
+          <h1 className="text-xl font-semibold tracking-tight text-white">{t('items.title')}</h1>
           <p className="mt-1 text-sm text-base-100/50">
-            Full catalog with totals across all 4 storage rooms.
+            {t('items.subtitle')}
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <RoleGate min="STAFF">
             <button type="button" className="btn-primary" onClick={() => setItemModalOpen(true)}>
-              + Add New Item
+              {t('items.addNew')}
             </button>
           </RoleGate>
         </div>
@@ -166,13 +168,13 @@ export default function ItemsPage() {
         data={items}
         rowKey={(r) => r.id}
         loading={loading}
-        emptyMessage="No items found."
-        expandedRowRender={(r) => <RoomBreakdown item={r} rooms={rooms} />}
+        emptyMessage={t('items.empty')}
+        expandedRowRender={(r) => <RoomBreakdown item={r} rooms={rooms} locale={locale} />}
         toolbar={
           <div className="flex flex-wrap items-center gap-2">
             <div className="relative w-full max-w-xs">
               <svg
-                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-base-100/40"
+                className="pointer-events-none absolute top-1/2 h-4 w-4 -translate-y-1/2 text-base-100/40 ltr:left-3 rtl:right-3"
                 viewBox="0 0 24 24"
                 fill="none"
               >
@@ -183,8 +185,8 @@ export default function ItemsPage() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search name, SKU, barcode…"
-                className="input-field pl-9"
+                placeholder={t('items.searchPlaceholder')}
+                className="input-field ltr:pl-9 rtl:pr-9"
               />
             </div>
             <select
@@ -192,7 +194,7 @@ export default function ItemsPage() {
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
             >
-              <option value="">All Categories</option>
+              <option value="">{t('items.allCategories')}</option>
               {categories.map((c) => (
                 <option key={c.id} value={c.id}>
                   {c.name}
@@ -204,7 +206,7 @@ export default function ItemsPage() {
               value={supplierFilter}
               onChange={(e) => setSupplierFilter(e.target.value)}
             >
-              <option value="">All Suppliers</option>
+              <option value="">{t('items.allSuppliers')}</option>
               {suppliers.map((s) => (
                 <option key={s.id} value={s.id}>
                   {s.name}
@@ -218,9 +220,9 @@ export default function ItemsPage() {
                 onChange={(e) => setLowStockOnly(e.target.checked)}
                 className="h-3.5 w-3.5 rounded border-white/20 bg-base-950 text-brand-500 focus:ring-brand-500"
               />
-              Low stock only
+              {t('items.lowStockOnly')}
             </label>
-            <span className="ml-auto text-xs text-base-100/30">Click a row to expand per-room breakdown</span>
+            <span className="text-xs text-base-100/30 ms-auto">{t('items.expandHint')}</span>
           </div>
         }
       />
@@ -230,7 +232,8 @@ export default function ItemsPage() {
   );
 }
 
-function RoomBreakdown({ item, rooms }) {
+function RoomBreakdown({ item, rooms, locale }) {
+  const { t } = useLocale();
   const perRoom = item.perRoom || [];
   const byRoomId = useMemo(() => new Map(perRoom.map((pr) => [pr.roomId, pr])), [perRoom]);
 
@@ -241,12 +244,12 @@ function RoomBreakdown({ item, rooms }) {
         const code = r.code || pr.roomCode;
         return (
           <div key={r.id || r.roomId} className="rounded-lg border border-white/5 bg-base-950/40 px-3 py-2">
-            <p className="text-xs font-medium text-base-100/50">{roomShortName(code)}</p>
+            <p className="text-xs font-medium text-base-100/50">{roomShortName(code, locale)}</p>
             <p className="mt-1 text-sm font-semibold text-base-100">
-              {formatNumber(pr?.quantity ?? 0)} <span className="text-xs font-normal text-base-100/40">{item.unit}</span>
+              {formatNumber(pr?.quantity ?? 0, locale)} <span className="text-xs font-normal text-base-100/40">{item.unit}</span>
             </p>
             {pr?.isLowStock && (
-              <p className="mt-0.5 text-[11px] text-accent-amber">Low (min {pr.minStockLevel})</p>
+              <p className="mt-0.5 text-[11px] text-accent-amber">{t('items.lowLabel', { min: pr.minStockLevel })}</p>
             )}
           </div>
         );

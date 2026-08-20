@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Modal from '@/components/Modal';
 import apiClient from '@/lib/apiClient';
 import { roomShortName } from '@/lib/formatters';
+import { useLocale } from '@/components/LocaleContext';
 
 const emptyForm = {
   name: '',
@@ -24,6 +25,7 @@ const emptyForm = {
  *   initial-stock field so the "add item" flow is one step.
  */
 export default function ItemFormModal({ open, onClose, item, defaultRoomId, onSaved }) {
+  const { t, locale } = useLocale();
   const isEdit = Boolean(item?.id);
   const [form, setForm] = useState(emptyForm);
   const [rooms, setRooms] = useState([]);
@@ -74,7 +76,7 @@ export default function ItemFormModal({ open, onClose, item, defaultRoomId, onSa
     setError('');
 
     if (!form.name.trim() || !form.sku.trim()) {
-      setError('Name and SKU are required.');
+      setError(t('itemForm.nameSkuRequired'));
       return;
     }
 
@@ -85,7 +87,7 @@ export default function ItemFormModal({ open, onClose, item, defaultRoomId, onSa
       unit: form.unit.trim() || 'pcs',
       categoryId: form.categoryId || null,
       supplierId: form.supplierId || null,
-      defaultMinStockLevel: Number(form.defaultMinStockLevel) || 0,
+      defaultMinStockLevel: Math.max(0, Math.trunc(Number(form.defaultMinStockLevel) || 0)),
       notes: form.notes.trim() || null,
       photoUrl: form.photoUrl.trim() || null,
     };
@@ -105,7 +107,7 @@ export default function ItemFormModal({ open, onClose, item, defaultRoomId, onSa
       onSaved?.(saved);
       onClose?.();
     } catch (err) {
-      setError(err.message || 'Failed to save item.');
+      setError(err.message || t('itemForm.saveFailed'));
     } finally {
       setSaving(false);
     }
@@ -115,52 +117,52 @@ export default function ItemFormModal({ open, onClose, item, defaultRoomId, onSa
     <Modal
       open={open}
       onClose={onClose}
-      title={isEdit ? 'Edit Item' : 'Add New Item'}
-      subtitle={isEdit ? form.sku : 'Create a catalog item, optionally seed starting stock.'}
+      title={isEdit ? t('itemForm.editTitle') : t('itemForm.addTitle')}
+      subtitle={isEdit ? form.sku : t('itemForm.addSubtitle')}
       maxWidth="max-w-2xl"
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <Field label="Name" required>
+          <Field label={t('itemForm.name')} required>
             <input
               className="input-field"
               value={form.name}
               onChange={(e) => updateField('name', e.target.value)}
-              placeholder="e.g. Wireless Mouse"
+              placeholder={t('itemForm.namePlaceholder')}
             />
           </Field>
-          <Field label="SKU" required>
+          <Field label={t('itemForm.sku')} required>
             <input
               className="input-field font-mono"
               value={form.sku}
               onChange={(e) => updateField('sku', e.target.value)}
-              placeholder="e.g. WM-1001"
+              placeholder={t('itemForm.skuPlaceholder')}
               disabled={isEdit}
             />
           </Field>
-          <Field label="Barcode (optional)">
+          <Field label={t('itemForm.barcode')}>
             <input
               className="input-field font-mono"
               value={form.barcode}
               onChange={(e) => updateField('barcode', e.target.value)}
-              placeholder="defaults to SKU"
+              placeholder={t('itemForm.barcodePlaceholder')}
             />
           </Field>
-          <Field label="Unit">
+          <Field label={t('itemForm.unit')}>
             <input
               className="input-field"
               value={form.unit}
               onChange={(e) => updateField('unit', e.target.value)}
-              placeholder="pcs, box, kg…"
+              placeholder={t('itemForm.unitPlaceholder')}
             />
           </Field>
-          <Field label="Category">
+          <Field label={t('itemForm.category')}>
             <select
               className="input-field"
               value={form.categoryId}
               onChange={(e) => updateField('categoryId', e.target.value)}
             >
-              <option value="">Uncategorized</option>
+              <option value="">{t('itemForm.uncategorized')}</option>
               {categories.map((c) => (
                 <option key={c.id} value={c.id}>
                   {c.name}
@@ -168,13 +170,13 @@ export default function ItemFormModal({ open, onClose, item, defaultRoomId, onSa
               ))}
             </select>
           </Field>
-          <Field label="Supplier">
+          <Field label={t('itemForm.supplier')}>
             <select
               className="input-field"
               value={form.supplierId}
               onChange={(e) => updateField('supplierId', e.target.value)}
             >
-              <option value="">No supplier</option>
+              <option value="">{t('itemForm.noSupplier')}</option>
               {suppliers.map((s) => (
                 <option key={s.id} value={s.id}>
                   {s.name}
@@ -182,7 +184,7 @@ export default function ItemFormModal({ open, onClose, item, defaultRoomId, onSa
               ))}
             </select>
           </Field>
-          <Field label="Default Min Stock Level">
+          <Field label={t('itemForm.minStockLevel')}>
             <input
               type="number"
               min="0"
@@ -191,7 +193,7 @@ export default function ItemFormModal({ open, onClose, item, defaultRoomId, onSa
               onChange={(e) => updateField('defaultMinStockLevel', e.target.value)}
             />
           </Field>
-          <Field label="Photo URL (optional)">
+          <Field label={t('itemForm.photoUrl')}>
             <input
               className="input-field"
               value={form.photoUrl}
@@ -201,7 +203,7 @@ export default function ItemFormModal({ open, onClose, item, defaultRoomId, onSa
           </Field>
         </div>
 
-        <Field label="Notes">
+        <Field label={t('itemForm.notes')}>
           <textarea
             className="input-field min-h-[70px] resize-y"
             value={form.notes}
@@ -212,11 +214,11 @@ export default function ItemFormModal({ open, onClose, item, defaultRoomId, onSa
         {!isEdit && rooms.length > 0 && (
           <div>
             <p className="mb-2 text-xs font-medium text-base-100/70">
-              Starting stock (optional — leave blank for 0)
+              {t('itemForm.startingStock')}
             </p>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {rooms.map((r) => (
-                <Field key={r.id} label={roomShortName(r.code)}>
+                <Field key={r.id} label={roomShortName(r.code, locale)}>
                   <input
                     type="number"
                     min="0"
@@ -241,10 +243,10 @@ export default function ItemFormModal({ open, onClose, item, defaultRoomId, onSa
 
         <div className="flex justify-end gap-2 pt-2">
           <button type="button" className="btn-secondary" onClick={onClose}>
-            Cancel
+            {t('itemForm.cancel')}
           </button>
           <button type="submit" className="btn-primary" disabled={saving}>
-            {saving ? 'Saving…' : isEdit ? 'Save Changes' : 'Create Item'}
+            {saving ? t('itemForm.saving') : isEdit ? t('itemForm.saveChanges') : t('itemForm.createItem')}
           </button>
         </div>
       </form>

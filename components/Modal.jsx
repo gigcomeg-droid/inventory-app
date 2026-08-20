@@ -1,9 +1,11 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useLocale } from '@/components/LocaleContext';
 
 /** Small shared modal shell used by ItemFormModal / StockActionModal. */
 export default function Modal({ open, onClose, title, subtitle, children, maxWidth = 'max-w-lg' }) {
+  const { t } = useLocale();
   useEffect(() => {
     if (!open) return;
     function onKeyDown(e) {
@@ -32,7 +34,7 @@ export default function Modal({ open, onClose, title, subtitle, children, maxWid
             type="button"
             onClick={onClose}
             className="rounded-lg p-1.5 text-base-100/50 transition hover:bg-white/5 hover:text-base-100"
-            aria-label="Close"
+            aria-label={t('modal.close')}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />

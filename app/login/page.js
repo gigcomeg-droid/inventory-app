@@ -3,9 +3,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import apiClient from '@/lib/apiClient';
+import { useLocale } from '@/components/LocaleContext';
+import LanguageToggle from '@/components/LanguageToggle';
 
 export default function LoginPage() {
   const router = useRouter();
+  const { t } = useLocale();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -15,7 +18,7 @@ export default function LoginPage() {
     e.preventDefault();
     setError('');
     if (!username.trim() || !password) {
-      setError('Please enter both username and password.');
+      setError(t('auth.bothRequired'));
       return;
     }
     setLoading(true);
@@ -24,7 +27,7 @@ export default function LoginPage() {
       router.push('/dashboard');
       router.refresh();
     } catch (err) {
-      setError(err.message || 'Login failed. Please try again.');
+      setError(err.message || t('auth.loginFailed'));
     } finally {
       setLoading(false);
     }
@@ -33,23 +36,25 @@ export default function LoginPage() {
   return (
     <main className="flex min-h-screen items-center justify-center px-4">
       <div className="w-full max-w-md">
+        <div className="mb-4 flex justify-center">
+          <LanguageToggle />
+        </div>
+
         <div className="mb-8 flex flex-col items-center gap-3 text-center">
           <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl bg-brand-500/15 shadow-glow">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo.png" alt="Company logo" className="h-full w-full object-cover" />
           </div>
           <div>
-            <h1 className="text-xl font-semibold tracking-tight text-white">Inventory Ops</h1>
-            <p className="mt-1 text-sm text-base-100/60">
-              Local multi-room inventory management
-            </p>
+            <h1 className="text-xl font-semibold tracking-tight text-white">{t('app.name')}</h1>
+            <p className="mt-1 text-sm text-base-100/60">{t('app.tagline')}</p>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="panel-glow space-y-4 p-6">
           <div>
             <label htmlFor="username" className="mb-1.5 block text-xs font-medium text-base-100/70">
-              Username
+              {t('auth.username')}
             </label>
             <input
               id="username"
@@ -59,14 +64,14 @@ export default function LoginPage() {
               className="input-field"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter your username"
+              placeholder={t('auth.usernamePlaceholder')}
               autoFocus
             />
           </div>
 
           <div>
             <label htmlFor="password" className="mb-1.5 block text-xs font-medium text-base-100/70">
-              Password
+              {t('auth.password')}
             </label>
             <input
               id="password"
@@ -87,7 +92,7 @@ export default function LoginPage() {
           )}
 
           <button type="submit" disabled={loading} className="btn-primary w-full">
-            {loading ? 'Signing in…' : 'Sign in'}
+            {loading ? t('auth.signingIn') : t('auth.signIn')}
           </button>
         </form>
       </div>

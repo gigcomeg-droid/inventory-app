@@ -10,10 +10,12 @@ import LowStockBadge from '@/components/LowStockBadge';
 import ItemFormModal from '@/components/ItemFormModal';
 import StockActionModal from '@/components/StockActionModal';
 import RoleGate from '@/components/RoleGate';
+import { useLocale } from '@/components/LocaleContext';
 
 export default function ItemDetailPage({ params }) {
   const { id } = params;
   const router = useRouter();
+  const { t, locale } = useLocale();
   const [item, setItem] = useState(null);
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,7 +25,7 @@ export default function ItemDetailPage({ params }) {
   const [stockModal, setStockModal] = useState({ open: false, action: 'add', roomId: null, currentQuantity: undefined });
 
   const handleDelete = useCallback(async () => {
-    if (!window.confirm(`Delete "${item?.name}"? This deactivates the item and hides it from active views.`)) {
+    if (!window.confirm(t('itemDetail.deleteConfirm', { name: item?.name }))) {
       return;
     }
     setDeleting(true);
@@ -31,10 +33,10 @@ export default function ItemDetailPage({ params }) {
       await apiClient.delete(`/items/${id}`);
       router.push('/items');
     } catch (err) {
-      setError(err.message || 'Failed to delete item.');
+      setError(err.message || t('itemDetail.deleteFailed'));
       setDeleting(false);
     }
-  }, [id, item, router]);
+  }, [id, item, router, t]);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -43,12 +45,12 @@ export default function ItemDetailPage({ params }) {
       const data = await apiClient.get(`/items/${id}`);
       setItem(data);
     } catch (err) {
-      setError(err.message || 'Failed to load item.');
+      setError(err.message || t('itemDetail.loadFailed'));
       setItem(null);
     } finally {
       setLoading(false);
     }
-  }, [id]);
+  }, [id, t]);
 
   useEffect(() => {
     load();
@@ -56,13 +58,13 @@ export default function ItemDetailPage({ params }) {
   }, [load]);
 
   if (loading) {
-    return <p className="text-sm text-base-100/40">Loading item…</p>;
+    return <p className="text-sm text-base-100/40">{t('itemDetail.loading')}</p>;
   }
 
   if (error || !item) {
     return (
       <div className="rounded-lg border border-accent-rose/30 bg-accent-rose/10 px-4 py-3 text-sm text-accent-rose">
-        {error || 'Item not found.'}
+        {error || t('itemDetail.notFound')}
       </div>
     );
   }
@@ -75,7 +77,7 @@ export default function ItemDetailPage({ params }) {
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <Link href="/items" className="text-xs text-brand-300 hover:text-brand-200">
-            ← Back to all items
+            {t('itemDetail.backToItems')}
           </Link>
           <h1 className="mt-1 text-xl font-semibold tracking-tight text-white">{item.name}</h1>
           <p className="mt-1 text-sm text-base-100/50">
@@ -87,7 +89,7 @@ export default function ItemDetailPage({ params }) {
         <div className="flex gap-2">
           <RoleGate min="STAFF">
             <button type="button" className="btn-secondary" onClick={() => setEditOpen(true)}>
-              Edit Item
+              {t('itemDetail.editItem')}
             </button>
           </RoleGate>
           <RoleGate min="MANAGER">
@@ -97,7 +99,7 @@ export default function ItemDetailPage({ params }) {
               onClick={handleDelete}
               disabled={deleting}
             >
-              {deleting ? 'Deleting…' : 'Delete Item'}
+              {deleting ? t('itemDetail.deleting') : t('itemDetail.deleteItem')}
             </button>
           </RoleGate>
         </div>
@@ -106,17 +108,17 @@ export default function ItemDetailPage({ params }) {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2 space-y-6">
           <div className="panel p-5">
-            <h3 className="mb-4 text-sm font-semibold text-white">Quantities by Room</h3>
+            <h3 className="mb-4 text-sm font-semibold text-white">{t('itemDetail.quantitiesByRoom')}</h3>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[420px] text-left text-sm">
                 <thead>
                   <tr className="border-b border-white/5 text-xs uppercase tracking-wide text-base-100/40">
-                    <th className="px-3 py-2 font-medium">Room</th>
-                    <th className="px-3 py-2 text-right font-medium">Quantity</th>
-                    <th className="px-3 py-2 text-right font-medium">Min Level</th>
-                    <th className="px-3 py-2 font-medium">Status</th>
+                    <th className="px-3 py-2 font-medium">{t('itemDetail.colRoom')}</th>
+                    <th className="px-3 py-2 text-right font-medium">{t('itemDetail.colQuantity')}</th>
+                    <th className="px-3 py-2 text-right font-medium">{t('itemDetail.colMinLevel')}</th>
+                    <th className="px-3 py-2 font-medium">{t('itemDetail.colStatus')}</th>
                     <RoleGate min="STAFF">
-                      <th className="px-3 py-2 text-right font-medium">Actions</th>
+                      <th className="px-3 py-2 text-right font-medium">{t('itemDetail.colActions')}</th>
                     </RoleGate>
                   </tr>
                 </thead>
@@ -124,7 +126,7 @@ export default function ItemDetailPage({ params }) {
                   {perRoom.length === 0 && (
                     <tr>
                       <td colSpan={5} className="px-3 py-6 text-center text-base-100/40">
-                        No room stock recorded yet.
+                        {t('itemDetail.noRoomStock')}
                       </td>
                     </tr>
                   )}
@@ -132,11 +134,11 @@ export default function ItemDetailPage({ params }) {
                     <tr key={pr.roomId}>
                       <td className="px-3 py-2.5">
                         <Link href={`/rooms/${pr.roomCode}`} className="hover:text-brand-300">
-                          {roomShortName(pr.roomCode)}
+                          {roomShortName(pr.roomCode, locale)}
                         </Link>
                       </td>
                       <td className="px-3 py-2.5 text-right font-medium">
-                        {formatNumber(pr.quantity)} <span className="text-xs font-normal text-base-100/40">{item.unit}</span>
+                        {formatNumber(pr.quantity, locale)} <span className="text-xs font-normal text-base-100/40">{item.unit}</span>
                       </td>
                       <td className="px-3 py-2.5 text-right text-base-100/60">
                         {pr.minStockLevel ?? item.defaultMinStockLevel}
@@ -161,7 +163,7 @@ export default function ItemDetailPage({ params }) {
                                   })
                                 }
                               >
-                                {action}
+                                {t(`itemDetail.action${action.charAt(0).toUpperCase()}${action.slice(1)}`)}
                               </button>
                             ))}
                           </div>
@@ -175,27 +177,27 @@ export default function ItemDetailPage({ params }) {
           </div>
 
           <div className="panel p-5">
-            <h3 className="mb-4 text-sm font-semibold text-white">Recent Movement History</h3>
+            <h3 className="mb-4 text-sm font-semibold text-white">{t('itemDetail.recentMovements')}</h3>
             {movements.length === 0 ? (
-              <p className="text-sm text-base-100/40">No movements recorded for this item yet.</p>
+              <p className="text-sm text-base-100/40">{t('itemDetail.noMovements')}</p>
             ) : (
               <ul className="divide-y divide-white/5">
                 {movements.map((m) => (
                   <li key={m.id} className="flex items-center justify-between gap-3 py-2.5 text-sm">
                     <div className="min-w-0">
                       <p className="text-base-100/90">
-                        {movementLabel(m.type)}{' '}
+                        {movementLabel(m.type, locale)}{' '}
                         <span className="text-base-100/50">
                           {m.type === 'TRANSFER'
-                            ? `${roomShortName(m.fromRoom?.code || m.fromRoomCode)} → ${roomShortName(m.toRoom?.code || m.toRoomCode)}`
-                            : roomShortName(m.toRoom?.code || m.fromRoom?.code || m.roomCode)}
+                            ? `${roomShortName(m.fromRoom?.code || m.fromRoomCode, locale)} → ${roomShortName(m.toRoom?.code || m.toRoomCode, locale)}`
+                            : roomShortName(m.toRoom?.code || m.fromRoom?.code || m.roomCode, locale)}
                         </span>
                       </p>
                       {m.note && <p className="truncate text-xs text-base-100/40">{m.note}</p>}
                     </div>
                     <div className="shrink-0 text-right">
-                      <p className="font-medium text-base-100">{formatNumber(m.quantity)}</p>
-                      <p className="text-xs text-base-100/40">{formatDateTime(m.createdAt)}</p>
+                      <p className="font-medium text-base-100">{formatNumber(m.quantity, locale)}</p>
+                      <p className="text-xs text-base-100/40">{formatDateTime(m.createdAt, locale)}</p>
                     </div>
                   </li>
                 ))}
@@ -206,28 +208,28 @@ export default function ItemDetailPage({ params }) {
 
         <div className="space-y-6">
           <div className="panel p-5">
-            <h3 className="mb-4 text-sm font-semibold text-white">Barcode / QR</h3>
+            <h3 className="mb-4 text-sm font-semibold text-white">{t('itemDetail.barcodeQr')}</h3>
             <BarcodeDisplay value={item.barcode} sku={item.sku} />
           </div>
 
           <div className="panel p-5">
-            <h3 className="mb-3 text-sm font-semibold text-white">Details</h3>
+            <h3 className="mb-3 text-sm font-semibold text-white">{t('itemDetail.details')}</h3>
             <dl className="space-y-2 text-sm">
               <div className="flex justify-between gap-2">
-                <dt className="text-base-100/40">Unit</dt>
+                <dt className="text-base-100/40">{t('itemDetail.unit')}</dt>
                 <dd className="text-base-100/80">{item.unit}</dd>
               </div>
               <div className="flex justify-between gap-2">
-                <dt className="text-base-100/40">Default Min Level</dt>
+                <dt className="text-base-100/40">{t('itemDetail.defaultMinLevel')}</dt>
                 <dd className="text-base-100/80">{item.defaultMinStockLevel}</dd>
               </div>
               <div className="flex justify-between gap-2">
-                <dt className="text-base-100/40">Total (All Rooms)</dt>
-                <dd className="text-base-100/80">{formatNumber(item.totalQuantity ?? perRoom.reduce((s, r) => s + r.quantity, 0))}</dd>
+                <dt className="text-base-100/40">{t('itemDetail.totalAllRooms')}</dt>
+                <dd className="text-base-100/80">{formatNumber(item.totalQuantity ?? perRoom.reduce((s, r) => s + r.quantity, 0), locale)}</dd>
               </div>
               {item.notes && (
                 <div>
-                  <dt className="text-base-100/40">Notes</dt>
+                  <dt className="text-base-100/40">{t('itemDetail.notes')}</dt>
                   <dd className="mt-1 text-base-100/80">{item.notes}</dd>
                 </div>
               )}

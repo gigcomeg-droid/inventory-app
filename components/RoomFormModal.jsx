@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Modal from '@/components/Modal';
 import apiClient from '@/lib/apiClient';
+import { useLocale } from '@/components/LocaleContext';
 
 const emptyForm = {
   code: '',
@@ -19,6 +20,7 @@ const emptyForm = {
  * - `room`: existing room to edit, or null/undefined to create a new room.
  */
 export default function RoomFormModal({ open, onClose, room, onSaved }) {
+  const { t, locale } = useLocale();
   const isEdit = Boolean(room?.id);
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
@@ -45,11 +47,11 @@ export default function RoomFormModal({ open, onClose, room, onSaved }) {
     setError('');
 
     if (!isEdit && !form.code.trim()) {
-      setError('Room code is required (e.g. ROOM5).');
+      setError(t('roomForm.codeRequired'));
       return;
     }
     if (!form.name.trim()) {
-      setError('Room name is required.');
+      setError(t('roomForm.nameRequired'));
       return;
     }
 
@@ -69,7 +71,7 @@ export default function RoomFormModal({ open, onClose, room, onSaved }) {
       onSaved?.(saved);
       onClose?.();
     } catch (err) {
-      setError(err.message || 'Failed to save room.');
+      setError(err.message || t('roomForm.saveFailed'));
     } finally {
       setSaving(false);
     }
@@ -79,45 +81,45 @@ export default function RoomFormModal({ open, onClose, room, onSaved }) {
     <Modal
       open={open}
       onClose={onClose}
-      title={isEdit ? 'Edit Storage Room' : 'Add New Storage Room'}
-      subtitle={isEdit ? form.code : 'Rooms are kept fully separate — stock is never mixed between them.'}
+      title={isEdit ? t('roomForm.editTitle') : t('roomForm.addTitle')}
+      subtitle={isEdit ? form.code : t('roomForm.addSubtitle')}
       maxWidth="max-w-lg"
     >
       <form onSubmit={handleSubmit} className="space-y-4">
-        <Field label="Room Code" required={!isEdit}>
+        <Field label={t('roomForm.code')} required={!isEdit}>
           <input
             className="input-field font-mono uppercase"
             value={form.code}
             onChange={(e) => updateField('code', e.target.value)}
-            placeholder="e.g. ROOM5"
+            placeholder={t('roomForm.codePlaceholder')}
             disabled={isEdit}
           />
           {isEdit && (
             <p className="mt-1 text-[11px] text-base-100/40">
-              Room codes can't be changed after creation — they're used in URLs and movement history.
+              {t('roomForm.codeImmutable')}
             </p>
           )}
         </Field>
 
-        <Field label="Room Name" required>
+        <Field label={t('roomForm.name')} required>
           <input
             className="input-field"
             value={form.name}
             onChange={(e) => updateField('name', e.target.value)}
-            placeholder="e.g. Storage Room 5 — Cold Storage"
+            placeholder={t('roomForm.namePlaceholder')}
           />
         </Field>
 
-        <Field label="Location (optional)">
+        <Field label={t('roomForm.location')}>
           <input
             className="input-field"
             value={form.location}
             onChange={(e) => updateField('location', e.target.value)}
-            placeholder="e.g. Building C, Ground Floor"
+            placeholder={t('roomForm.locationPlaceholder')}
           />
         </Field>
 
-        <Field label="Description (optional)">
+        <Field label={t('roomForm.description')}>
           <textarea
             className="input-field min-h-[70px] resize-y"
             value={form.description}
@@ -125,13 +127,14 @@ export default function RoomFormModal({ open, onClose, room, onSaved }) {
           />
         </Field>
 
-        <Field label="Sort Order (optional)">
+        <Field label={t('roomForm.sortOrder')}>
           <input
             type="number"
+            step="1"
             className="input-field"
             value={form.sortOrder}
             onChange={(e) => updateField('sortOrder', e.target.value)}
-            placeholder="Controls ordering in the sidebar"
+            placeholder={t('roomForm.sortOrderPlaceholder')}
           />
         </Field>
 
@@ -143,10 +146,10 @@ export default function RoomFormModal({ open, onClose, room, onSaved }) {
 
         <div className="flex justify-end gap-2 pt-2">
           <button type="button" className="btn-secondary" onClick={onClose}>
-            Cancel
+            {t('roomForm.cancel')}
           </button>
           <button type="submit" className="btn-primary" disabled={saving}>
-            {saving ? 'Saving…' : isEdit ? 'Save Changes' : 'Create Room'}
+            {saving ? t('roomForm.saving') : isEdit ? t('roomForm.saveChanges') : t('roomForm.createRoom')}
           </button>
         </div>
       </form>

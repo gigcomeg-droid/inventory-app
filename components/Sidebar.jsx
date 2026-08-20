@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import { useAuth, roleAtLeast } from '@/components/AuthContext';
+import { useLocale } from '@/components/LocaleContext';
+import LanguageToggle from '@/components/LanguageToggle';
 import { roleLabel, roomShortName } from '@/lib/formatters';
 import apiClient from '@/lib/apiClient';
 
@@ -51,6 +53,22 @@ const NAV_ICONS = {
   logout: (
     <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
   ),
+  audit: (
+    <path
+      d="M9 12h6M9 16h6M9 8h1M13 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5z M13 3v5h5"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  ),
+  backups: (
+    <path
+      d="M12 3C7 3 3 4.8 3 7v10c0 2.2 4 4 9 4s9-1.8 9-4V7c0-2.2-4-4-9-4zM3 7c0 2.2 4 4 9 4s9-1.8 9-4M3 12c0 2.2 4 4 9 4s9-1.8 9-4"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  ),
 };
 
 function Icon({ name, className }) {
@@ -66,15 +84,26 @@ function Icon({ name, className }) {
 // the live list — which reflects any rooms an Admin has added beyond the
 // original 4.
 const FALLBACK_ROOM_LINKS = [
-  { code: 'ROOM1', label: 'Room 1' },
-  { code: 'ROOM2', label: 'Room 2' },
-  { code: 'ROOM3', label: 'Room 3' },
-  { code: 'ROOM4', label: 'Room 4' },
+  { code: 'ROOM1' },
+  { code: 'ROOM2' },
+  { code: 'ROOM3' },
+  { code: 'ROOM4' },
 ];
+
+// Room labels (e.g. "Room 1") aren't in the shared dictionary yet — they're
+// generated from data, not static UI copy — so this small helper covers
+// just the sidebar for now. lib/formatters.js#roomShortName remains the
+// English version used elsewhere until those pages are translated too.
+function localizedRoomLabel(code, name, locale) {
+  const match = /^ROOM(\d+)$/.exec(code || '');
+  if (match && locale === 'ar') return `غرفة ${match[1]}`;
+  return roomShortName(code) || name;
+}
 
 export default function Sidebar({ mobileOpen, onCloseMobile }) {
   const pathname = usePathname();
   const { user, logout } = useAuth();
+  const { t, locale } = useLocale();
   const [rooms, setRooms] = useState(null);
 
   useEffect(() => {
@@ -85,31 +114,32 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
       .catch(() => setRooms([]));
   }, [user]);
 
-  const roomLinks = rooms
-    ? rooms.map((r) => ({ code: r.code, label: roomShortName(r.code) || r.name }))
-    : FALLBACK_ROOM_LINKS;
+  const roomLinks = (rooms || FALLBACK_ROOM_LINKS).map((r) => ({
+    code: r.code,
+    label: localizedRoomLabel(r.code, r.name, locale),
+  }));
 
   const navSections = [
     {
-      items: [{ href: '/dashboard', label: 'Dashboard', icon: 'dashboard' }],
+      items: [{ href: '/dashboard', label: t('nav.dashboard'), icon: 'dashboard' }],
     },
     {
-      title: 'Storage Rooms',
+      title: t('nav.storageRooms'),
       items: roomLinks.map((r) => ({ href: `/rooms/${r.code}`, label: r.label, icon: 'rooms' })),
     },
     {
-      title: 'Inventory',
+      title: t('nav.inventory'),
       items: [
-        { href: '/items', label: 'All Items', icon: 'items' },
-        { href: '/movements', label: 'Movements', icon: 'movements' },
-        { href: '/alerts', label: 'Alerts', icon: 'alerts' },
+        { href: '/items', label: t('nav.allItems'), icon: 'items' },
+        { href: '/movements', label: t('nav.movements'), icon: 'movements' },
+        { href: '/alerts', label: t('nav.alerts'), icon: 'alerts' },
       ],
     },
     {
-      title: 'Catalog',
+      title: t('nav.catalog'),
       items: [
-        { href: '/suppliers', label: 'Suppliers', icon: 'suppliers' },
-        { href: '/categories', label: 'Categories', icon: 'categories' },
+        { href: '/suppliers', label: t('nav.suppliers'), icon: 'suppliers' },
+        { href: '/categories', label: t('nav.categories'), icon: 'categories' },
       ],
     },
   ];
@@ -124,8 +154,8 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
           <img src="/logo.png" alt="Company logo" className="h-full w-full object-cover" />
         </div>
         <div>
-          <p className="text-sm font-semibold leading-tight text-white">Inventory Ops</p>
-          <p className="text-[11px] leading-tight text-base-100/40">Local Ops Center</p>
+          <p className="text-sm font-semibold leading-tight text-white">{t('app.name')}</p>
+          <p className="text-[11px] leading-tight text-base-100/40">{t('app.opsCenter')}</p>
         </div>
       </div>
 
@@ -161,7 +191,7 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
         {roleAtLeast(user?.role, 'ADMIN') && (
           <div>
             <p className="mb-1.5 px-2.5 text-[11px] font-semibold uppercase tracking-wider text-base-100/30">
-              Administration
+              {t('nav.administration')}
             </p>
             <div className="space-y-0.5">
               <Link
@@ -175,7 +205,7 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
                 )}
               >
                 <Icon name="rooms" className="h-4 w-4 shrink-0" />
-                <span>Manage Rooms</span>
+                <span>{t('nav.manageRooms')}</span>
               </Link>
               <Link
                 href="/users"
@@ -188,14 +218,42 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
                 )}
               >
                 <Icon name="users" className="h-4 w-4 shrink-0" />
-                <span>Users</span>
+                <span>{t('nav.users')}</span>
+              </Link>
+              <Link
+                href="/audit-log"
+                onClick={onCloseMobile}
+                className={clsx(
+                  'flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm transition',
+                  isActive('/audit-log')
+                    ? 'bg-brand-500/15 text-brand-200 shadow-glow'
+                    : 'text-base-100/60 hover:bg-white/5 hover:text-base-100'
+                )}
+              >
+                <Icon name="audit" className="h-4 w-4 shrink-0" />
+                <span>{t('nav.auditLog')}</span>
+              </Link>
+              <Link
+                href="/backups"
+                onClick={onCloseMobile}
+                className={clsx(
+                  'flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm transition',
+                  isActive('/backups')
+                    ? 'bg-brand-500/15 text-brand-200 shadow-glow'
+                    : 'text-base-100/60 hover:bg-white/5 hover:text-base-100'
+                )}
+              >
+                <Icon name="backups" className="h-4 w-4 shrink-0" />
+                <span>{t('nav.backups')}</span>
               </Link>
             </div>
           </div>
         )}
       </nav>
 
-      <div className="border-t border-white/5 p-3">
+      <div className="border-t border-white/5 p-3 space-y-2.5">
+        <LanguageToggle className="w-full justify-center" />
+
         {user ? (
           <div className="flex items-center gap-2.5 rounded-lg px-2 py-2">
             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-500/20 text-xs font-semibold text-brand-200">
@@ -203,14 +261,14 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
             </div>
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-medium text-base-100">{user.name}</p>
-              <p className="truncate text-[11px] text-base-100/40">{roleLabel(user.role)}</p>
+              <p className="truncate text-[11px] text-base-100/40">{roleLabel(user.role, locale)}</p>
             </div>
             <button
               type="button"
               onClick={logout}
               className="rounded-lg p-1.5 text-base-100/40 transition hover:bg-white/5 hover:text-accent-rose"
-              aria-label="Log out"
-              title="Log out"
+              aria-label={t('nav.logout')}
+              title={t('nav.logout')}
             >
               <Icon name="logout" className="h-4 w-4" />
             </button>
@@ -225,8 +283,8 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
   return (
     <>
       {/* Desktop: fixed sidebar */}
-      <aside className="hidden w-64 shrink-0 border-r border-white/5 bg-base-900/80 backdrop-blur-sm lg:block">
-        <div className="fixed h-screen w-64">{content}</div>
+      <aside className="hidden w-64 shrink-0 border-r border-white/5 bg-base-900/80 backdrop-blur-sm rtl:border-r-0 rtl:border-l lg:block">
+        <div className="fixed top-0 h-screen w-64 ltr:left-0 rtl:right-0">{content}</div>
       </aside>
 
       {/* Mobile / tablet: drawer */}

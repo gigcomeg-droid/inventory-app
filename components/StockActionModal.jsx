@@ -4,13 +4,7 @@ import { useEffect, useState } from 'react';
 import Modal from '@/components/Modal';
 import apiClient from '@/lib/apiClient';
 import { roomDisplayName } from '@/lib/formatters';
-
-const TITLES = {
-  add: 'Add Stock',
-  remove: 'Remove Stock',
-  adjust: 'Adjust Stock',
-  transfer: 'Transfer Stock',
-};
+import { useLocale } from '@/components/LocaleContext';
 
 const ENDPOINTS = {
   add: '/stock/add',
@@ -40,6 +34,13 @@ export default function StockActionModal({
   currentQuantity,
   onSaved,
 }) {
+  const { t, locale } = useLocale();
+  const TITLES = {
+    add: t('stockAction.add'),
+    remove: t('stockAction.remove'),
+    adjust: t('stockAction.adjust'),
+    transfer: t('stockAction.transfer'),
+  };
   const [quantity, setQuantity] = useState('');
   const [newQuantity, setNewQuantity] = useState('');
   const [toRoomId, setToRoomId] = useState('');
@@ -62,28 +63,28 @@ export default function StockActionModal({
     setError('');
 
     if (!item?.id || !roomId) {
-      setError('Missing item or room context.');
+      setError(t('stockAction.missingContext'));
       return;
     }
 
     let payload;
     if (action === 'adjust') {
       if (newQuantity === '' || Number(newQuantity) < 0) {
-        setError('Enter a valid new quantity.');
+        setError(t('stockAction.invalidQuantity'));
         return;
       }
       payload = { itemId: item.id, roomId, newQuantity: Number(newQuantity), note: note.trim() || undefined };
     } else if (action === 'transfer') {
       if (!toRoomId) {
-        setError('Choose a destination room.');
+        setError(t('stockAction.chooseDestination'));
         return;
       }
       if (toRoomId === roomId) {
-        setError('Destination room must be different from the source room.');
+        setError(t('stockAction.sameRoom'));
         return;
       }
       if (!quantity || Number(quantity) <= 0) {
-        setError('Enter a quantity greater than zero.');
+        setError(t('stockAction.quantityPositive'));
         return;
       }
       payload = {
@@ -95,7 +96,7 @@ export default function StockActionModal({
       };
     } else {
       if (!quantity || Number(quantity) <= 0) {
-        setError('Enter a quantity greater than zero.');
+        setError(t('stockAction.quantityPositive'));
         return;
       }
       payload = { itemId: item.id, roomId, quantity: Number(quantity), note: note.trim() || undefined };
@@ -107,7 +108,7 @@ export default function StockActionModal({
       onSaved?.(result);
       onClose?.();
     } catch (err) {
-      setError(err.message || 'Stock operation failed.');
+      setError(err.message || t('stockAction.failed'));
     } finally {
       setSaving(false);
     }
@@ -119,20 +120,20 @@ export default function StockActionModal({
     <Modal
       open={open}
       onClose={onClose}
-      title={TITLES[action] || 'Stock Action'}
+      title={TITLES[action] || t('stockAction.generic')}
       subtitle={item ? `${item.name} · ${item.sku}` : undefined}
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         {typeof currentQuantity === 'number' && (
           <p className="text-sm text-base-100/60">
-            Current quantity in this room:{' '}
+            {t('stockAction.currentQuantity')}{' '}
             <span className="font-semibold text-base-100">{currentQuantity}</span>
           </p>
         )}
 
         {action === 'adjust' ? (
           <label className="block">
-            <span className="mb-1.5 block text-xs font-medium text-base-100/70">New Quantity</span>
+            <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('stockAction.newQuantity')}</span>
             <input
               type="number"
               min="0"
@@ -144,7 +145,7 @@ export default function StockActionModal({
           </label>
         ) : (
           <label className="block">
-            <span className="mb-1.5 block text-xs font-medium text-base-100/70">Quantity</span>
+            <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('stockAction.quantity')}</span>
             <input
               type="number"
               min="1"
@@ -159,12 +160,12 @@ export default function StockActionModal({
 
         {action === 'transfer' && (
           <label className="block">
-            <span className="mb-1.5 block text-xs font-medium text-base-100/70">Transfer To Room</span>
+            <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('stockAction.transferTo')}</span>
             <select className="input-field" value={toRoomId} onChange={(e) => setToRoomId(e.target.value)}>
-              {otherRooms.length === 0 && <option value="">No other rooms available</option>}
+              {otherRooms.length === 0 && <option value="">{t('stockAction.noOtherRooms')}</option>}
               {otherRooms.map((r) => (
                 <option key={r.id} value={r.id}>
-                  {roomDisplayName(r.code)}
+                  {roomDisplayName(r.code, locale)}
                 </option>
               ))}
             </select>
@@ -172,12 +173,12 @@ export default function StockActionModal({
         )}
 
         <label className="block">
-          <span className="mb-1.5 block text-xs font-medium text-base-100/70">Note (optional)</span>
+          <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('stockAction.note')}</span>
           <textarea
             className="input-field min-h-[60px] resize-y"
             value={note}
             onChange={(e) => setNote(e.target.value)}
-            placeholder="Reason for this change…"
+            placeholder={t('stockAction.notePlaceholder')}
           />
         </label>
 
@@ -189,10 +190,10 @@ export default function StockActionModal({
 
         <div className="flex justify-end gap-2 pt-2">
           <button type="button" className="btn-secondary" onClick={onClose}>
-            Cancel
+            {t('stockAction.cancel')}
           </button>
           <button type="submit" className="btn-primary" disabled={saving}>
-            {saving ? 'Saving…' : TITLES[action]}
+            {saving ? t('stockAction.saving') : TITLES[action]}
           </button>
         </div>
       </form>

@@ -8,8 +8,10 @@ import LowStockBadge from '@/components/LowStockBadge';
 import StockActionModal from '@/components/StockActionModal';
 import ItemFormModal from '@/components/ItemFormModal';
 import RoleGate from '@/components/RoleGate';
+import { useLocale } from '@/components/LocaleContext';
 
 export default function RoomPage({ params }) {
+  const { t, locale } = useLocale();
   const roomCode = params.roomCode?.toUpperCase();
 
   const [rooms, setRooms] = useState([]);
@@ -34,10 +36,10 @@ export default function RoomPage({ params }) {
       setRoom(match || null);
       return match;
     } catch (err) {
-      setError(err.message || 'Failed to load rooms.');
+      setError(err.message || t('room.loadRoomsFailed'));
       return null;
     }
-  }, [roomCode]);
+  }, [roomCode, t]);
 
   const loadInventory = useCallback(async (roomId, filters = {}) => {
     if (!roomId) return;
@@ -51,12 +53,12 @@ export default function RoomPage({ params }) {
       const data = await apiClient.get(`/rooms/${roomId}/inventory?${params.toString()}`);
       setInventory(Array.isArray(data) ? data : []);
     } catch (err) {
-      setError(err.message || 'Failed to load room inventory.');
+      setError(err.message || t('room.loadInventoryFailed'));
       setInventory([]);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     (async () => {
@@ -92,24 +94,24 @@ export default function RoomPage({ params }) {
   }
 
   const columns = [
-    { key: 'name', header: 'Item', sortable: true },
-    { key: 'sku', header: 'SKU', sortable: true, className: 'font-mono text-xs' },
-    { key: 'category', header: 'Category', sortable: true, render: (r) => r.category || '—' },
+    { key: 'name', header: t('room.colItem'), sortable: true },
+    { key: 'sku', header: t('room.colSku'), sortable: true, className: 'font-mono text-xs' },
+    { key: 'category', header: t('room.colCategory'), sortable: true, render: (r) => r.category || '—' },
     {
       key: 'quantity',
-      header: 'Quantity',
+      header: t('room.colQuantity'),
       sortable: true,
       align: 'right',
       render: (r) => (
         <span className="font-medium">
-          {formatNumber(r.quantity)} <span className="text-xs text-base-100/40">{r.unit}</span>
+          {formatNumber(r.quantity, locale)} <span className="text-xs text-base-100/40">{r.unit}</span>
         </span>
       ),
     },
-    { key: 'minStockLevel', header: 'Min Level', sortable: true, align: 'right' },
+    { key: 'minStockLevel', header: t('room.colMinLevel'), sortable: true, align: 'right' },
     {
       key: 'isLowStock',
-      header: 'Status',
+      header: t('room.colStatus'),
       render: (r) => <LowStockBadge quantity={r.quantity} minStockLevel={r.minStockLevel} isLowStock={r.isLowStock} />,
     },
     {
@@ -120,16 +122,16 @@ export default function RoomPage({ params }) {
         <RoleGate min="STAFF">
           <div className="flex justify-end gap-1.5" onClick={(e) => e.stopPropagation()}>
             <button type="button" className="btn-ghost !px-2 !py-1 text-xs" onClick={() => openStockModal('add', r)}>
-              Add
+              {t('room.add')}
             </button>
             <button type="button" className="btn-ghost !px-2 !py-1 text-xs" onClick={() => openStockModal('remove', r)}>
-              Remove
+              {t('room.remove')}
             </button>
             <button type="button" className="btn-ghost !px-2 !py-1 text-xs" onClick={() => openStockModal('adjust', r)}>
-              Adjust
+              {t('room.adjust')}
             </button>
             <button type="button" className="btn-ghost !px-2 !py-1 text-xs" onClick={() => openStockModal('transfer', r)}>
-              Transfer
+              {t('room.transfer')}
             </button>
           </div>
         </RoleGate>
@@ -142,16 +144,16 @@ export default function RoomPage({ params }) {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold tracking-tight text-white">
-            {room ? roomDisplayName(room.code) : roomDisplayName(roomCode)}
+            {room ? roomDisplayName(room.code, locale) : roomDisplayName(roomCode, locale)}
           </h1>
           <p className="mt-1 text-sm text-base-100/50">
             {room?.location ? `${room.location} · ` : ''}
-            {formatNumber(inventory.length)} item{inventory.length === 1 ? '' : 's'} tracked in this room only.
+            {t('room.itemsTrackedHere', { count: formatNumber(inventory.length, locale) })}
           </p>
         </div>
         <RoleGate min="STAFF">
           <button type="button" className="btn-primary" onClick={() => setItemModalOpen(true)}>
-            + Add New Item
+            {t('room.addNew')}
           </button>
         </RoleGate>
       </div>
@@ -161,7 +163,7 @@ export default function RoomPage({ params }) {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="shrink-0">
             <path d="M12 3l9 16H3l9-16zM12 10v4M12 17h.01" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          {lowStockCount} item{lowStockCount === 1 ? '' : 's'} low on stock in this room.
+          {t('room.lowStockWarning', { count: formatNumber(lowStockCount, locale) })}
         </div>
       )}
 
@@ -176,12 +178,12 @@ export default function RoomPage({ params }) {
         data={inventory}
         rowKey={(r) => r.itemId}
         loading={loading}
-        emptyMessage="No items in this room yet."
+        emptyMessage={t('room.empty')}
         toolbar={
           <div className="flex flex-wrap items-center gap-2">
             <div className="relative w-full max-w-xs">
               <svg
-                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-base-100/40"
+                className="pointer-events-none absolute top-1/2 h-4 w-4 -translate-y-1/2 text-base-100/40 ltr:left-3 rtl:right-3"
                 viewBox="0 0 24 24"
                 fill="none"
               >
@@ -192,8 +194,8 @@ export default function RoomPage({ params }) {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search this room…"
-                className="input-field pl-9"
+                placeholder={t('room.searchPlaceholder')}
+                className="input-field ltr:pl-9 rtl:pr-9"
               />
             </div>
             <select
@@ -201,7 +203,7 @@ export default function RoomPage({ params }) {
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
             >
-              <option value="">All Categories</option>
+              <option value="">{t('room.allCategories')}</option>
               {categories.map((c) => (
                 <option key={c.id} value={c.id}>
                   {c.name}
@@ -215,7 +217,7 @@ export default function RoomPage({ params }) {
                 onChange={(e) => setLowStockOnly(e.target.checked)}
                 className="h-3.5 w-3.5 rounded border-white/20 bg-base-950 text-brand-500 focus:ring-brand-500"
               />
-              Low stock only
+              {t('room.lowStockOnly')}
             </label>
           </div>
         }

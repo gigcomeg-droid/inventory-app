@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
-import { getSession, requireRole, errorResponse } from "@/lib/auth";
+import { requireRole, errorResponse } from "@/lib/auth";
 import { listMovements } from "@/lib/services/movements";
 
 export async function GET(request) {
   try {
-    const session = getSession(request);
-    requireRole(session);
+    const session = await requireRole(request);
 
     const { searchParams } = new URL(request.url);
     const movements = await listMovements({

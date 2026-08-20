@@ -7,6 +7,7 @@ import DataTable from '@/components/DataTable';
 import Modal from '@/components/Modal';
 import RoleGate from '@/components/RoleGate';
 import { useAuth } from '@/components/AuthContext';
+import { useLocale } from '@/components/LocaleContext';
 
 const ROLES = ['ADMIN', 'MANAGER', 'STAFF', 'VIEWER'];
 const emptyForm = { username: '', name: '', password: '', role: 'STAFF' };
@@ -20,6 +21,7 @@ const emptyForm = { username: '', name: '', password: '', role: 'STAFF' };
 // deactivation) — flagged here and in the final integration notes in case
 // the backend lands on a different shape.
 export default function UsersPage() {
+  const { t, locale } = useLocale();
   const { user: currentUser } = useAuth();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,12 +39,12 @@ export default function UsersPage() {
       const data = await apiClient.get('/users');
       setUsers(Array.isArray(data) ? data : []);
     } catch (err) {
-      setError(err.message || 'Failed to load users.');
+      setError(err.message || t('users.loadFailed'));
       setUsers([]);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     load();
@@ -65,7 +67,7 @@ export default function UsersPage() {
   async function handleSubmit(e) {
     e.preventDefault();
     if (!form.username.trim() || !form.name.trim() || (!editing && !form.password)) {
-      setFormError('Username, name, and password are required.');
+      setFormError(t('users.requiredFields'));
       return;
     }
     setSaving(true);
@@ -81,7 +83,7 @@ export default function UsersPage() {
       setModalOpen(false);
       await load();
     } catch (err) {
-      setFormError(err.message || 'Failed to save user.');
+      setFormError(err.message || t('users.saveFailed'));
     } finally {
       setSaving(false);
     }
@@ -92,17 +94,17 @@ export default function UsersPage() {
       await apiClient.put(`/users/${u.id}`, { isActive: !u.isActive });
       await load();
     } catch (err) {
-      setError(err.message || 'Failed to update user.');
+      setError(err.message || t('users.updateFailed'));
     }
   }
 
   const columns = [
-    { key: 'name', header: 'Name', sortable: true },
-    { key: 'username', header: 'Username', sortable: true, className: 'font-mono text-xs' },
-    { key: 'role', header: 'Role', sortable: true, render: (r) => roleLabel(r.role) },
+    { key: 'name', header: t('users.colName'), sortable: true },
+    { key: 'username', header: t('users.colUsername'), sortable: true, className: 'font-mono text-xs' },
+    { key: 'role', header: t('users.colRole'), sortable: true, render: (r) => roleLabel(r.role, locale) },
     {
       key: 'isActive',
-      header: 'Status',
+      header: t('users.colStatus'),
       render: (r) => (
         <span
           className={`badge ${
@@ -111,11 +113,11 @@ export default function UsersPage() {
               : 'border border-white/10 bg-white/5 text-base-100/40'
           }`}
         >
-          {r.isActive ? 'Active' : 'Deactivated'}
+          {r.isActive ? t('users.active') : t('users.deactivated')}
         </span>
       ),
     },
-    { key: 'createdAt', header: 'Created', render: (r) => formatDateTime(r.createdAt) },
+    { key: 'createdAt', header: t('users.colCreated'), render: (r) => formatDateTime(r.createdAt, locale) },
     {
       key: 'actions',
       header: '',
@@ -123,7 +125,7 @@ export default function UsersPage() {
       render: (r) => (
         <div className="flex justify-end gap-1.5" onClick={(e) => e.stopPropagation()}>
           <button type="button" className="btn-ghost !px-2 !py-1 text-xs" onClick={() => openEdit(r)}>
-            Edit
+            {t('users.edit')}
           </button>
           {r.id !== currentUser?.id && (
             <button
@@ -131,7 +133,7 @@ export default function UsersPage() {
               className={`btn-ghost !px-2 !py-1 text-xs ${r.isActive ? 'text-accent-rose' : 'text-accent-teal'}`}
               onClick={() => toggleActive(r)}
             >
-              {r.isActive ? 'Deactivate' : 'Reactivate'}
+              {r.isActive ? t('users.deactivate') : t('users.reactivate')}
             </button>
           )}
         </div>
@@ -144,22 +146,19 @@ export default function UsersPage() {
       min="ADMIN"
       fallback={
         <div className="panel p-8 text-center">
-          <h1 className="text-lg font-semibold text-white">Users</h1>
-          <p className="mt-2 text-sm text-base-100/50">
-            You need administrator access to manage users. Contact an admin if you believe this is
-            a mistake.
-          </p>
+          <h1 className="text-lg font-semibold text-white">{t('users.title')}</h1>
+          <p className="mt-2 text-sm text-base-100/50">{t('users.needAdmin')}</p>
         </div>
       }
     >
       <div className="space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold tracking-tight text-white">Users</h1>
-            <p className="mt-1 text-sm text-base-100/50">Manage accounts, roles, and access.</p>
+            <h1 className="text-xl font-semibold tracking-tight text-white">{t('users.title')}</h1>
+            <p className="mt-1 text-sm text-base-100/50">{t('users.subtitle')}</p>
           </div>
           <button type="button" className="btn-primary" onClick={openCreate}>
-            + Add User
+            {t('users.addNew')}
           </button>
         </div>
 
@@ -176,13 +175,13 @@ export default function UsersPage() {
           loading={loading}
           searchable
           searchKeys={['name', 'username']}
-          emptyMessage="No users yet."
+          emptyMessage={t('users.empty')}
         />
 
-        <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing ? 'Edit User' : 'Add User'}>
+        <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing ? t('users.editTitle') : t('users.addTitle')}>
           <form onSubmit={handleSubmit} className="space-y-4">
             <label className="block">
-              <span className="mb-1.5 block text-xs font-medium text-base-100/70">Username</span>
+              <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('users.username')}</span>
               <input
                 className="input-field font-mono disabled:opacity-50"
                 value={form.username}
@@ -191,12 +190,12 @@ export default function UsersPage() {
               />
             </label>
             <label className="block">
-              <span className="mb-1.5 block text-xs font-medium text-base-100/70">Full Name</span>
+              <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('users.fullName')}</span>
               <input className="input-field" value={form.name} onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))} />
             </label>
             <label className="block">
               <span className="mb-1.5 block text-xs font-medium text-base-100/70">
-                Password {editing && <span className="text-base-100/40">(leave blank to keep current)</span>}
+                {t('users.password')} {editing && <span className="text-base-100/40">{t('users.passwordKeepCurrent')}</span>}
               </span>
               <input
                 type="password"
@@ -206,11 +205,11 @@ export default function UsersPage() {
               />
             </label>
             <label className="block">
-              <span className="mb-1.5 block text-xs font-medium text-base-100/70">Role</span>
+              <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('users.role')}</span>
               <select className="input-field" value={form.role} onChange={(e) => setForm((f) => ({ ...f, role: e.target.value }))}>
                 {ROLES.map((r) => (
                   <option key={r} value={r}>
-                    {roleLabel(r)}
+                    {roleLabel(r, locale)}
                   </option>
                 ))}
               </select>
@@ -224,10 +223,10 @@ export default function UsersPage() {
 
             <div className="flex justify-end gap-2 pt-2">
               <button type="button" className="btn-secondary" onClick={() => setModalOpen(false)}>
-                Cancel
+                {t('common.cancel')}
               </button>
               <button type="submit" className="btn-primary" disabled={saving}>
-                {saving ? 'Saving…' : editing ? 'Save Changes' : 'Create User'}
+                {saving ? t('users.saving') : editing ? t('users.saveChanges') : t('users.createUser')}
               </button>
             </div>
           </form>

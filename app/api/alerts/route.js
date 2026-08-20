@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
-import { getSession, requireRole, errorResponse } from "@/lib/auth";
+import { requireRole, errorResponse } from "@/lib/auth";
 import { listAlerts } from "@/lib/services/alerts";
 
 export async function GET(request) {
   try {
-    const session = getSession(request);
-    requireRole(session);
+    const session = await requireRole(request);
 
     const { searchParams } = new URL(request.url);
     const roomId = searchParams.get("roomId") || undefined;

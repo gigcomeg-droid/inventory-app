@@ -12,8 +12,12 @@ import { NextResponse } from "next/server";
 // Keep in sync with SESSION_COOKIE_NAME in lib/auth.js.
 const SESSION_COOKIE_NAME = "session";
 
-// Only these two are reachable without a session cookie.
-const PUBLIC_PATHS = new Set(["/login", "/api/auth/login"]);
+// Only these are reachable without a session cookie. /api/backups/run is
+// the scheduled-backup cron endpoint (see app/api/backups/run/route.js) —
+// Vercel Cron calls it with an `Authorization: Bearer <CRON_SECRET>` header
+// and no cookies at all, so it must bypass this cookie check; the route
+// handler itself enforces CRON_SECRET and fails closed if it's unset.
+const PUBLIC_PATHS = new Set(["/login", "/api/auth/login", "/api/backups/run"]);
 
 export function middleware(request) {
   const { pathname } = request.nextUrl;

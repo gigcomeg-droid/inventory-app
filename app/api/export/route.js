@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getSession, requireRole, errorResponse, ApiError } from "@/lib/auth";
+import { requireRole, errorResponse, ApiError } from "@/lib/auth";
 import {
   buildItemsExport,
   buildMovementsExport,
@@ -10,8 +10,7 @@ import {
 
 export async function GET(request) {
   try {
-    const session = getSession(request);
-    requireRole(session); // VIEWER+ can export
+    const session = await requireRole(request); // VIEWER+ can export
 
     const { searchParams } = new URL(request.url);
     const type = searchParams.get("type") || "items";

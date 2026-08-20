@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { getSession, requireRole, errorResponse, ApiError } from "@/lib/auth";
+import { requireRole, errorResponse, ApiError } from "@/lib/auth";
 import { importInventory } from "@/lib/csv";
+import { logAction } from "@/lib/services/auditLog";
 
 export async function POST(request) {
   try {
-    const session = getSession(request);
-    requireRole(session, ["STAFF", "MANAGER", "ADMIN"]);
+    const session = await requireRole(request, ["STAFF", "MANAGER", "ADMIN"]);
 
     const formData = await request.formData();
     const file = formData.get("file");
@@ -22,6 +22,15 @@ export async function POST(request) {
     const buffer = Buffer.from(arrayBuffer);
 
     const result = await importInventory({ buffer, roomId, userId: session.sub });
+
+    await logAction({
+      userId: session.sub,
+      action: "IMPORT_CSV",
+      entityType: "StorageRoom",
+      entityId: roomId,
+      details: `Imported file: ${result.created} created, ${result.updated} updated, ${result.skipped} skipped`,
+    });
+
     return NextResponse.json(result);
   } catch (err) {
     return errorResponse(err);

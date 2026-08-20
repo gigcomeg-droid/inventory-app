@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import apiClient from '@/lib/apiClient';
 import { roomDisplayName } from '@/lib/formatters';
+import { useLocale } from '@/components/LocaleContext';
 
 /**
  * Import (CSV/XLSX upload) + Export (CSV/XLSX download) toolbar.
@@ -15,6 +16,7 @@ import { roomDisplayName } from '@/lib/formatters';
  * - allowImport: set false to hide the import control (e.g. read-only views)
  */
 export default function ImportExportBar({ exportType = 'items', roomId, rooms = [], allowImport = true, onImported }) {
+  const { t, locale } = useLocale();
   const fileInputRef = useRef(null);
   const [importRoomId, setImportRoomId] = useState(roomId || rooms[0]?.id || '');
   const [importing, setImporting] = useState(false);
@@ -50,7 +52,7 @@ export default function ImportExportBar({ exportType = 'items', roomId, rooms = 
       a.remove();
       window.URL.revokeObjectURL(url);
     } catch (err) {
-      setError(err.message || 'Export failed.');
+      setError(err.message || t('importExport.exportFailed'));
     } finally {
       setExporting('');
     }
@@ -63,7 +65,7 @@ export default function ImportExportBar({ exportType = 'items', roomId, rooms = 
     setResult(null);
 
     if (!importRoomId) {
-      setError('Choose a room to import stock into first.');
+      setError(t('importExport.chooseRoomFirst'));
       e.target.value = '';
       return;
     }
@@ -78,7 +80,7 @@ export default function ImportExportBar({ exportType = 'items', roomId, rooms = 
       setResult(res);
       onImported?.(res);
     } catch (err) {
-      setError(err.message || 'Import failed.');
+      setError(err.message || t('importExport.importFailed'));
     } finally {
       setImporting(false);
       if (fileInputRef.current) fileInputRef.current.value = '';
@@ -98,13 +100,13 @@ export default function ImportExportBar({ exportType = 'items', roomId, rooms = 
               >
                 {rooms.map((r) => (
                   <option key={r.id} value={r.id}>
-                    Import into {roomDisplayName(r.code)}
+                    {t('importExport.importInto', { room: roomDisplayName(r.code, locale) })}
                   </option>
                 ))}
               </select>
             )}
             <label className="btn-secondary cursor-pointer">
-              {importing ? 'Importing…' : 'Import CSV/XLSX'}
+              {importing ? t('importExport.importing') : t('importExport.importButton')}
               <input
                 ref={fileInputRef}
                 type="file"
@@ -117,10 +119,10 @@ export default function ImportExportBar({ exportType = 'items', roomId, rooms = 
           </>
         )}
         <button type="button" className="btn-secondary" onClick={() => handleExport('csv')} disabled={exporting === 'csv'}>
-          {exporting === 'csv' ? 'Exporting…' : 'Export CSV'}
+          {exporting === 'csv' ? t('importExport.exporting') : t('importExport.exportCsv')}
         </button>
         <button type="button" className="btn-secondary" onClick={() => handleExport('xlsx')} disabled={exporting === 'xlsx'}>
-          {exporting === 'xlsx' ? 'Exporting…' : 'Export XLSX'}
+          {exporting === 'xlsx' ? t('importExport.exporting') : t('importExport.exportXlsx')}
         </button>
       </div>
 
@@ -128,14 +130,19 @@ export default function ImportExportBar({ exportType = 'items', roomId, rooms = 
 
       {result && (
         <div className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs text-base-100/70">
-          Import complete — created {result.created ?? 0}, updated {result.updated ?? 0}, skipped{' '}
-          {result.skipped ?? 0}.
+          {t('importExport.resultSummary', {
+            created: result.created ?? 0,
+            updated: result.updated ?? 0,
+            skipped: result.skipped ?? 0,
+          })}
           {Array.isArray(result.errors) && result.errors.length > 0 && (
             <ul className="mt-1 list-disc pl-4 text-accent-rose">
               {result.errors.slice(0, 5).map((e, i) => (
                 <li key={i}>{typeof e === 'string' ? e : JSON.stringify(e)}</li>
               ))}
-              {result.errors.length > 5 && <li>…and {result.errors.length - 5} more</li>}
+              {result.errors.length > 5 && (
+                <li>{t('importExport.andMore', { count: result.errors.length - 5 })}</li>
+              )}
             </ul>
           )}
         </div>

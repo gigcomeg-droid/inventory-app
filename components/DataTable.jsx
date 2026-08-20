@@ -2,6 +2,7 @@
 
 import { Fragment, useMemo, useState } from 'react';
 import clsx from 'clsx';
+import { useLocale } from '@/components/LocaleContext';
 
 function getValue(row, key) {
   return key.split('.').reduce((acc, part) => (acc == null ? acc : acc[part]), row);
@@ -30,13 +31,15 @@ export default function DataTable({
   searchable = false,
   searchKeys,
   toolbar,
-  emptyMessage = 'No records found.',
+  emptyMessage,
   loading = false,
   error = '',
   onRowClick,
   expandedRowRender,
   dense = false,
 }) {
+  const { t } = useLocale();
+  const effectiveEmptyMessage = emptyMessage ?? t('common.noRecords');
   const [search, setSearch] = useState('');
   const [sortKey, setSortKey] = useState(null);
   const [sortDir, setSortDir] = useState('asc');
@@ -91,7 +94,7 @@ export default function DataTable({
           {searchable && (
             <div className="relative w-full max-w-xs">
               <svg
-                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-base-100/40"
+                className="pointer-events-none absolute top-1/2 h-4 w-4 -translate-y-1/2 text-base-100/40 ltr:left-3 rtl:right-3"
                 viewBox="0 0 24 24"
                 fill="none"
               >
@@ -102,8 +105,8 @@ export default function DataTable({
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search…"
-                className="input-field pl-9"
+                placeholder={t('common.search')}
+                className="input-field ltr:pl-9 rtl:pr-9"
               />
             </div>
           )}
@@ -139,7 +142,7 @@ export default function DataTable({
             {loading && (
               <tr>
                 <td colSpan={columns.length} className="px-4 py-10 text-center text-base-100/40">
-                  Loading…
+                  {t('common.loading')}
                 </td>
               </tr>
             )}
@@ -153,7 +156,7 @@ export default function DataTable({
             {!loading && !error && sorted.length === 0 && (
               <tr>
                 <td colSpan={columns.length} className="px-4 py-10 text-center text-base-100/40">
-                  {emptyMessage}
+                  {effectiveEmptyMessage}
                 </td>
               </tr>
             )}

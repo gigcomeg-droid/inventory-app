@@ -3,13 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import apiClient from '@/lib/apiClient';
-
-const DEFAULT_SUGGESTIONS = [
-  'low stock in room 2',
-  'how many pens do we have',
-  'where is the stapler',
-  'out of stock items',
-];
+import { useLocale } from '@/components/LocaleContext';
 
 /**
  * Docked assistant chat panel. Renders a floating trigger button; clicking
@@ -17,11 +11,18 @@ const DEFAULT_SUGGESTIONS = [
  * Talks to the fully-local rule-based POST /api/assistant/query endpoint.
  */
 export default function AssistantPanel({ openOnMount = false }) {
+  const { t, locale } = useLocale();
+  const DEFAULT_SUGGESTIONS = [
+    t('assistant.suggestion1'),
+    t('assistant.suggestion2'),
+    t('assistant.suggestion3'),
+    t('assistant.suggestion4'),
+  ];
   const [open, setOpen] = useState(openOnMount);
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      text: "Hi, I'm your local inventory assistant. Ask me things like \"how many staplers do we have\" or \"low stock in room 3\".",
+      text: t('assistant.greeting'),
       items: [],
       suggestions: DEFAULT_SUGGESTIONS,
     },
@@ -48,7 +49,7 @@ export default function AssistantPanel({ openOnMount = false }) {
         ...m,
         {
           role: 'assistant',
-          text: res?.answer || "I couldn't find anything for that.",
+          text: res?.answer || t('assistant.noResult'),
           items: res?.items || [],
           suggestions: res?.suggestions || [],
         },
@@ -58,7 +59,7 @@ export default function AssistantPanel({ openOnMount = false }) {
         ...m,
         {
           role: 'assistant',
-          text: err.message || 'Something went wrong reaching the assistant.',
+          text: err.message || t('assistant.error'),
           items: [],
           suggestions: [],
           isError: true,
@@ -75,7 +76,7 @@ export default function AssistantPanel({ openOnMount = false }) {
         type="button"
         onClick={() => setOpen(true)}
         className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-brand-500 text-white shadow-glow transition hover:bg-brand-400"
-        aria-label="Open assistant"
+        aria-label={t('assistant.openLabel')}
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path
@@ -96,14 +97,14 @@ export default function AssistantPanel({ openOnMount = false }) {
           <div className="relative flex h-full w-full max-w-md flex-col border-l border-white/10 bg-base-900 shadow-2xl">
             <div className="flex items-center justify-between border-b border-white/5 px-5 py-4">
               <div>
-                <h2 className="text-sm font-semibold text-white">Inventory Assistant</h2>
-                <p className="text-xs text-base-100/40">Local, rule-based · no external calls</p>
+                <h2 className="text-sm font-semibold text-white">{t('assistant.title')}</h2>
+                <p className="text-xs text-base-100/40">{t('assistant.subtitle')}</p>
               </div>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
                 className="rounded-lg p-1.5 text-base-100/50 hover:bg-white/5 hover:text-base-100"
-                aria-label="Close assistant"
+                aria-label={t('assistant.closeLabel')}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                   <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
@@ -135,11 +136,11 @@ export default function AssistantPanel({ openOnMount = false }) {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about your inventory…"
+                placeholder={t('assistant.placeholder')}
                 className="input-field"
               />
               <button type="submit" className="btn-primary shrink-0" disabled={loading || !input.trim()}>
-                Ask
+                {t('assistant.ask')}
               </button>
             </form>
           </div>
@@ -150,6 +151,7 @@ export default function AssistantPanel({ openOnMount = false }) {
 }
 
 function ChatMessage({ message, onSuggestionClick }) {
+  const { t } = useLocale();
   const isUser = message.role === 'user';
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
@@ -179,7 +181,9 @@ function ChatMessage({ message, onSuggestionClick }) {
                     · {it.totalQuantity ?? it.quantity} {it.unit || ''}
                   </span>
                 )}
-                {it.roomCode && <span className="ml-1.5 text-base-100/40">in {it.roomCode}</span>}
+                {it.roomCode && (
+                  <span className="ml-1.5 text-base-100/40">{t('assistant.inRoom', { room: it.roomCode })}</span>
+                )}
               </Link>
             ))}
           </div>

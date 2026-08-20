@@ -5,10 +5,12 @@ import apiClient from '@/lib/apiClient';
 import DataTable from '@/components/DataTable';
 import Modal from '@/components/Modal';
 import RoleGate from '@/components/RoleGate';
+import { useLocale } from '@/components/LocaleContext';
 
 const emptyForm = { name: '', description: '' };
 
 export default function CategoriesPage() {
+  const { t, locale } = useLocale();
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -25,12 +27,12 @@ export default function CategoriesPage() {
       const data = await apiClient.get('/categories');
       setCategories(Array.isArray(data) ? data : []);
     } catch (err) {
-      setError(err.message || 'Failed to load categories.');
+      setError(err.message || t('categories.loadFailed'));
       setCategories([]);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     load();
@@ -53,7 +55,7 @@ export default function CategoriesPage() {
   async function handleSubmit(e) {
     e.preventDefault();
     if (!form.name.trim()) {
-      setFormError('Category name is required.');
+      setFormError(t('categories.nameRequired'));
       return;
     }
     setSaving(true);
@@ -67,25 +69,25 @@ export default function CategoriesPage() {
       setModalOpen(false);
       await load();
     } catch (err) {
-      setFormError(err.message || 'Failed to save category.');
+      setFormError(err.message || t('categories.saveFailed'));
     } finally {
       setSaving(false);
     }
   }
 
   async function handleDelete(category) {
-    if (!window.confirm(`Delete category "${category.name}"?`)) return;
+    if (!window.confirm(t('categories.deleteConfirm', { name: category.name }))) return;
     try {
       await apiClient.delete(`/categories/${category.id}`);
       await load();
     } catch (err) {
-      setError(err.message || 'Failed to delete category.');
+      setError(err.message || t('categories.deleteFailed'));
     }
   }
 
   const columns = [
-    { key: 'name', header: 'Name', sortable: true },
-    { key: 'description', header: 'Description', render: (r) => r.description || '—' },
+    { key: 'name', header: t('categories.colName'), sortable: true },
+    { key: 'description', header: t('categories.colDescription'), render: (r) => r.description || '—' },
     {
       key: 'actions',
       header: '',
@@ -94,10 +96,10 @@ export default function CategoriesPage() {
         <RoleGate min="MANAGER">
           <div className="flex justify-end gap-1.5" onClick={(e) => e.stopPropagation()}>
             <button type="button" className="btn-ghost !px-2 !py-1 text-xs" onClick={() => openEdit(r)}>
-              Edit
+              {t('categories.edit')}
             </button>
             <button type="button" className="btn-ghost !px-2 !py-1 text-xs text-accent-rose" onClick={() => handleDelete(r)}>
-              Delete
+              {t('categories.delete')}
             </button>
           </div>
         </RoleGate>
@@ -109,12 +111,12 @@ export default function CategoriesPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-semibold tracking-tight text-white">Categories</h1>
-          <p className="mt-1 text-sm text-base-100/50">Organize catalog items by category.</p>
+          <h1 className="text-xl font-semibold tracking-tight text-white">{t('categories.title')}</h1>
+          <p className="mt-1 text-sm text-base-100/50">{t('categories.subtitle')}</p>
         </div>
         <RoleGate min="MANAGER">
           <button type="button" className="btn-primary" onClick={openCreate}>
-            + Add Category
+            {t('categories.addNew')}
           </button>
         </RoleGate>
       </div>
@@ -132,17 +134,17 @@ export default function CategoriesPage() {
         loading={loading}
         searchable
         searchKeys={['name', 'description']}
-        emptyMessage="No categories yet."
+        emptyMessage={t('categories.empty')}
       />
 
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing ? 'Edit Category' : 'Add Category'}>
+      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing ? t('categories.editTitle') : t('categories.addTitle')}>
         <form onSubmit={handleSubmit} className="space-y-4">
           <label className="block">
-            <span className="mb-1.5 block text-xs font-medium text-base-100/70">Name *</span>
+            <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('categories.name')} *</span>
             <input className="input-field" value={form.name} onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))} />
           </label>
           <label className="block">
-            <span className="mb-1.5 block text-xs font-medium text-base-100/70">Description</span>
+            <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('categories.description')}</span>
             <textarea
               className="input-field min-h-[70px] resize-y"
               value={form.description}
@@ -158,10 +160,10 @@ export default function CategoriesPage() {
 
           <div className="flex justify-end gap-2 pt-2">
             <button type="button" className="btn-secondary" onClick={() => setModalOpen(false)}>
-              Cancel
+              {t('common.cancel')}
             </button>
             <button type="submit" className="btn-primary" disabled={saving}>
-              {saving ? 'Saving…' : editing ? 'Save Changes' : 'Create Category'}
+              {saving ? t('categories.saving') : editing ? t('categories.saveChanges') : t('categories.createCategory')}
             </button>
           </div>
         </form>

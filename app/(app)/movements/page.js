@@ -6,10 +6,12 @@ import apiClient from '@/lib/apiClient';
 import { formatNumber, formatDateTime, roomShortName, movementLabel } from '@/lib/formatters';
 import DataTable from '@/components/DataTable';
 import ImportExportBar from '@/components/ImportExportBar';
+import { useLocale } from '@/components/LocaleContext';
 
 const TYPES = ['ADD', 'REMOVE', 'ADJUST', 'TRANSFER'];
 
 export default function MovementsPage() {
+  const { t, locale } = useLocale();
   const [movements, setMovements] = useState([]);
   const [items, setItems] = useState([]);
   const [rooms, setRooms] = useState([]);
@@ -31,7 +33,7 @@ export default function MovementsPage() {
       const data = await apiClient.get(`/movements?${params.toString()}`);
       setMovements(Array.isArray(data) ? data : data?.movements || []);
     } catch (err) {
-      setError(err.message || 'Failed to load movement history.');
+      setError(err.message || t('movements.loadFailed'));
       setMovements([]);
     } finally {
       setLoading(false);
@@ -48,37 +50,37 @@ export default function MovementsPage() {
   }, [itemFilter, roomFilter, typeFilter, load]);
 
   const columns = [
-    { key: 'createdAt', header: 'When', sortable: true, render: (m) => formatDateTime(m.createdAt) },
+    { key: 'createdAt', header: t('movements.colWhen'), sortable: true, render: (m) => formatDateTime(m.createdAt, locale) },
     {
       key: 'item',
-      header: 'Item',
+      header: t('movements.colItem'),
       render: (m) => (
         <Link href={`/items/${m.item?.id || m.itemId}`} className="hover:text-brand-300">
           {m.item?.name || m.itemName} <span className="text-xs text-base-100/40">({m.item?.sku || m.itemSku})</span>
         </Link>
       ),
     },
-    { key: 'type', header: 'Type', render: (m) => movementLabel(m.type) },
+    { key: 'type', header: t('movements.colType'), render: (m) => movementLabel(m.type, locale) },
     {
       key: 'room',
-      header: 'Room(s)',
+      header: t('movements.colRooms'),
       render: (m) =>
         m.type === 'TRANSFER'
-          ? `${roomShortName(m.fromRoom?.code || m.fromRoomCode)} → ${roomShortName(m.toRoom?.code || m.toRoomCode)}`
-          : roomShortName(m.toRoom?.code || m.fromRoom?.code || m.roomCode),
+          ? `${roomShortName(m.fromRoom?.code || m.fromRoomCode, locale)} → ${roomShortName(m.toRoom?.code || m.toRoomCode, locale)}`
+          : roomShortName(m.toRoom?.code || m.fromRoom?.code || m.roomCode, locale),
     },
-    { key: 'quantity', header: 'Qty', align: 'right', render: (m) => formatNumber(m.quantity) },
-    { key: 'user', header: 'By', render: (m) => m.user?.name || m.userName || '—' },
-    { key: 'note', header: 'Note', render: (m) => m.note || '—' },
+    { key: 'quantity', header: t('movements.colQty'), align: 'right', render: (m) => formatNumber(m.quantity, locale) },
+    { key: 'user', header: t('movements.colBy'), render: (m) => m.user?.name || m.userName || '—' },
+    { key: 'note', header: t('movements.colNote'), render: (m) => m.note || '—' },
   ];
 
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-semibold tracking-tight text-white">Movement History</h1>
+          <h1 className="text-xl font-semibold tracking-tight text-white">{t('movements.title')}</h1>
           <p className="mt-1 text-sm text-base-100/50">
-            Every stock add, remove, adjustment, and transfer across all rooms.
+            {t('movements.subtitle')}
           </p>
         </div>
       </div>
@@ -96,11 +98,11 @@ export default function MovementsPage() {
         data={movements}
         rowKey={(m) => m.id}
         loading={loading}
-        emptyMessage="No movements recorded yet."
+        emptyMessage={t('movements.empty')}
         toolbar={
           <div className="flex flex-wrap items-center gap-2">
             <select className="input-field w-auto py-1.5 text-xs" value={itemFilter} onChange={(e) => setItemFilter(e.target.value)}>
-              <option value="">All Items</option>
+              <option value="">{t('movements.allItems')}</option>
               {items.map((it) => (
                 <option key={it.id} value={it.id}>
                   {it.name}
@@ -108,18 +110,18 @@ export default function MovementsPage() {
               ))}
             </select>
             <select className="input-field w-auto py-1.5 text-xs" value={roomFilter} onChange={(e) => setRoomFilter(e.target.value)}>
-              <option value="">All Rooms</option>
+              <option value="">{t('movements.allRooms')}</option>
               {rooms.map((r) => (
                 <option key={r.id} value={r.id}>
-                  {roomShortName(r.code)}
+                  {roomShortName(r.code, locale)}
                 </option>
               ))}
             </select>
             <select className="input-field w-auto py-1.5 text-xs" value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}>
-              <option value="">All Types</option>
-              {TYPES.map((t) => (
-                <option key={t} value={t}>
-                  {movementLabel(t)}
+              <option value="">{t('movements.allTypes')}</option>
+              {TYPES.map((type) => (
+                <option key={type} value={type}>
+                  {movementLabel(type, locale)}
                 </option>
               ))}
             </select>

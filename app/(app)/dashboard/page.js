@@ -7,6 +7,7 @@ import { formatNumber, roomShortName } from '@/lib/formatters';
 import KpiCard from '@/components/KpiCard';
 import { StockByRoomChart, TopLowStockChart, MovementTrendChart } from '@/components/ChartCards';
 import LowStockBadge from '@/components/LowStockBadge';
+import { useLocale } from '@/components/LocaleContext';
 
 const ICONS = {
   items: (
@@ -32,6 +33,7 @@ const ICONS = {
 };
 
 export default function DashboardPage() {
+  const { t, locale } = useLocale();
   const [rooms, setRooms] = useState([]);
   const [items, setItems] = useState([]);
   const [alerts, setAlerts] = useState([]);
@@ -70,7 +72,7 @@ export default function DashboardPage() {
           (r) => r.status === 'rejected'
         );
         if (failures.length > 0 && roomsRes.status === 'rejected' && itemsRes.status === 'rejected') {
-          setError('Could not load dashboard data. The API may not be available yet.');
+          setError(t('dashboard.couldNotLoad'));
         }
       } finally {
         if (!cancelled) setLoading(false);
@@ -89,8 +91,8 @@ export default function DashboardPage() {
   const totalLowStockAlerts = alerts.length;
 
   const stockByRoomData = useMemo(
-    () => rooms.map((r) => ({ room: roomShortName(r.code), quantity: r.totalUnits || 0 })),
-    [rooms]
+    () => rooms.map((r) => ({ room: roomShortName(r.code, locale), quantity: r.totalUnits || 0 })),
+    [rooms, locale]
   );
 
   const topLowStockData = useMemo(() => {
@@ -119,7 +121,10 @@ export default function DashboardPage() {
       const bucket = buckets.get(label);
       if (m.type === 'ADD') bucket.add += m.quantity || 0;
       if (m.type === 'REMOVE') bucket.remove += m.quantity || 0;
-      if (m.type === 'TRANSFER') bucket.add += m.quantity || 0;
+      // TRANSFER moves stock between rooms without changing the systemwide
+      // total, so it deliberately isn't counted as "added" (previously it
+      // was, which inflated this chart's Added line for stock that was
+      // never actually new).
     });
     return Array.from(buckets.values()).slice(-10);
   }, [movements]);
@@ -130,10 +135,8 @@ export default function DashboardPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-semibold tracking-tight text-white">Dashboard</h1>
-          <p className="mt-1 text-sm text-base-100/50">
-            Live overview across all 4 storage rooms.
-          </p>
+          <h1 className="text-xl font-semibold tracking-tight text-white">{t('dashboard.title')}</h1>
+          <p className="mt-1 text-sm text-base-100/50">{t('dashboard.subtitle')}</p>
         </div>
       </div>
 
@@ -144,18 +147,18 @@ export default function DashboardPage() {
       )}
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <KpiCard label="Total Items" value={formatNumber(totalItems)} icon={ICONS.items} accent="brand" loading={loading} />
-        <KpiCard label="Total Units (All Rooms)" value={formatNumber(totalUnits)} icon={ICONS.units} accent="teal" loading={loading} />
+        <KpiCard label={t('dashboard.totalItems')} value={formatNumber(totalItems, locale)} icon={ICONS.items} accent="brand" loading={loading} />
+        <KpiCard label={t('dashboard.totalUnits')} value={formatNumber(totalUnits, locale)} icon={ICONS.units} accent="teal" loading={loading} />
         <KpiCard
-          label="Low-Stock Alerts"
-          value={formatNumber(totalLowStockAlerts)}
+          label={t('dashboard.lowStockAlerts')}
+          value={formatNumber(totalLowStockAlerts, locale)}
           icon={ICONS.alerts}
           accent={totalLowStockAlerts > 0 ? 'rose' : 'teal'}
           loading={loading}
         />
         <KpiCard
-          label="Suppliers / Categories"
-          value={`${formatNumber(suppliers.length)} / ${formatNumber(categories.length)}`}
+          label={t('dashboard.suppliersCategories')}
+          value={`${formatNumber(suppliers.length, locale)} / ${formatNumber(categories.length, locale)}`}
           icon={ICONS.suppliers}
           accent="purple"
           loading={loading}
@@ -172,24 +175,28 @@ export default function DashboardPage() {
 
         <div className="panel p-5">
           <div className="mb-4 flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-white">Recent Alerts</h3>
+            <h3 className="text-sm font-semibold text-white">{t('dashboard.recentAlerts')}</h3>
             <Link href="/alerts" className="text-xs text-brand-300 hover:text-brand-200">
-              View all
+              {t('dashboard.viewAll')}
             </Link>
           </div>
           {loading ? (
-            <p className="text-sm text-base-100/40">Loading…</p>
+            <p className="text-sm text-base-100/40">{t('common.loading')}</p>
           ) : recentAlerts.length === 0 ? (
-            <p className="text-sm text-base-100/40">No open alerts. Everything looks well-stocked.</p>
+            <p className="text-sm text-base-100/40">{t('dashboard.noOpenAlerts')}</p>
           ) : (
             <ul className="space-y-2.5">
               {recentAlerts.map((a) => (
                 <li key={a.id} className="flex items-center justify-between gap-2 text-sm">
                   <div className="min-w-0">
                     <p className="truncate text-base-100/90">{a.item?.name || a.message}</p>
-                    <p className="truncate text-xs text-base-100/40">{roomShortName(a.room?.code)}</p>
+                    <p className="truncate text-xs text-base-100/40">{roomShortName(a.room?.code, locale)}</p>
                   </div>
-                  <LowStockBadge quantity={0} minStockLevel={0} isLowStock />
+                  <LowStockBadge
+                    quantity={a.type === 'OUT_OF_STOCK' ? 0 : 1}
+                    minStockLevel={1}
+                    isLowStock
+                  />
                 </li>
               ))}
             </ul>

@@ -13,6 +13,7 @@ import {
   Legend,
   Cell,
 } from 'recharts';
+import { useLocale } from '@/components/LocaleContext';
 
 const GRID_COLOR = 'rgba(255,255,255,0.06)';
 const AXIS_COLOR = 'rgba(244,246,251,0.4)';
@@ -50,12 +51,13 @@ function TooltipCard({ active, payload, label }) {
 
 /** Bar chart: stock quantity by room. data: [{ room, quantity }] */
 export function StockByRoomChart({ data = [], loading, height }) {
+  const { t, locale } = useLocale();
   return (
-    <ChartShell title="Stock by Room" subtitle="Total units currently held per storage room" height={height}>
+    <ChartShell title={t('charts.stockByRoom')} subtitle={t('charts.stockByRoomSub')} height={height}>
       {loading ? (
-        <EmptyState label="Loading chart…" />
+        <EmptyState label={t('charts.loading')} />
       ) : data.length === 0 ? (
-        <EmptyState label="No stock data yet." />
+        <EmptyState label={t('charts.noStockData')} />
       ) : (
         <ResponsiveContainer>
           <BarChart data={data} margin={{ top: 4, right: 8, left: -12, bottom: 0 }}>
@@ -63,7 +65,7 @@ export function StockByRoomChart({ data = [], loading, height }) {
             <XAxis dataKey="room" stroke={AXIS_COLOR} fontSize={12} tickLine={false} axisLine={false} />
             <YAxis stroke={AXIS_COLOR} fontSize={12} tickLine={false} axisLine={false} allowDecimals={false} />
             <Tooltip content={<TooltipCard />} cursor={{ fill: 'rgba(255,255,255,0.04)' }} />
-            <Bar dataKey="quantity" radius={[6, 6, 0, 0]} name="Units">
+            <Bar dataKey="quantity" radius={[6, 6, 0, 0]} name={t('charts.units')}>
               {data.map((_, i) => (
                 <Cell key={i} fill={SERIES_COLORS[i % SERIES_COLORS.length]} />
               ))}
@@ -77,12 +79,13 @@ export function StockByRoomChart({ data = [], loading, height }) {
 
 /** Horizontal-style bar chart of top low-stock items. data: [{ name, quantity, minStockLevel }] */
 export function TopLowStockChart({ data = [], loading, height }) {
+  const { t, locale } = useLocale();
   return (
-    <ChartShell title="Top Low-Stock Items" subtitle="Items closest to or below their minimum level" height={height}>
+    <ChartShell title={t('charts.topLowStock')} subtitle={t('charts.topLowStockSub')} height={height}>
       {loading ? (
-        <EmptyState label="Loading chart…" />
+        <EmptyState label={t('charts.loading')} />
       ) : data.length === 0 ? (
-        <EmptyState label="Nothing low on stock right now." good />
+        <EmptyState label={t('charts.noLowStock')} good />
       ) : (
         <ResponsiveContainer>
           <BarChart data={data} layout="vertical" margin={{ top: 4, right: 24, left: 8, bottom: 0 }}>
@@ -98,7 +101,7 @@ export function TopLowStockChart({ data = [], loading, height }) {
               axisLine={false}
             />
             <Tooltip content={<TooltipCard />} cursor={{ fill: 'rgba(255,255,255,0.04)' }} />
-            <Bar dataKey="quantity" fill="#f5a524" radius={[0, 6, 6, 0]} name="Qty" />
+            <Bar dataKey="quantity" fill="#f5a524" radius={[0, 6, 6, 0]} name={t('charts.qty')} />
           </BarChart>
         </ResponsiveContainer>
       )}
@@ -108,12 +111,13 @@ export function TopLowStockChart({ data = [], loading, height }) {
 
 /** Simple movement trend line chart. data: [{ label, add, remove }] */
 export function MovementTrendChart({ data = [], loading, height }) {
+  const { t, locale } = useLocale();
   return (
-    <ChartShell title="Movement Trend" subtitle="Recent stock additions vs. removals" height={height}>
+    <ChartShell title={t('charts.movementTrend')} subtitle={t('charts.movementTrendSub')} height={height}>
       {loading ? (
-        <EmptyState label="Loading chart…" />
+        <EmptyState label={t('charts.loading')} />
       ) : data.length === 0 ? (
-        <EmptyState label="No recent movements." />
+        <EmptyState label={t('charts.noMovements')} />
       ) : (
         <ResponsiveContainer>
           <LineChart data={data} margin={{ top: 4, right: 8, left: -12, bottom: 0 }}>
@@ -122,8 +126,8 @@ export function MovementTrendChart({ data = [], loading, height }) {
             <YAxis stroke={AXIS_COLOR} fontSize={12} tickLine={false} axisLine={false} allowDecimals={false} />
             <Tooltip content={<TooltipCard />} />
             <Legend wrapperStyle={{ fontSize: 12, color: AXIS_COLOR }} />
-            <Line type="monotone" dataKey="add" name="Added" stroke="#12d8b8" strokeWidth={2} dot={false} />
-            <Line type="monotone" dataKey="remove" name="Removed" stroke="#fb3d6a" strokeWidth={2} dot={false} />
+            <Line type="monotone" dataKey="add" name={t('charts.added')} stroke="#12d8b8" strokeWidth={2} dot={false} />
+            <Line type="monotone" dataKey="remove" name={t('charts.removed')} stroke="#fb3d6a" strokeWidth={2} dot={false} />
           </LineChart>
         </ResponsiveContainer>
       )}

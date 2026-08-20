@@ -44,6 +44,7 @@ model User {
   updatedAt    DateTime @updatedAt
 
   movements StockMovement[]
+  auditLogs AuditLog[]
 
   @@map("users")
 }
@@ -185,6 +186,8 @@ model StockMovement {
 
   @@index([itemId])
   @@index([createdAt])
+  @@index([fromRoomId])
+  @@index([toRoomId])
   @@map("stock_movements")
 }
 
@@ -211,5 +214,55 @@ model Alert {
 
   @@index([itemId, roomId])
   @@index([isResolved])
+  @@index([roomId])
   @@map("alerts")
+}
+
+// ---------------------------------------------------------------------------
+// Audit trail — one row per meaningful action (login, item/room/user
+// create-update-delete, stock movements, CSV imports, alert resolutions).
+// Written by lib/services/auditLog.js#logAction from route handlers; never
+// throws, so a logging failure can never break the real request it's
+// attached to. userId is nullable because failed login attempts (bad
+// username/password) have no authenticated user to attribute the row to —
+// those still get logged with the attempted username in `details`.
+// ---------------------------------------------------------------------------
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String?
+  action     String
+  entityType String?
+  entityId   String?
+  details    String?
+  createdAt  DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+// ---------------------------------------------------------------------------
+// Backup snapshots — a full JSON export of the app's data, taken
+// automatically every 7 days (Vercel Cron hitting /api/backups/run) and
+// on-demand by Admins from the Backups page. `data` is the whole export as
+// a JSON string; `triggeredBy` is a plain display string (not a User
+// relation) since it just needs to say who/what made the snapshot, even
+// after the account that made it is gone. Only the most recent 12
+// snapshots are kept — see lib/services/backups.js.
+// ---------------------------------------------------------------------------
+
+model BackupSnapshot {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  triggeredBy String? // e.g. "Jane Doe (jane)" or "Automatic (scheduled)"
+  sizeBytes   Int
+  summary     String
+  data        String
+
+  @@index([createdAt])
+  @@map("backup_snapshots")
 }

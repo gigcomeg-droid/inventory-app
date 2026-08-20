@@ -1,4 +1,7 @@
+import { useLocale } from '@/components/LocaleContext';
+
 export default function LowStockBadge({ quantity, minStockLevel, isLowStock }) {
+  const { t, locale } = useLocale();
   const low = typeof isLowStock === 'boolean' ? isLowStock : quantity <= (minStockLevel ?? 0);
   const outOfStock = (quantity ?? 0) <= 0;
 
@@ -6,7 +9,7 @@ export default function LowStockBadge({ quantity, minStockLevel, isLowStock }) {
     return (
       <span className="badge border border-accent-teal/30 bg-accent-teal/10 text-accent-teal">
         <span className="h-1.5 w-1.5 rounded-full bg-accent-teal" />
-        In Stock
+        {t('stockBadge.inStock')}
       </span>
     );
   }
@@ -15,7 +18,7 @@ export default function LowStockBadge({ quantity, minStockLevel, isLowStock }) {
     return (
       <span className="badge border border-accent-rose/30 bg-accent-rose/10 text-accent-rose">
         <span className="h-1.5 w-1.5 rounded-full bg-accent-rose" />
-        Out of Stock
+        {t('stockBadge.outOfStock')}
       </span>
     );
   }
@@ -23,7 +26,7 @@ export default function LowStockBadge({ quantity, minStockLevel, isLowStock }) {
   return (
     <span className="badge border border-accent-amber/30 bg-accent-amber/10 text-accent-amber">
       <span className="h-1.5 w-1.5 rounded-full bg-accent-amber" />
-      Low Stock
+      {t('stockBadge.lowStock')}
     </span>
   );
 }

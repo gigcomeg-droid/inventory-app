@@ -2,12 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { renderBarcode, renderQrCode } from '@/lib/barcodeClient';
+import { useLocale } from '@/components/LocaleContext';
 
 /**
  * Renders a CODE128 barcode or QR code for a given value, entirely
  * client-side (no network). Falls back to `sku` if `barcode` is not set.
  */
 export default function BarcodeDisplay({ value, sku, label }) {
+  const { t, locale } = useLocale();
   const [mode, setMode] = useState('barcode');
   const [error, setError] = useState('');
   const canvasRef = useRef(null);
@@ -22,17 +24,17 @@ export default function BarcodeDisplay({ value, sku, label }) {
       try {
         renderBarcode(canvas, encodedValue);
       } catch (err) {
-        setError('Could not render barcode for this value.');
+        setError(t('barcode.barcodeError'));
       }
     } else {
       renderQrCode(canvas, encodedValue).catch(() => {
-        setError('Could not render QR code for this value.');
+        setError(t('barcode.qrError'));
       });
     }
   }, [mode, encodedValue]);
 
   if (!encodedValue) {
-    return <p className="text-sm text-base-100/40">No barcode or SKU available.</p>;
+    return <p className="text-sm text-base-100/40">{t('barcode.notAvailable')}</p>;
   }
 
   return (
@@ -45,7 +47,7 @@ export default function BarcodeDisplay({ value, sku, label }) {
             mode === 'barcode' ? 'bg-brand-500 text-white' : 'text-base-100/60 hover:text-base-100'
           }`}
         >
-          Barcode
+          {t('barcode.barcode')}
         </button>
         <button
           type="button"
@@ -54,7 +56,7 @@ export default function BarcodeDisplay({ value, sku, label }) {
             mode === 'qr' ? 'bg-brand-500 text-white' : 'text-base-100/60 hover:text-base-100'
           }`}
         >
-          QR Code
+          {t('barcode.qrCode')}
         </button>
       </div>
 
@@ -64,8 +66,8 @@ export default function BarcodeDisplay({ value, sku, label }) {
 
       {label !== false && (
         <p className="text-xs text-base-100/40">
-          Encoded value: <span className="font-mono text-base-100/70">{encodedValue}</span>
-          {!value && sku && <span className="ml-1">(using SKU — no barcode set)</span>}
+          {t('barcode.encodedValue')} <span className="font-mono text-base-100/70">{encodedValue}</span>
+          {!value && sku && <span className="ml-1">{t('barcode.usingSku')}</span>}
         </p>
       )}
 
