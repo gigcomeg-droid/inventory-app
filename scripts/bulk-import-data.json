@@ -1,0 +1,2249 @@
+{
+  "rooms": [
+    {
+      "code": "GROUND_FLOOR",
+      "name": "Ground Floor",
+      "sortOrder": 1
+    },
+    {
+      "code": "2ND_FLOOR",
+      "name": "2nd Floor",
+      "sortOrder": 2
+    },
+    {
+      "code": "CATERING",
+      "name": "Catering",
+      "sortOrder": 3
+    },
+    {
+      "code": "PR",
+      "name": "PR",
+      "sortOrder": 4
+    }
+  ],
+  "items": [
+    {
+      "sku": "G01",
+      "name": "Box Small",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Small branded box (Notebook + Pen). Color: Navy.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 73
+    },
+    {
+      "sku": "G02",
+      "name": "Box Small",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Small branded box (Notebook + Pen). Color: Black.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 20
+    },
+    {
+      "sku": "G03",
+      "name": "Box Big",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Big branded box (Notebook + Pen + Keychain + Thermal Mug). Color: Black.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 207
+    },
+    {
+      "sku": "G04",
+      "name": "Leather Cardholder",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Genuine leather Cardholder + box. Color: Black.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 43
+    },
+    {
+      "sku": "G05",
+      "name": "Leather Cardholder",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Genuine leather Cardholder + box. Color: Havan.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 89
+    },
+    {
+      "sku": "G06",
+      "name": "Leather Bag",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Genuine leather raffia female bag. Color: Beige.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 84
+    },
+    {
+      "sku": "G07",
+      "name": "Leather Bag",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Genuine leather business bag. Color: Brown.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 46
+    },
+    {
+      "sku": "G08",
+      "name": "Leather Bag",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Genuine leather business bag. Color: Navy.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 48
+    },
+    {
+      "sku": "G09",
+      "name": "Leather Bag",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Genuine leather business bag. Color: Black.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 14
+    },
+    {
+      "sku": "G10",
+      "name": "Leather Sleeve",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Genuine leather Without sleeve. Color: Navy.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 40
+    },
+    {
+      "sku": "G11",
+      "name": "Leather Sleeve",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Genuine leather With sleeve. Color: Navy.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 33
+    },
+    {
+      "sku": "G12",
+      "name": "Leather Sleeve",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Genuine leather With sleeve. Color: Black.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 34
+    },
+    {
+      "sku": "G13",
+      "name": "Books",
+      "category": "Books",
+      "unit": "pack",
+      "notes": "Fairfaxs books with boxes.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 13
+    },
+    {
+      "sku": "G14",
+      "name": "Bag",
+      "category": "Bags",
+      "unit": "pcs",
+      "notes": "Small GIG branded gift bags. Color: Colored.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 499
+    },
+    {
+      "sku": "G15",
+      "name": "Bag",
+      "category": "Bags",
+      "unit": "pcs",
+      "notes": "Big GIG branded gift bags. Color: Colored.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 543
+    },
+    {
+      "sku": "G16",
+      "name": "Beach Mat",
+      "category": "Summer Giveaways",
+      "unit": "pcs",
+      "notes": "Branded summer campaign beach mat. Color: Baby Blue.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 219
+    },
+    {
+      "sku": "G17",
+      "name": "Frisbee",
+      "category": "Summer Giveaways",
+      "unit": "pcs",
+      "notes": "Branded summer campaign frisbee. Color: Blue.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 778
+    },
+    {
+      "sku": "G18",
+      "name": "Fan",
+      "category": "Summer Giveaways",
+      "unit": "pcs",
+      "notes": "Branded rounded summer campaign hand fan. Color: Colored.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 744
+    },
+    {
+      "sku": "G19",
+      "name": "CupHolder",
+      "category": "Summer Giveaways",
+      "unit": "pcs",
+      "notes": "Branded rounded summer campaign cupholder. Color: Colored.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 495
+    },
+    {
+      "sku": "G20",
+      "name": "Buckethead",
+      "category": "Summer Giveaways",
+      "unit": "pcs",
+      "notes": "Branded summer campaign Buckethead. Color: Colored.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 168
+    },
+    {
+      "sku": "G21",
+      "name": "Coolerbag",
+      "category": "Summer Giveaways",
+      "unit": "pcs",
+      "notes": "Branded summer campaign coolerbag. Color: Colored.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 48
+    },
+    {
+      "sku": "G22",
+      "name": "Transparent Bag",
+      "category": "Summer Giveaways",
+      "unit": "pcs",
+      "notes": "Branded summer campaign transparent bag. Color: Colored.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 80
+    },
+    {
+      "sku": "G23",
+      "name": "Neck Pillow",
+      "category": "Summer Giveaways",
+      "unit": "pcs",
+      "notes": "Branded summer campaign Neck Pillow. Color: Turquoise.",
+      "roomCode": "GROUND_FLOOR",
+      "quantity": 210
+    },
+    {
+      "sku": "201",
+      "name": "Thermal Mug White",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Branded Rounded Mug - 500 ML. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 19
+    },
+    {
+      "sku": "202",
+      "name": "Ceramic Coaster White",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Rounded Ceramic branded Coaster. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 55
+    },
+    {
+      "sku": "203",
+      "name": "Ceramic Coaster White",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Rounded Ceramic co-branded AUC Coaster. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "204",
+      "name": "Star Trophy Transparent",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Transparent Star Glass Trophy with black stand non-printed. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 15
+    },
+    {
+      "sku": "205",
+      "name": "Star Trophy Transparent",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Transparent Star Glass Trophy with black stand printed. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "206",
+      "name": "Star Trophy Wooden",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Wooden Ceramic Star Trophy Beige. Color: Beige.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 8
+    },
+    {
+      "sku": "207",
+      "name": "Silver Shield",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Silver Plate Shield - Brokers awards of Ramadan 2026. Color: Silver.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 3
+    },
+    {
+      "sku": "208",
+      "name": "GIG Playing Cards",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Colored Branded Playing Cards Packs. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 97
+    },
+    {
+      "sku": "209",
+      "name": "Rectangle Box Indigo",
+      "category": "Boxes",
+      "unit": "pcs",
+      "notes": "Branded Rectangle shape box. Color: Indigo.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 5
+    },
+    {
+      "sku": "210",
+      "name": "Marketing Business Card",
+      "category": "Cards",
+      "unit": "pcs",
+      "notes": "Indigo Paper Marketing business Card. Color: Indigo.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 270
+    },
+    {
+      "sku": "211",
+      "name": "General Old Flyer",
+      "category": "Flyers",
+      "unit": "pcs",
+      "notes": "Colored General Old Branded Flyer. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 684
+    },
+    {
+      "sku": "212",
+      "name": "Rectangle Box White",
+      "category": "Boxes",
+      "unit": "pcs",
+      "notes": "White Branded Rectangle shape box with separate cover. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "213",
+      "name": "Complaints Sticker",
+      "category": "Papers",
+      "unit": "pcs",
+      "notes": "Colored Branded A5 Complaints QR Code Sticker. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 58
+    },
+    {
+      "sku": "214",
+      "name": "Complaints Sticker Sample",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Colored Branded A5 Complaints QR Code Sticker. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "215",
+      "name": "Pets Flyer",
+      "category": "Flyers",
+      "unit": "pcs",
+      "notes": "Colored Pets Branded Flyer. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 669
+    },
+    {
+      "sku": "216",
+      "name": "Survey Sticker",
+      "category": "Papers",
+      "unit": "pcs",
+      "notes": "Colored Branded A4 Survey QR Code Sticker. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 15
+    },
+    {
+      "sku": "217",
+      "name": "Payment Methods Sticker",
+      "category": "Papers",
+      "unit": "pcs",
+      "notes": "Colored Branded A4 Payment Methods QR Code Sticker. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 28
+    },
+    {
+      "sku": "218",
+      "name": "GIG Folder",
+      "category": "Stationary",
+      "unit": "pcs",
+      "notes": "Colored Branded A4 Folder. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 20
+    },
+    {
+      "sku": "219",
+      "name": "Ramadan Certificates 2026",
+      "category": "Certificates",
+      "unit": "pcs",
+      "notes": "Colored Branded Certificates of employees in Ramadan 2026. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 6
+    },
+    {
+      "sku": "220",
+      "name": "Wrapping Ribbon White",
+      "category": "Ribbons",
+      "unit": "pcs",
+      "notes": "White Branded wrapping ribbons with solid indigo printed logo. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 15
+    },
+    {
+      "sku": "221",
+      "name": "Job Fair Flyer",
+      "category": "Flyers",
+      "unit": "pcs",
+      "notes": "Colored Branded job fair flyer. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 693
+    },
+    {
+      "sku": "222",
+      "name": "Hard Cover Certificate Cover",
+      "category": "Certificate Cover",
+      "unit": "pcs",
+      "notes": "Navy Branded Certificate hardcover. Color: Navy.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 16
+    },
+    {
+      "sku": "223",
+      "name": "Soft Cover Certificate Cover",
+      "category": "Certificate Cover",
+      "unit": "pcs",
+      "notes": "Navy Branded Certificate softcover. Color: Navy.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 5
+    },
+    {
+      "sku": "224",
+      "name": "Main Wrapping Papers",
+      "category": "Wrapping Papers",
+      "unit": "pcs",
+      "notes": "Colored Branded Main Pattern Wrapping Papers (Indigo - Rose Gold - Pearl - Ocean). Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 108
+    },
+    {
+      "sku": "225",
+      "name": "Egyptian T.Shirt",
+      "category": "Clothes",
+      "unit": "pcs",
+      "notes": "Red Egyptian Jersey T.Shirt. Color: Red.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "226",
+      "name": "Seafoam Wrapping Papers",
+      "category": "Wrapping Papers",
+      "unit": "pcs",
+      "notes": "Branded Secondery Pattern (Seafoam - Indigo) Wrapping Papers. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 64
+    },
+    {
+      "sku": "227",
+      "name": "Acrylic Frames Transparent",
+      "category": "Frames",
+      "unit": "pcs",
+      "notes": "Transparent Acrylic Frames. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "228",
+      "name": "Anker Airtag",
+      "category": "Electronic",
+      "unit": "pcs",
+      "notes": "Black Euffy Anker Airtag with its box. Color: Black.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "229",
+      "name": "Pharaonic Tote Bag",
+      "category": "Bags",
+      "unit": "pcs",
+      "notes": "Beige Pharonic branded tote bags. Color: Beige.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 75
+    },
+    {
+      "sku": "230",
+      "name": "Banner Indigo",
+      "category": "Banners",
+      "unit": "pcs",
+      "notes": "Indigo 3M branded banner with several GIG reversed logos. Color: Indigo.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "231",
+      "name": "Marbel Box",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Colored Branded Acrylic Marbel small box (Green - Off White - Black) for Fairfax Giveaways 2026. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "232",
+      "name": "Papyrus Paper",
+      "category": "Papers",
+      "unit": "pcs",
+      "notes": "Beige papyrus branded papers with logo & text for Fairfax Giveaways 2026. Color: Beige.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 12
+    },
+    {
+      "sku": "233",
+      "name": "Logo Tote Bag",
+      "category": "Bags",
+      "unit": "pcs",
+      "notes": "Beige Branded tote bags with printed indigo logo. Color: Beige.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 111
+    },
+    {
+      "sku": "234",
+      "name": "Acrylic Frames Transparent",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Transparent Acrylic A3 frame. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "235",
+      "name": "Gold Poster Frame",
+      "category": "Frames",
+      "unit": "pcs",
+      "notes": "A4 Gold trasparent poster frame. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "236",
+      "name": "Metal Black Pen",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Metal Black Pen with engraved gold logo. Color: Black.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 3
+    },
+    {
+      "sku": "237",
+      "name": "Metal Black & Silver Pen",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Metal Black & silver Pen with printed white logo. Color: Black.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "238",
+      "name": "A5 Acrylic Stand",
+      "category": "Stands",
+      "unit": "pcs",
+      "notes": "Transparent Magnetic A5 acrylic stand for papers. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "239",
+      "name": "Wooden Frame",
+      "category": "Frames",
+      "unit": "pcs",
+      "notes": "Wooden White transparent frame of FRA posters. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 7
+    },
+    {
+      "sku": "240",
+      "name": "FRA Policy Holders Poster",
+      "category": "Papers",
+      "unit": "pcs",
+      "notes": "Colored FRA policyholders posters. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 8
+    },
+    {
+      "sku": "241",
+      "name": "Sunshade",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Branded  2 faces sunshades (Blue & Gray) with printed indigo logo. Color: Gray.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 162
+    },
+    {
+      "sku": "242",
+      "name": "Tack It",
+      "category": "Others",
+      "unit": "pack",
+      "notes": "Colored Faber Castell multi purpose tack. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 3
+    },
+    {
+      "sku": "243",
+      "name": "Counter Flag Egypt",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Egypt Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "244",
+      "name": "Counter Flag Canada",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Canada Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "245",
+      "name": "Counter Flag Qatar",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Qatar Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "246",
+      "name": "Counter Flag Algeria",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Algeria Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "247",
+      "name": "Counter Flag Bahrain",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Bahrain Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "248",
+      "name": "Counter Flag Jordan",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Jordan Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "249",
+      "name": "Counter Flag Aman",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Aman Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "250",
+      "name": "Counter Flag Syria",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Syria Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "251",
+      "name": "Counter Flag Kuwait",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Kuwait Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "252",
+      "name": "Counter Flag Iraq",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Iraq Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "253",
+      "name": "Counter Flag Suadi Arabia",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Suadi Arabia Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "254",
+      "name": "Counter Flag UAE",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "UAE Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "255",
+      "name": "Counter Flag Lebanon",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Lebanon Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "256",
+      "name": "Counter Flag Turkey",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Turkey Counter Flag. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "257",
+      "name": "Short GIG Counter Flag Indigo",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Indigo Branded Short Flag with reversed logo. Color: Indigo.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 3
+    },
+    {
+      "sku": "258",
+      "name": "Long GIG Counter Flag Indigo",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Indigo Branded Long Flag. Color: Indigo.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 8
+    },
+    {
+      "sku": "259",
+      "name": "Short GIG Counter Flag White",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Branded Short Flag. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 3
+    },
+    {
+      "sku": "260",
+      "name": "Fabric Bag White",
+      "category": "Bags",
+      "unit": "pcs",
+      "notes": "Branded fabric bags with printed solid indigo logo. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 58
+    },
+    {
+      "sku": "261",
+      "name": "GIG Folder",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Branded A4 folder Indigo. Color: Indigo.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 3
+    },
+    {
+      "sku": "262",
+      "name": "GIG Folder",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Branded A4 folder White. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "263",
+      "name": "GIG Envelope",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Branded Small envelope White. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "264",
+      "name": "Tool Box Black",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Rounded tool box Black. Color: Black.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "265",
+      "name": "XO Board",
+      "category": "Games",
+      "unit": "pcs",
+      "notes": "Branded Colored XO Boards. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 4
+    },
+    {
+      "sku": "266",
+      "name": "XO Pieces",
+      "category": "Games",
+      "unit": "pcs",
+      "notes": "4O & 5X Pieces Colored with GIG colors. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 9
+    },
+    {
+      "sku": "267",
+      "name": "Vinyl Roll Gray",
+      "category": "Papers",
+      "unit": "pcs",
+      "notes": "Vinyl roll Big lasted from a previous exhibition. Color: Gray.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "268",
+      "name": "Wooden Frame",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Wooden White transparent frame A4 of FRA posters. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "269",
+      "name": "Lanyard",
+      "category": "Lanyards",
+      "unit": "pcs",
+      "notes": "Branded solid logo Lanyard. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 3
+    },
+    {
+      "sku": "270",
+      "name": "Racket",
+      "category": "Games",
+      "unit": "pcs",
+      "notes": "Branded beach rackets. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 3
+    },
+    {
+      "sku": "271",
+      "name": "Racket",
+      "category": "Games",
+      "unit": "pcs",
+      "notes": "Plastic rackets. Color: White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "272",
+      "name": "Roll Up Boat",
+      "category": "Roll Up",
+      "unit": "pcs",
+      "notes": "Boat roll up Insurance that's made for you. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "273",
+      "name": "Roll Up Strategy",
+      "category": "Roll Up",
+      "unit": "pcs",
+      "notes": "Strategy roll up. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "274",
+      "name": "Roll Up Meet The Expert",
+      "category": "Roll Up",
+      "unit": "pcs",
+      "notes": "meet the expert roll up. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "275",
+      "name": "Roll Up Blue Job Fair",
+      "category": "Roll Up",
+      "unit": "pcs",
+      "notes": "job fair blue roll up. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "276",
+      "name": "Roll Up Golden Rule",
+      "category": "Roll Up",
+      "unit": "pcs",
+      "notes": "golden rule roll up. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "277",
+      "name": "Roll Up Logo indigo",
+      "category": "Roll Up",
+      "unit": "pcs",
+      "notes": "GIG logo indigo. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "278",
+      "name": "Roll Up Logo White",
+      "category": "Roll Up",
+      "unit": "pcs",
+      "notes": "job fair white roll up. Color: Colored. Last checked: 2026-09-06.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "279",
+      "name": "Summer Outdoor Flag",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Summer Campaign Colored flags. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "280",
+      "name": "Logo & Slogan Outdoor Flag",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Logo & Slogan indigo flag. Color: Indigo.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 4
+    },
+    {
+      "sku": "281",
+      "name": "GIG Outdoor Flag",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "GIG main flag Indigo. Color: Indigo.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "282",
+      "name": "Logo & Slogan Outdoor Flag New Cairo Branch",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Logo & Slogan indigo flag received from New Cairo Branch (Cloth Only without equipment). Color: Indigo.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "283",
+      "name": "Pharonic Tote Bag",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Pharonic tote bag Beige. Color: Beige.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "284",
+      "name": "Tote Bag",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Plain and printed tote bags Beige with Indigo logo. Color: Beige.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "285",
+      "name": "Black Tote Bag",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Black plain totebag. Color: Black.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "286",
+      "name": "General Flyer",
+      "category": "Flyers",
+      "unit": "pcs",
+      "notes": "Colored General Branded Flyer. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 3000
+    },
+    {
+      "sku": "287",
+      "name": "Crystal Green Tall Vase",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Green Transparent thin tall vase. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 13
+    },
+    {
+      "sku": "288",
+      "name": "Crystal Green Short Vase",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Green Transparent short vase. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 20
+    },
+    {
+      "sku": "289",
+      "name": "Crystal Vase 87800 Large",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Short transparent vase large with serial number 87800. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "290",
+      "name": "Crystal Bombonera",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Small transparent Bonbonera. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "291",
+      "name": "Crystal Vase 7832.1",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Big transparent havan vase with serial number 7832.1. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "292",
+      "name": "Crystal Large Plate",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Big transparent havan crystal plate with serial number 8637.1. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "293",
+      "name": "Crystal Bowl",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Small transparent crystal bowls with 3 supporters. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "294",
+      "name": "Crystal Bowl",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Small transparent tall crystal bowl. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "295",
+      "name": "Crystal Vase 87800 Small",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Short transparent vase small with serial number 87800. Color: Transparent.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 4
+    },
+    {
+      "sku": "296",
+      "name": "Premium Notebook Black",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "New Year 2026 Black Notebook + without its pen. Color: Black.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 7
+    },
+    {
+      "sku": "297",
+      "name": "Premium Notebook Black",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "New Year 2026 Black Notebook + with pen. Color: Black.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "298",
+      "name": "Premium Notebook Navy",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "New Year 2026 Navy Notebook + with pen. Color: Navy.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "299",
+      "name": "Premium Notebook Navy",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "New Year 2026 Navy Notebook + without its pen. Color: Navy.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 2
+    },
+    {
+      "sku": "300",
+      "name": "Premium Keychain Black",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Black Branded metal keychain from New Year set 2026. Color: Black.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 14
+    },
+    {
+      "sku": "301",
+      "name": "Summer GIG T.Shirt",
+      "category": "Clothes",
+      "unit": "pcs",
+      "notes": "Off-White Branded summer campaign t shirt uniform. Color: Off-White.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 7
+    },
+    {
+      "sku": "302",
+      "name": "Premium Thermal Mug Black",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Black Branded Premium Mug from New Year set 2026. Color: Black.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "303",
+      "name": "Premium Pen Black",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Black Branded premium pens. Color: Black.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 3
+    },
+    {
+      "sku": "304",
+      "name": "Egyptian Paper Flag",
+      "category": "Flags",
+      "unit": "pcs",
+      "notes": "Colored 2 sides Branded Egyptian Paper stick flag with GIG Logo side for World Cup 2026. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 95
+    },
+    {
+      "sku": "305",
+      "name": "GIG Customized Bag",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Fully branded customized GIG bag big. Color: Colored.",
+      "roomCode": "2ND_FLOOR",
+      "quantity": 1
+    },
+    {
+      "sku": "C01",
+      "name": "Mug",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded hot beverages mug. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 9
+    },
+    {
+      "sku": "C02",
+      "name": "Medium Plate",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded dessert and snacks medium plates. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 39
+    },
+    {
+      "sku": "C03",
+      "name": "Large Plate",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded Main Course Plates. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 40
+    },
+    {
+      "sku": "C04",
+      "name": "Coffee Cup plate",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded Coffee Cup plates. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 24
+    },
+    {
+      "sku": "C05",
+      "name": "Tea Cup plate",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded Tea Cup plates. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 24
+    },
+    {
+      "sku": "C06",
+      "name": "Coffee Cup",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded Coffee Cup. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 24
+    },
+    {
+      "sku": "C07",
+      "name": "Tea Cup",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded Tea Cup. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 24
+    },
+    {
+      "sku": "C08",
+      "name": "Tray",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded food tray. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 4
+    },
+    {
+      "sku": "C09",
+      "name": "Beverage Glass",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Transparent cold beverages glass. Color: Transparent.",
+      "roomCode": "CATERING",
+      "quantity": 40
+    },
+    {
+      "sku": "C10",
+      "name": "Milk container",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded Milk container. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 5
+    },
+    {
+      "sku": "C11",
+      "name": "Draft Cup",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Used items draft cup. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 3
+    },
+    {
+      "sku": "C12",
+      "name": "Tissue Box",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded Tissue Box. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 9
+    },
+    {
+      "sku": "C13",
+      "name": "Tissue Box",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded Tissue Box. Color: Navy.",
+      "roomCode": "CATERING",
+      "quantity": 3
+    },
+    {
+      "sku": "C14",
+      "name": "Small Fork",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Small Fork. Color: Silver.",
+      "roomCode": "CATERING",
+      "quantity": 36
+    },
+    {
+      "sku": "C15",
+      "name": "Fork",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Large fork. Color: Silver.",
+      "roomCode": "CATERING",
+      "quantity": 40
+    },
+    {
+      "sku": "C16",
+      "name": "Small Spoon",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Small spoon. Color: Silver.",
+      "roomCode": "CATERING",
+      "quantity": 39
+    },
+    {
+      "sku": "C17",
+      "name": "Spoon",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Large spoon. Color: Silver.",
+      "roomCode": "CATERING",
+      "quantity": 40
+    },
+    {
+      "sku": "C18",
+      "name": "Knife",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Large knife. Color: Silver.",
+      "roomCode": "CATERING",
+      "quantity": 40
+    },
+    {
+      "sku": "C19",
+      "name": "Plate Coaster",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Main course thread coaster. Color: Beige.",
+      "roomCode": "CATERING",
+      "quantity": 9
+    },
+    {
+      "sku": "C20",
+      "name": "GIG Coaster",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded cartoon coasters. Color: Colored.",
+      "roomCode": "CATERING",
+      "quantity": 4
+    },
+    {
+      "sku": "C21",
+      "name": "Coffee Pot",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Small coffee pot. Color: Gold.",
+      "roomCode": "CATERING",
+      "quantity": 6
+    },
+    {
+      "sku": "C22",
+      "name": "Steel Holder",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Big steel holder for catering. Color: Silver.",
+      "roomCode": "CATERING",
+      "quantity": 2
+    },
+    {
+      "sku": "C23",
+      "name": "Logo cover",
+      "category": "Table Covers",
+      "unit": "pcs",
+      "notes": "Branded counter flag cloth material table cover logo. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 1
+    },
+    {
+      "sku": "C24",
+      "name": "Flower Pot",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Small flower pots. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 5
+    },
+    {
+      "sku": "C25",
+      "name": "Napkin Holder",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Steel Napkins holder. Color: Silver.",
+      "roomCode": "CATERING",
+      "quantity": 5
+    },
+    {
+      "sku": "C26",
+      "name": "Logo cover",
+      "category": "Table Covers",
+      "unit": "pcs",
+      "notes": "Fabric logo table cover. Color: Navy.",
+      "roomCode": "CATERING",
+      "quantity": 2
+    },
+    {
+      "sku": "C27",
+      "name": "Bevarge Container",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Beverage container with white cover. Color: Transparent.",
+      "roomCode": "CATERING",
+      "quantity": 1
+    },
+    {
+      "sku": "C28",
+      "name": "Bevarge Container",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Beverage container with transparent cover. Color: Transparent.",
+      "roomCode": "CATERING",
+      "quantity": 3
+    },
+    {
+      "sku": "C29",
+      "name": "Logo cover",
+      "category": "Table Covers",
+      "unit": "pcs",
+      "notes": "Fabric logo table cover. Color: White.",
+      "roomCode": "CATERING",
+      "quantity": 2
+    },
+    {
+      "sku": "C30",
+      "name": "Dessert Serving Tong",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Steel Dessert Serving Tong. Color: Silver.",
+      "roomCode": "CATERING",
+      "quantity": 2
+    },
+    {
+      "sku": "C31",
+      "name": "Serving Tong",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Steel Serving Tong. Color: Silver.",
+      "roomCode": "CATERING",
+      "quantity": 3
+    },
+    {
+      "sku": "C32",
+      "name": "Water Boiler",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Steel black and silver water boilers. Color: Silver.",
+      "roomCode": "CATERING",
+      "quantity": 2
+    },
+    {
+      "sku": "C33",
+      "name": "Catering Box",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded big wooden catering box. Color: Dark Wood.",
+      "roomCode": "CATERING",
+      "quantity": 2
+    },
+    {
+      "sku": "C34",
+      "name": "Catering Box",
+      "category": "Catering",
+      "unit": "pcs",
+      "notes": "Branded small wooden catering box. Color: Dark Wood.",
+      "roomCode": "CATERING",
+      "quantity": 2
+    },
+    {
+      "sku": "C35",
+      "name": "Large Table Cover",
+      "category": "Table Covers",
+      "unit": "pcs",
+      "notes": "2 Tables large Navy cover. Color: Navy.",
+      "roomCode": "CATERING",
+      "quantity": 0
+    },
+    {
+      "sku": "C36",
+      "name": "Velvet Square Logo Cover",
+      "category": "Table Covers",
+      "unit": "pcs",
+      "notes": "Branded Velvet Fabric Square Reversed logo Table Cover. Color: Navy. Last checked: 2026-09-07.",
+      "roomCode": "CATERING",
+      "quantity": 1
+    },
+    {
+      "sku": "C37",
+      "name": "White Table Cover",
+      "category": "Table Covers",
+      "unit": "pcs",
+      "notes": "White Table Cover. Color: White. Last checked: 2026-09-07.",
+      "roomCode": "CATERING",
+      "quantity": 1
+    },
+    {
+      "sku": "101",
+      "name": "Navy Notebook",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Premium navy notebook. Color: Navy.",
+      "roomCode": "PR",
+      "quantity": 276
+    },
+    {
+      "sku": "102",
+      "name": "GIG Pin",
+      "category": "Pins",
+      "unit": "pcs",
+      "notes": "GIG Pin Non-Magnet. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 393
+    },
+    {
+      "sku": "103",
+      "name": "Crystal Vase 87800 Small",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Short transparent vase small. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 326
+    },
+    {
+      "sku": "104",
+      "name": "Crystal Bowl Set",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Set of 3 small crystal bowls. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 23
+    },
+    {
+      "sku": "105",
+      "name": "Crystal Bowl Deep",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Small crystal deep bowls. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 120
+    },
+    {
+      "sku": "106",
+      "name": "Crystal Bowl Short",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Small crystal short bowls. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 70
+    },
+    {
+      "sku": "107",
+      "name": "Crystal Ashtray Big",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Crystal big ashtray. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 14
+    },
+    {
+      "sku": "108",
+      "name": "Crystal Ashtray Medium",
+      "category": "Premium Giveaways",
+      "unit": "pcs",
+      "notes": "Crystal medium ashtray. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "109",
+      "name": "7K Business Bag",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Leather 7K Business bag. Color: Havan.",
+      "roomCode": "PR",
+      "quantity": 10
+    },
+    {
+      "sku": "110",
+      "name": "7K Business Bag",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Leather 7K Business bag. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 9
+    },
+    {
+      "sku": "111",
+      "name": "7K Cross Bag Men",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Leather 7K Business bag. Color: Havan.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "112",
+      "name": "7K Cross Bag Women",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Leather 7K Business bag. Color: Havan.",
+      "roomCode": "PR",
+      "quantity": 4
+    },
+    {
+      "sku": "113",
+      "name": "7K Cross Bag Women",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Leather 7K Business bag. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "114",
+      "name": "Crystal Tray",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "2 layers big crystal golden tray. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "115",
+      "name": "Crystal Vase With Stand",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal big vase with golden stand. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "116",
+      "name": "Crystal Bombonera With Stand",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal big Bombonera With golden Stand. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "117",
+      "name": "Crystal Vase Large",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Vase Large with circle design. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "118",
+      "name": "Crystal Vase Medium",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Vase Medium with circle design. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "119",
+      "name": "Crystal Vase leaves",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Vase with leaves design. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "120",
+      "name": "Crystal Large Bombonera With Legs",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Large Bombonera With transparent Legs. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "121",
+      "name": "Crystal Fruits Large Tray with Stand",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Fruits large transparent tray with crystal ball and golden stand. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "122",
+      "name": "Crystal Flat Ashtray Medium",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Flat Ashtray Medium. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "123",
+      "name": "Crystal Flat Ashtray Small",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Flat Ashtray Small. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "124",
+      "name": "Crystal Circular Ashtray Medium",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Circular Ashtray Medium. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "125",
+      "name": "Crystal Circular Ashtray Small",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Circular Ashtray Medium. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "126",
+      "name": "Crystal Bombonera With Flowers",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Bombonera With Green Flowers and transparent legs. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "127",
+      "name": "Crystal Circular Bombonera",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Circular Bombonera without legs. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "128",
+      "name": "Crystal Candlestick With Stand",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Candlestick With Golden Stand Size Large 1. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "129",
+      "name": "Crystal Candlestick With Stand",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Candlestick With Golden Stand Size Large 2. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "130",
+      "name": "Crystal Candlestick With Stand",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Candlestick With Golden Stand Size Medium 1. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "131",
+      "name": "Crystal Candlestick With Stand",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Candlestick With Golden Stand Size Medium 2. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "132",
+      "name": "Crystal Candlestick With Stand",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Candlestick With Golden Stand Small. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 2
+    },
+    {
+      "sku": "133",
+      "name": "Crystal Tall Thin Candlestick",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Tall Thin Candlestick. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 2
+    },
+    {
+      "sku": "134",
+      "name": "Crystal Square Ashtray Big",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Square Ashtray Big. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "135",
+      "name": "Crystal Square Ashtray Small",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Square Ashtray Small. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "136",
+      "name": "Crystal Tissue Box",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Tissue Box with gold design. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "137",
+      "name": "Crystal Tea Set",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Tea Turkish Set. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "138",
+      "name": "Crystal Tea Set",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Tea Set. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "139",
+      "name": "Royal Crystal Set of 2",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Royal Crystal Set of 2 (One Bowl + One Vase). Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "140",
+      "name": "Crystal Small Bowl with Legs",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Crystal Small Bowl with transparent Legs. Color: Transparent.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "141",
+      "name": "Black Premium Thin Set of 7",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Branded Premium Thin Set of 7 (Notebook - To Do List - 2 Pen - Keychain - Card holder - Notes holder. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 2
+    },
+    {
+      "sku": "142",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "Egypt Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 3
+    },
+    {
+      "sku": "143",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "Lebanon Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "144",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "Algeria Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "145",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "Bahrain Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "146",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "Qatar Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "147",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "Turkey Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "148",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "Amman Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "149",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "Jordan Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "150",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "Syria Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "151",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "Kuwait Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "152",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "UAE Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "153",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "Iraq Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "154",
+      "name": "Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "Saudi Arabia Counter Flag. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "155",
+      "name": "GIG White Counter Flag",
+      "category": "Flag",
+      "unit": "pcs",
+      "notes": "GIG White Counter Flags. Color: White.",
+      "roomCode": "PR",
+      "quantity": 6
+    },
+    {
+      "sku": "156",
+      "name": "Black Selfi Stick",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Branded Black Blutooth Selfi Stick. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 25
+    },
+    {
+      "sku": "157",
+      "name": "Navy Satin Table Cover",
+      "category": "Table Covers",
+      "unit": "pcs",
+      "notes": "Sqaure Fabric Satin Table Cover with no stitched logo. Color: Navy.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "158",
+      "name": "Velvet Square Logo Cover",
+      "category": "Table Covers",
+      "unit": "pcs",
+      "notes": "Branded Velvet Fabric Square Reversed logo Table Cover. Color: Navy.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "159",
+      "name": "Velvet Table Cover",
+      "category": "Table Covers",
+      "unit": "pcs",
+      "notes": "Velvet Fabric Table Cover. Color: Navy.",
+      "roomCode": "PR",
+      "quantity": 3
+    },
+    {
+      "sku": "160",
+      "name": "Notepad A4",
+      "category": "Notepad",
+      "unit": "pcs",
+      "notes": "Branded Customized Notepad A4 Indigo. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 289
+    },
+    {
+      "sku": "161",
+      "name": "Notepad A5",
+      "category": "Notepad",
+      "unit": "pcs",
+      "notes": "Branded Customized Notepad A5 Indigo. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 987
+    },
+    {
+      "sku": "162",
+      "name": "Realme Earbuds F9",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Realme Earbuds with Boxes. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 11
+    },
+    {
+      "sku": "163",
+      "name": "Realme Earbuds Air 2",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Realme Earbuds with Boxes. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "164",
+      "name": "Black Keychain Finder",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Keychain Finder. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "165",
+      "name": "Desktop Speaker",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Black Desktop speaker - complete set with box. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "166",
+      "name": "Desktop Speaker",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Black Desktop speaker - without equipment with box. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "167",
+      "name": "Speakers Accessories",
+      "category": "Samples",
+      "unit": "pack",
+      "notes": "Box of speaker includes different types of accessories.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "168",
+      "name": "7K Havan Set",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Leather 7k set of wallet and belt. Color: Havan.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "169",
+      "name": "7K Brown Set",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Leather 7k set of wallet and belt. Color: Brown.",
+      "roomCode": "PR",
+      "quantity": 2
+    },
+    {
+      "sku": "170",
+      "name": "Compatible Wireless Charger",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Compatible White Wireless Charger with its box. Color: White.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "171",
+      "name": "Mi 5 Smart Band",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Mi 5 Smart Band with its box. Color: Navy.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "172",
+      "name": "White USB Flash Light",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "White USB Flash Light Packaged. Color: White.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "173",
+      "name": "Black Premium Thin Set of 7",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Branded Premium Thin Set of 7 (Notebook - To Do List - 2 Pen - Keychain - Card holder - Notes holder. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "174",
+      "name": "Blue Thermal Mug",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Blue Thermal Mug. Color: Blue.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "175",
+      "name": "Black Premium Notebook",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Branded black premium notebook. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "176",
+      "name": "Black Leather Hand Bag",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Branded Leather Small Hand Bags. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 9
+    },
+    {
+      "sku": "177",
+      "name": "Black Leather Folder",
+      "category": "Giveaways",
+      "unit": "pcs",
+      "notes": "Branded Leather Small Folder. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 11
+    },
+    {
+      "sku": "178",
+      "name": "Premium Notebook",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "The pack includes different types of premium notebooks and digital folders. Color: Colored.",
+      "roomCode": "PR",
+      "quantity": 14
+    },
+    {
+      "sku": "179",
+      "name": "Black Gift Box",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Black Premium Gift Box (Empty) with different shapes and materials. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 4
+    },
+    {
+      "sku": "180",
+      "name": "Beige Noebook Set",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Beige Noebook Set of Pen and Notebook. Color: Beige.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "181",
+      "name": "Gray Premium Set",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Gray Premium Set (Thermal Mug - Notebook - Pen - Keychain - Card Hoolder). Color: Gray.",
+      "roomCode": "PR",
+      "quantity": 1
+    },
+    {
+      "sku": "182",
+      "name": "Black Tool Box",
+      "category": "Samples",
+      "unit": "pcs",
+      "notes": "Black Tool Box. Color: Black.",
+      "roomCode": "PR",
+      "quantity": 1
+    }
+  ]
+}

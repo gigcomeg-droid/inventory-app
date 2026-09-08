@@ -51,7 +51,11 @@ export default function AssistantPanel({ openOnMount = false }) {
           role: 'assistant',
           text: res?.answer || t('assistant.noResult'),
           items: res?.items || [],
-          suggestions: res?.suggestions || [],
+          // Always use the UI's own translated suggestion chips rather than
+          // whatever the backend sent — keeps chips correctly localized
+          // regardless of which assistant backend (AI or local fallback)
+          // answered this particular question.
+          suggestions: DEFAULT_SUGGESTIONS,
         },
       ]);
     } catch (err) {

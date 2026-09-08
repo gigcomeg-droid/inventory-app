@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { requireRole, errorResponse, ApiError } from "@/lib/auth";
-import { answerQuery } from "@/lib/assistant";
+import { answerQueryWithAI } from "@/lib/services/aiAssistant";
 
 export async function POST(request) {
   try {
@@ -12,7 +12,13 @@ export async function POST(request) {
       throw new ApiError(400, "q is required");
     }
 
-    const result = await answerQuery(q);
+    // Locale drives which language the AI assistant replies in when the
+    // question itself is ambiguous — same cookie the rest of the app uses
+    // (see components/LocaleContext.jsx), read directly here since this is
+    // a plain POST route rather than a page.
+    const locale = request.cookies.get("locale")?.value === "ar" ? "ar" : "en";
+
+    const result = await answerQueryWithAI(q, { locale });
     return NextResponse.json(result);
   } catch (err) {
     return errorResponse(err);
