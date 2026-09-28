@@ -197,7 +197,7 @@ export default function ItemDetailPage({ params }) {
                     </div>
                     <div className="shrink-0 text-right">
                       <p className="font-medium text-base-100">{formatNumber(m.quantity, locale)}</p>
-                      <p className="text-xs text-base-100/40">{formatDateTime(m.createdAt, locale)}</p>
+                      <p className="text-xs text-base-100/40">{formatDateTime(m.occurredAt || m.createdAt, locale)}</p>
                     </div>
                   </li>
                 ))}

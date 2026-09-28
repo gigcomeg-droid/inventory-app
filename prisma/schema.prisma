@@ -178,6 +178,12 @@ model StockMovement {
   note       String?
   userId     String?
   createdAt  DateTime     @default(now())
+  // When the movement actually happened, as opposed to `createdAt` (when the
+  // row was logged). Defaults to "now" like createdAt, but ADMIN users can
+  // override it (see lib/services/stock.js) to backdate/correct an entry —
+  // e.g. logging a delivery that physically arrived a few days ago. Movement
+  // lists display and sort by this field, not createdAt.
+  occurredAt DateTime     @default(now())
 
   item     Item         @relation(fields: [itemId], references: [id], onDelete: Cascade)
   fromRoom StorageRoom? @relation("MovementFromRoom", fields: [fromRoomId], references: [id])
@@ -186,6 +192,7 @@ model StockMovement {
 
   @@index([itemId])
   @@index([createdAt])
+  @@index([occurredAt])
   @@index([fromRoomId])
   @@index([toRoomId])
   @@map("stock_movements")

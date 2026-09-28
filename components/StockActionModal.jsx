@@ -5,6 +5,13 @@ import Modal from '@/components/Modal';
 import apiClient from '@/lib/apiClient';
 import { roomDisplayName } from '@/lib/formatters';
 import { useLocale } from '@/components/LocaleContext';
+import { useAuth } from '@/components/AuthContext';
+
+function todayLocalDateString() {
+  const d = new Date();
+  const tzOffsetMs = d.getTimezoneOffset() * 60000;
+  return new Date(d.getTime() - tzOffsetMs).toISOString().slice(0, 10);
+}
 
 const ENDPOINTS = {
   add: '/stock/add',
@@ -35,6 +42,8 @@ export default function StockActionModal({
   onSaved,
 }) {
   const { t, locale } = useLocale();
+  const { user } = useAuth();
+  const isAdmin = user?.role === 'ADMIN';
   const TITLES = {
     add: t('stockAction.add'),
     remove: t('stockAction.remove'),
@@ -45,6 +54,7 @@ export default function StockActionModal({
   const [newQuantity, setNewQuantity] = useState('');
   const [toRoomId, setToRoomId] = useState('');
   const [note, setNote] = useState('');
+  const [movementDate, setMovementDate] = useState('');
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
 
@@ -53,6 +63,7 @@ export default function StockActionModal({
     setQuantity('');
     setNewQuantity(currentQuantity ?? '');
     setNote('');
+    setMovementDate('');
     setError('');
     const otherRooms = rooms.filter((r) => r.id !== roomId);
     setToRoomId(otherRooms[0]?.id || '');
@@ -67,13 +78,17 @@ export default function StockActionModal({
       return;
     }
 
+    // Only ADMIN users ever see the date field (rendered below), but guard
+    // here too so a non-admin's payload never carries it regardless.
+    const dateValue = isAdmin && movementDate ? movementDate : undefined;
+
     let payload;
     if (action === 'adjust') {
       if (newQuantity === '' || Number(newQuantity) < 0) {
         setError(t('stockAction.invalidQuantity'));
         return;
       }
-      payload = { itemId: item.id, roomId, newQuantity: Number(newQuantity), note: note.trim() || undefined };
+      payload = { itemId: item.id, roomId, newQuantity: Number(newQuantity), note: note.trim() || undefined, date: dateValue };
     } else if (action === 'transfer') {
       if (!toRoomId) {
         setError(t('stockAction.chooseDestination'));
@@ -93,13 +108,14 @@ export default function StockActionModal({
         toRoomId,
         quantity: Number(quantity),
         note: note.trim() || undefined,
+        date: dateValue,
       };
     } else {
       if (!quantity || Number(quantity) <= 0) {
         setError(t('stockAction.quantityPositive'));
         return;
       }
-      payload = { itemId: item.id, roomId, quantity: Number(quantity), note: note.trim() || undefined };
+      payload = { itemId: item.id, roomId, quantity: Number(quantity), note: note.trim() || undefined, date: dateValue };
     }
 
     setSaving(true);
@@ -181,6 +197,20 @@ export default function StockActionModal({
             placeholder={t('stockAction.notePlaceholder')}
           />
         </label>
+
+        {isAdmin && (
+          <label className="block">
+            <span className="mb-1.5 block text-xs font-medium text-base-100/70">{t('stockAction.date')}</span>
+            <input
+              type="date"
+              className="input-field"
+              value={movementDate}
+              max={todayLocalDateString()}
+              onChange={(e) => setMovementDate(e.target.value)}
+            />
+            <span className="mt-1 block text-xs text-base-100/40">{t('stockAction.dateHint')}</span>
+          </label>
+        )}
 
         {error && (
           <div className="rounded-lg border border-accent-rose/30 bg-accent-rose/10 px-3 py-2 text-sm text-accent-rose">

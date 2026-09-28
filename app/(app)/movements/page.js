@@ -50,7 +50,7 @@ export default function MovementsPage() {
   }, [itemFilter, roomFilter, typeFilter, load]);
 
   const columns = [
-    { key: 'createdAt', header: t('movements.colWhen'), sortable: true, render: (m) => formatDateTime(m.createdAt, locale) },
+    { key: 'occurredAt', header: t('movements.colWhen'), sortable: true, render: (m) => formatDateTime(m.occurredAt || m.createdAt, locale) },
     {
       key: 'item',
       header: t('movements.colItem'),

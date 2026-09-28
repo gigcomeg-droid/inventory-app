@@ -1,0 +1,2545 @@
+{
+  "generatedAt": "2026-09-21T08:07:13.352Z",
+  "mode": "APPLY",
+  "excludedSheets": [
+    "New Year",
+    "2027 send email"
+  ],
+  "rooms": {
+    "PR": {
+      "room": "PR",
+      "roomId": "cmtsfn00l000313c98ocyczmy",
+      "create": [
+        {
+          "code": "168",
+          "name": "Compatible Wireless Charger White",
+          "category": "Samples",
+          "quantity": 1,
+          "plannedSku": "PR-168"
+        },
+        {
+          "code": "171",
+          "name": "Black Premium Thin Set of 7",
+          "category": "Samples",
+          "quantity": 1,
+          "plannedSku": "PR-171"
+        },
+        {
+          "code": "173",
+          "name": "Premium Notebook Black",
+          "category": "Giveaways",
+          "quantity": 1,
+          "plannedSku": "PR-173"
+        },
+        {
+          "code": "178",
+          "name": "Gray Premium Set of 5",
+          "category": "Samples",
+          "quantity": 1,
+          "plannedSku": "PR-178"
+        },
+        {
+          "code": "179",
+          "name": "Premium Set of 3 Black",
+          "category": "Samples",
+          "quantity": 1,
+          "plannedSku": "PR-179"
+        },
+        {
+          "code": "183",
+          "name": "Tool Box Black",
+          "category": "Samples",
+          "quantity": 1,
+          "plannedSku": "PR-183"
+        },
+        {
+          "code": "184",
+          "name": "Notebook & Pen Cartoon Set",
+          "category": "Samples",
+          "quantity": 1,
+          "plannedSku": "PR-184"
+        },
+        {
+          "code": "185",
+          "name": "Carry-on Medium",
+          "category": "Bags",
+          "quantity": 6,
+          "plannedSku": "PR-185"
+        },
+        {
+          "code": "186",
+          "name": "Metal Bag",
+          "category": "Bags",
+          "quantity": 2,
+          "plannedSku": "PR-186"
+        },
+        {
+          "code": "187",
+          "name": "Torch Medium Black",
+          "category": "Samples",
+          "quantity": 1,
+          "plannedSku": "PR-187"
+        },
+        {
+          "code": "188",
+          "name": "Torch With Tools Small Black",
+          "category": "Samples",
+          "quantity": 1,
+          "plannedSku": "PR-188"
+        },
+        {
+          "code": "189",
+          "name": "USB Hub for Apple",
+          "category": "Samples",
+          "quantity": 1,
+          "plannedSku": "PR-189"
+        },
+        {
+          "code": "190",
+          "name": "4 Types USB Portable",
+          "category": "Samples",
+          "quantity": 1,
+          "plannedSku": "PR-190"
+        },
+        {
+          "code": "191",
+          "name": "Metalic Power Bank",
+          "category": "Samples",
+          "quantity": 1,
+          "plannedSku": "PR-191"
+        },
+        {
+          "code": "192",
+          "name": "GIG Life Wooden Box",
+          "category": "Samples",
+          "quantity": 2,
+          "plannedSku": "PR-192"
+        },
+        {
+          "code": "193",
+          "name": "Thermal Mug Multicolored",
+          "category": "Giveaways",
+          "quantity": 4,
+          "plannedSku": "PR-193"
+        },
+        {
+          "code": "194",
+          "name": "Colored Screen Calendar",
+          "category": "Giveaways",
+          "quantity": 1,
+          "plannedSku": "PR-194"
+        },
+        {
+          "code": "195",
+          "name": "Schezlong",
+          "category": "Summer Giveaways",
+          "quantity": 61,
+          "plannedSku": "PR-195"
+        },
+        {
+          "code": "196",
+          "name": "Leather Card Holder Dark Brown",
+          "category": "Samples",
+          "quantity": 1,
+          "plannedSku": "PR-196"
+        },
+        {
+          "code": "197",
+          "name": "GIG Notepad A4",
+          "category": "Samples",
+          "quantity": 3,
+          "plannedSku": "PR-197"
+        },
+        {
+          "code": "198",
+          "name": "GIG Rectangle Outdoor Flag Indigo",
+          "category": "Flags",
+          "quantity": 5,
+          "plannedSku": "PR-198"
+        },
+        {
+          "code": "199",
+          "name": "GIG Rectangle Outdoor Flag White",
+          "category": "Flags",
+          "quantity": 5,
+          "plannedSku": "PR-199"
+        },
+        {
+          "code": "200",
+          "name": "GIG Bag Big Seafoam",
+          "category": "Bags",
+          "quantity": 528,
+          "plannedSku": "PR-200"
+        },
+        {
+          "code": "201",
+          "name": "GIG Bag Small Reversed",
+          "category": "Bags",
+          "quantity": 100,
+          "plannedSku": "PR-201"
+        },
+        {
+          "code": "202",
+          "name": "GIG Bag A4 Small Reversed (Paper)",
+          "category": "Bags",
+          "quantity": 5,
+          "plannedSku": "PR-202"
+        },
+        {
+          "code": "203",
+          "name": "GIG Bag A4 Small Reversed (Koshee)",
+          "category": "Bags",
+          "quantity": 9,
+          "plannedSku": "PR-203"
+        },
+        {
+          "code": "204",
+          "name": "GIG Conference White Flag",
+          "category": "Flags",
+          "quantity": 1,
+          "plannedSku": "PR-204"
+        }
+      ],
+      "update": [
+        {
+          "itemId": "cmtsfo3v900j813c978pj479t",
+          "sku": "101",
+          "code": "101",
+          "changes": {
+            "category": {
+              "from": "Giveaways",
+              "to": "Notebooks"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo4et00jh13c9hwgusc7x",
+          "sku": "103",
+          "code": "103",
+          "changes": {
+            "name": {
+              "from": "Crystal Vase 87800 Small",
+              "to": "Crystal Vase 87800 Small C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo4k600jl13c9vmypctc8",
+          "sku": "104",
+          "code": "104",
+          "changes": {
+            "name": {
+              "from": "Crystal Bowl Set",
+              "to": "Crystal Bowl Set B"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo4ph00jp13c9h28c60vx",
+          "sku": "105",
+          "code": "105",
+          "changes": {
+            "name": {
+              "from": "Crystal Bowl Deep",
+              "to": "Crystal Bowl Deep C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo4v100jt13c9p5zn0ed5",
+          "sku": "106",
+          "code": "106",
+          "changes": {
+            "name": {
+              "from": "Crystal Bowl Short",
+              "to": "Crystal Bowl Short C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo50l00jx13c9luuoa3o0",
+          "sku": "107",
+          "code": "107",
+          "changes": {
+            "name": {
+              "from": "Crystal Ashtray Big",
+              "to": "Crystal Bowl Big B"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo55z00k113c9kuirw0uc",
+          "sku": "108",
+          "code": "108",
+          "changes": {
+            "name": {
+              "from": "Crystal Ashtray Medium",
+              "to": "Crystal Ashtray Medium B"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo62s00kp13c92i8fatz6",
+          "sku": "114",
+          "code": "114",
+          "changes": {
+            "name": {
+              "from": "Crystal Tray",
+              "to": "Crystal Tray A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo68800kt13c9h845cvza",
+          "sku": "115",
+          "code": "115",
+          "changes": {
+            "name": {
+              "from": "Crystal Vase With Stand",
+              "to": "Crystal Vase With Stand A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo6ds00kx13c9sdzew737",
+          "sku": "116",
+          "code": "116",
+          "changes": {
+            "name": {
+              "from": "Crystal Bombonera With Stand",
+              "to": "Crystal Bombonera With Stand A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo6j700l113c9ipbre8f4",
+          "sku": "117",
+          "code": "117",
+          "changes": {
+            "name": {
+              "from": "Crystal Vase Large",
+              "to": "Crystal Vase Large A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo6ok00l513c9ax685qa3",
+          "sku": "118",
+          "code": "118",
+          "changes": {
+            "name": {
+              "from": "Crystal Vase Medium",
+              "to": "Crystal Vase Medium B"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo6u100l913c9y3szjsiw",
+          "sku": "119",
+          "code": "119",
+          "changes": {
+            "name": {
+              "from": "Crystal Vase leaves",
+              "to": "Crystal Vase leaves A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo6ze00ld13c9x03vwhjw",
+          "sku": "120",
+          "code": "120",
+          "changes": {
+            "name": {
+              "from": "Crystal Large Bombonera With Legs",
+              "to": "Crystal Large Bombonera With Legs A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo74z00lh13c9cxfx07di",
+          "sku": "121",
+          "code": "121",
+          "changes": {
+            "name": {
+              "from": "Crystal Fruits Large Tray with Stand",
+              "to": "Crystal Fruits Large Tray with Stand A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo7ac00ll13c96fjtgltv",
+          "sku": "122",
+          "code": "122",
+          "changes": {
+            "name": {
+              "from": "Crystal Flat Ashtray Medium",
+              "to": "Crystal Fruits Large Leafs Tray with Stand A"
+            },
+            "quantity": {
+              "from": 1,
+              "to": 2
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo7fw00lp13c9jm1dqpeq",
+          "sku": "123",
+          "code": "123",
+          "changes": {
+            "name": {
+              "from": "Crystal Flat Ashtray Small",
+              "to": "Crystal Flat Ashtray Medium B"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo7lc00lt13c9wytlwy9f",
+          "sku": "124",
+          "code": "124",
+          "changes": {
+            "name": {
+              "from": "Crystal Circular Ashtray Medium",
+              "to": "Crystal Flat Ashtray Small C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo7qw00lx13c9576tgeg3",
+          "sku": "125",
+          "code": "125",
+          "changes": {
+            "name": {
+              "from": "Crystal Circular Ashtray Small",
+              "to": "Crystal Circular Ashtray Medium B"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo7wv00m113c9i6bxlarq",
+          "sku": "126",
+          "code": "126",
+          "changes": {
+            "name": {
+              "from": "Crystal Bombonera With Flowers",
+              "to": "Crystal Circular Ashtray Small C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo82g00m513c9t3qs708d",
+          "sku": "127",
+          "code": "127",
+          "changes": {
+            "name": {
+              "from": "Crystal Circular Bombonera",
+              "to": "Crystal Bombonera With Flowers A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo87s00m913c9mxagwqrv",
+          "sku": "128",
+          "code": "128",
+          "changes": {
+            "name": {
+              "from": "Crystal Candlestick With Stand",
+              "to": "Crystal Circular Bombonera A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo8d400md13c99pa8qcdz",
+          "sku": "129",
+          "code": "129",
+          "changes": {
+            "name": {
+              "from": "Crystal Candlestick With Stand",
+              "to": "Crystal Candlestick With Stand C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo8ie00mh13c9ggqqfwi9",
+          "sku": "130",
+          "code": "130",
+          "changes": {
+            "name": {
+              "from": "Crystal Candlestick With Stand",
+              "to": "Crystal Candlestick With Stand C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo8o400ml13c93eaqx1el",
+          "sku": "131",
+          "code": "131",
+          "changes": {
+            "name": {
+              "from": "Crystal Candlestick With Stand",
+              "to": "Crystal Candlestick With Stand C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo8tk00mp13c9rp1uzfan",
+          "sku": "132",
+          "code": "132",
+          "changes": {
+            "name": {
+              "from": "Crystal Candlestick With Stand",
+              "to": "Crystal Candlestick With Stand C"
+            },
+            "quantity": {
+              "from": 2,
+              "to": 1
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo90k00mt13c9zl8umyxn",
+          "sku": "133",
+          "code": "133",
+          "changes": {
+            "name": {
+              "from": "Crystal Tall Thin Candlestick",
+              "to": "Crystal Candlestick With Stand C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo96000mx13c9u8xtvm20",
+          "sku": "134",
+          "code": "134",
+          "changes": {
+            "name": {
+              "from": "Crystal Square Ashtray Big",
+              "to": "Crystal Tall Thin Candlestick C"
+            },
+            "quantity": {
+              "from": 1,
+              "to": 2
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo9bc00n113c9tj9srcie",
+          "sku": "135",
+          "code": "135",
+          "changes": {
+            "name": {
+              "from": "Crystal Square Ashtray Small",
+              "to": "Crystal Square Ashtray Big A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo9gw00n513c9vmnc08hf",
+          "sku": "136",
+          "code": "136",
+          "changes": {
+            "name": {
+              "from": "Crystal Tissue Box",
+              "to": "Crystal Square Ashtray Small C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo9me00n913c9cfvst6pq",
+          "sku": "137",
+          "code": "137",
+          "changes": {
+            "name": {
+              "from": "Crystal Tea Set",
+              "to": "Crystal Tissue Box A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo9rs00nd13c9aq5fabzu",
+          "sku": "138",
+          "code": "138",
+          "changes": {
+            "name": {
+              "from": "Crystal Tea Set",
+              "to": "Crystal Tea Set B"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo9x600nh13c9td5ax2ib",
+          "sku": "139",
+          "code": "139",
+          "changes": {
+            "name": {
+              "from": "Royal Crystal Set of 2",
+              "to": "Crystal Tea Set B"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfoa4j00nl13c9bqpzotix",
+          "sku": "140",
+          "code": "140",
+          "changes": {
+            "name": {
+              "from": "Crystal Small Bowl with Legs",
+              "to": "Royal Crystal Set of 2 A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfoa9y00np13c9uwxrw6w8",
+          "sku": "141",
+          "code": "141",
+          "changes": {
+            "name": {
+              "from": "Black Premium Thin Set of 7",
+              "to": "Crystal Small Bowl with Legs C"
+            },
+            "category": {
+              "from": "Giveaways",
+              "to": "Samples"
+            },
+            "quantity": {
+              "from": 2,
+              "to": 1
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfofqh00rb13c9ha2lfm8a",
+          "sku": "173",
+          "code": "142",
+          "changes": {
+            "category": {
+              "from": "Samples",
+              "to": "Giveaways"
+            },
+            "quantity": {
+              "from": 1,
+              "to": 2
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfoau600ny13c933b254df",
+          "sku": "143",
+          "code": "143",
+          "changes": {
+            "name": {
+              "from": "Counter Flag",
+              "to": "Counter Flag Egypt"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            },
+            "quantity": {
+              "from": 1,
+              "to": 3
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfoazj00o213c97omfngo5",
+          "sku": "144",
+          "code": "144",
+          "changes": {
+            "name": {
+              "from": "Counter Flag",
+              "to": "Counter Flag Lebanon"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfob4y00o613c96cuzx0b4",
+          "sku": "145",
+          "code": "145",
+          "changes": {
+            "name": {
+              "from": "Counter Flag",
+              "to": "Counter Flag Algeria"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfobap00oa13c9vniroos8",
+          "sku": "146",
+          "code": "146",
+          "changes": {
+            "name": {
+              "from": "Counter Flag",
+              "to": "Counter Flag Bahrain"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfobh800oe13c9obadn5uk",
+          "sku": "147",
+          "code": "147",
+          "changes": {
+            "name": {
+              "from": "Counter Flag",
+              "to": "Counter Flag Qatar"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfobmn00oi13c99825xnkv",
+          "sku": "148",
+          "code": "148",
+          "changes": {
+            "name": {
+              "from": "Counter Flag",
+              "to": "Counter Flag Turkey"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfobs500om13c9y9gxk1l3",
+          "sku": "149",
+          "code": "149",
+          "changes": {
+            "name": {
+              "from": "Counter Flag",
+              "to": "Counter Flag Amman"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfobxf00oq13c957ioxe4u",
+          "sku": "150",
+          "code": "150",
+          "changes": {
+            "name": {
+              "from": "Counter Flag",
+              "to": "Counter Flag Jordan"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfoc2r00ou13c9yh962zk9",
+          "sku": "151",
+          "code": "151",
+          "changes": {
+            "name": {
+              "from": "Counter Flag",
+              "to": "Counter Flag Syria"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfoc8700oy13c95zzrjwfr",
+          "sku": "152",
+          "code": "152",
+          "changes": {
+            "name": {
+              "from": "Counter Flag",
+              "to": "Counter Flag Kuwait"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfocdl00p213c9dvhfvyn7",
+          "sku": "153",
+          "code": "153",
+          "changes": {
+            "name": {
+              "from": "Counter Flag",
+              "to": "Counter Flag UAE"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfocj400p613c9uhqjel9y",
+          "sku": "154",
+          "code": "154",
+          "changes": {
+            "name": {
+              "from": "Counter Flag",
+              "to": "Counter Flag Iraq"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfocoj00pa13c94si9ix81",
+          "sku": "155",
+          "code": "155",
+          "changes": {
+            "name": {
+              "from": "GIG White Counter Flag",
+              "to": "Counter Flag Saudi Arabia"
+            },
+            "category": {
+              "from": "Flag",
+              "to": "Flags"
+            },
+            "quantity": {
+              "from": 6,
+              "to": 1
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfoctz00pe13c9154wu9qn",
+          "sku": "156",
+          "code": "156",
+          "changes": {
+            "name": {
+              "from": "Black Selfi Stick",
+              "to": "Short GIG Counter Flag White"
+            },
+            "category": {
+              "from": "Giveaways",
+              "to": "Flags"
+            },
+            "quantity": {
+              "from": 25,
+              "to": 6
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfoczc00pi13c9o7jput4o",
+          "sku": "157",
+          "code": "157",
+          "changes": {
+            "name": {
+              "from": "Navy Satin Table Cover",
+              "to": "Black Selfi Stick"
+            },
+            "category": {
+              "from": "Table Covers",
+              "to": "Giveaways"
+            },
+            "quantity": {
+              "from": 1,
+              "to": 25
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfod4o00pm13c9i15un0yj",
+          "sku": "158",
+          "code": "158",
+          "changes": {
+            "name": {
+              "from": "Velvet Square Logo Cover",
+              "to": "GIG Notepad A4"
+            },
+            "category": {
+              "from": "Table Covers",
+              "to": "Notepad"
+            },
+            "quantity": {
+              "from": 1,
+              "to": 289
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfodac00pq13c9imq4au0u",
+          "sku": "159",
+          "code": "159",
+          "changes": {
+            "name": {
+              "from": "Velvet Table Cover",
+              "to": "GIG Notepad A5"
+            },
+            "category": {
+              "from": "Table Covers",
+              "to": "Notepad"
+            },
+            "quantity": {
+              "from": 3,
+              "to": 987
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfoe2200q313c9zkn2zmak",
+          "sku": "162",
+          "code": "160",
+          "changes": {
+            "quantity": {
+              "from": 11,
+              "to": 10
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfof9z00qz13c918x8faej",
+          "sku": "170",
+          "code": "170",
+          "changes": {
+            "name": {
+              "from": "Compatible Wireless Charger",
+              "to": "USB Flash Light White"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfofl300r713c9a7608fex",
+          "sku": "172",
+          "code": "172",
+          "changes": {
+            "name": {
+              "from": "White USB Flash Light",
+              "to": "Thermal Mug Blue"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfofvs00rf13c96wy41jpe",
+          "sku": "174",
+          "code": "174",
+          "changes": {
+            "name": {
+              "from": "Blue Thermal Mug",
+              "to": "Leather Hand Bag Black"
+            },
+            "category": {
+              "from": "Samples",
+              "to": "Giveaways"
+            },
+            "quantity": {
+              "from": 1,
+              "to": 9
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfog1300rj13c9bkqqugs3",
+          "sku": "175",
+          "code": "175",
+          "changes": {
+            "name": {
+              "from": "Black Premium Notebook",
+              "to": "Leather Folder Black"
+            },
+            "quantity": {
+              "from": 1,
+              "to": 11
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfogvr00s313c93s201qml",
+          "sku": "180",
+          "code": "180",
+          "changes": {
+            "name": {
+              "from": "Beige Noebook Set",
+              "to": "HP Mouse Black"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfoh1y00s713c9qpawbyw4",
+          "sku": "181",
+          "code": "181",
+          "changes": {
+            "name": {
+              "from": "Gray Premium Set",
+              "to": "Generic Mouse Black"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfoh7f00sb13c9aqbjka9m",
+          "sku": "182",
+          "code": "182",
+          "changes": {
+            "name": {
+              "from": "Black Tool Box",
+              "to": "Coaster Set Black"
+            }
+          }
+        }
+      ],
+      "unchanged": [
+        {
+          "itemId": "cmtsfo49i00jd13c9lwv4790a",
+          "sku": "102",
+          "code": "102",
+          "name": "GIG Pin"
+        },
+        {
+          "itemId": "cmtsfo5be00k513c98mph8nag",
+          "sku": "109",
+          "code": "109",
+          "name": "7K Business Bag"
+        },
+        {
+          "itemId": "cmtsfo5h200k913c9l0p6ji4i",
+          "sku": "110",
+          "code": "110",
+          "name": "7K Business Bag"
+        },
+        {
+          "itemId": "cmtsfo5me00kd13c9jv84e3nx",
+          "sku": "111",
+          "code": "111",
+          "name": "7K Cross Bag Men"
+        },
+        {
+          "itemId": "cmtsfo5rz00kh13c9jxb45vov",
+          "sku": "112",
+          "code": "112",
+          "name": "7K Cross Bag Women"
+        },
+        {
+          "itemId": "cmtsfo5xe00kl13c958pd6e6f",
+          "sku": "113",
+          "code": "113",
+          "name": "7K Cross Bag Women"
+        },
+        {
+          "itemId": "cmtsfoe7m00q713c9h2akvoq7",
+          "sku": "163",
+          "code": "161",
+          "name": "Realme Earbuds Air 2"
+        },
+        {
+          "itemId": "cmtsfoed300qb13c9ovxpfizk",
+          "sku": "164",
+          "code": "162",
+          "name": "Black Keychain Finder"
+        },
+        {
+          "itemId": "cmtsfoeip00qf13c9w01qkwrn",
+          "sku": "165",
+          "code": "163",
+          "name": "Desktop Speaker"
+        },
+        {
+          "itemId": "cmtsfoeo000qj13c99sgdihrf",
+          "sku": "166",
+          "code": "164",
+          "name": "Desktop Speaker"
+        },
+        {
+          "itemId": "cmtsfoeth00qn13c922kqsqz5",
+          "sku": "167",
+          "code": "165",
+          "name": "Speakers Accessories"
+        },
+        {
+          "itemId": "cmtsfoeyr00qr13c9hsl95bv4",
+          "sku": "168",
+          "code": "166",
+          "name": "7K Havan Set"
+        },
+        {
+          "itemId": "cmtsfof4d00qv13c9g1pf98in",
+          "sku": "169",
+          "code": "167",
+          "name": "7K Brown Set"
+        },
+        {
+          "itemId": "cmtsfoffm00r313c9ols5bj37",
+          "sku": "171",
+          "code": "169",
+          "name": "Mi 5 Smart Band"
+        },
+        {
+          "itemId": "cmtsfoghs00rv13c9hdymu12a",
+          "sku": "178",
+          "code": "176",
+          "name": "Premium Notebook"
+        },
+        {
+          "itemId": "cmtsfogqd00rz13c9yzz7z451",
+          "sku": "179",
+          "code": "177",
+          "name": "Black Gift Box"
+        }
+      ],
+      "softDelete": [
+        {
+          "itemId": "cmtsfoaol00nu13c9oa27dyy0",
+          "sku": "142",
+          "name": "Counter Flag",
+          "quantity": 3
+        },
+        {
+          "itemId": "cmtsfodos00pv13c9kybzct8s",
+          "sku": "160",
+          "name": "Notepad A4",
+          "quantity": 289
+        },
+        {
+          "itemId": "cmtsfoduc00pz13c96dgboyut",
+          "sku": "161",
+          "name": "Notepad A5",
+          "quantity": 987
+        },
+        {
+          "itemId": "cmtsfog6i00rn13c9civ5ukhu",
+          "sku": "176",
+          "name": "Black Leather Hand Bag",
+          "quantity": 9
+        },
+        {
+          "itemId": "cmtsfogc700rr13c95s49rrrg",
+          "sku": "177",
+          "name": "Black Leather Folder",
+          "quantity": 11
+        }
+      ],
+      "warnings": []
+    },
+    "2nd Floor": {
+      "room": "2nd Floor",
+      "roomId": "cmtsfmzte000113c9hhp7em26",
+      "create": [
+        {
+          "code": "306",
+          "name": "Draft Roll Up",
+          "category": "Roll Up",
+          "quantity": 4,
+          "plannedSku": "2NDFLOOR-306"
+        },
+        {
+          "code": "307",
+          "name": "Roll Up Fairfax Logo",
+          "category": "Roll Up",
+          "quantity": 1,
+          "plannedSku": "2NDFLOOR-307"
+        },
+        {
+          "code": "308",
+          "name": "Roll Up Tanmeya & GIG",
+          "category": "Roll Up",
+          "quantity": 1,
+          "plannedSku": "2NDFLOOR-308"
+        },
+        {
+          "code": "309",
+          "name": "Roll Up Lockton | Invest | GIG",
+          "category": "Roll Up",
+          "quantity": 1,
+          "plannedSku": "2NDFLOOR-309"
+        },
+        {
+          "code": "310",
+          "name": "Roll Up Women & Car",
+          "category": "Roll Up",
+          "quantity": 1,
+          "plannedSku": "2NDFLOOR-310"
+        },
+        {
+          "code": "311",
+          "name": "Pets Flyer New",
+          "category": "Flyers",
+          "quantity": 3500,
+          "plannedSku": "2NDFLOOR-311"
+        },
+        {
+          "code": "312",
+          "name": "Roll Up Runner",
+          "category": "Roll Up",
+          "quantity": 1,
+          "plannedSku": "2NDFLOOR-312"
+        },
+        {
+          "code": "313",
+          "name": "Roll Up Bicycle",
+          "category": "Roll Up",
+          "quantity": 1,
+          "plannedSku": "2NDFLOOR-313"
+        },
+        {
+          "code": "314",
+          "name": "Roll Up Invested in You Branches",
+          "category": "Roll Up",
+          "quantity": 1,
+          "plannedSku": "2NDFLOOR-314"
+        },
+        {
+          "code": "315",
+          "name": "Roll Up Invested in You Boat",
+          "category": "Roll Up",
+          "quantity": 1,
+          "plannedSku": "2NDFLOOR-315"
+        },
+        {
+          "code": "316",
+          "name": "Roll Up Cyber Guard",
+          "category": "Roll Up",
+          "quantity": 1,
+          "plannedSku": "2NDFLOOR-316"
+        },
+        {
+          "code": "317",
+          "name": "Roll Up Cyber Security",
+          "category": "Roll Up",
+          "quantity": 1,
+          "plannedSku": "2NDFLOOR-317"
+        },
+        {
+          "code": "318",
+          "name": "GIG Notepad A4",
+          "category": "Notepad",
+          "quantity": 8,
+          "plannedSku": "2NDFLOOR-318"
+        },
+        {
+          "code": "319",
+          "name": "Paper Pattern Strap",
+          "category": "Straps",
+          "quantity": 143,
+          "plannedSku": "2NDFLOOR-319"
+        }
+      ],
+      "update": [
+        {
+          "itemId": "cmtsfna6j004i13c9qf0w743s",
+          "sku": "215",
+          "code": "215",
+          "changes": {
+            "quantity": {
+              "from": 669,
+              "to": 169
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnb4r004v13c9xh2dut9x",
+          "sku": "218",
+          "code": "218",
+          "changes": {
+            "category": {
+              "from": "Stationary",
+              "to": "Folders"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnnav009i13c97rxe5fsi",
+          "sku": "257",
+          "code": "257",
+          "changes": {
+            "quantity": {
+              "from": 3,
+              "to": 4
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnnr9009q13c910iyjbfk",
+          "sku": "259",
+          "code": "259",
+          "changes": {
+            "quantity": {
+              "from": 3,
+              "to": 4
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnupq00cy13c94hs4wagy",
+          "sku": "287",
+          "code": "287",
+          "changes": {
+            "name": {
+              "from": "Crystal Green Tall Vase",
+              "to": "Crystal Green Tall Vase B"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnuv400d213c9mkvidy2r",
+          "sku": "288",
+          "code": "288",
+          "changes": {
+            "name": {
+              "from": "Crystal Green Short Vase",
+              "to": "Crystal Green Short Vase C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnv0m00d613c9v6b9xhpa",
+          "sku": "289",
+          "code": "289",
+          "changes": {
+            "name": {
+              "from": "Crystal Vase 87800 Large",
+              "to": "Crystal Vase 87800 Large A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnv5y00da13c98tpxzg34",
+          "sku": "290",
+          "code": "290",
+          "changes": {
+            "name": {
+              "from": "Crystal Bombonera",
+              "to": "Crystal Bombonera A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnvbb00de13c97r85g34y",
+          "sku": "291",
+          "code": "291",
+          "changes": {
+            "name": {
+              "from": "Crystal Vase 7832.1",
+              "to": "Crystal Vase 7832.1 C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnvh000di13c9ce2rasa9",
+          "sku": "292",
+          "code": "292",
+          "changes": {
+            "name": {
+              "from": "Crystal Large Plate",
+              "to": "Crystal Large Plate A"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnvmg00dm13c9xgdiqkdj",
+          "sku": "293",
+          "code": "293",
+          "changes": {
+            "name": {
+              "from": "Crystal Bowl",
+              "to": "Crystal Bowl C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnvsa00dq13c9wt6quj4f",
+          "sku": "294",
+          "code": "294",
+          "changes": {
+            "name": {
+              "from": "Crystal Bowl",
+              "to": "Crystal Bowl C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnvxx00du13c9fqghtpyq",
+          "sku": "295",
+          "code": "295",
+          "changes": {
+            "name": {
+              "from": "Crystal Vase 87800 Small",
+              "to": "Crystal Vase 87800 Small C"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnw3c00dy13c9hs5ob03p",
+          "sku": "296",
+          "code": "296",
+          "changes": {
+            "category": {
+              "from": "Giveaways",
+              "to": "Notebooks"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnw8x00e213c9q1zbn4e6",
+          "sku": "297",
+          "code": "297",
+          "changes": {
+            "category": {
+              "from": "Giveaways",
+              "to": "Notebooks"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnwec00e613c9jxiooadq",
+          "sku": "298",
+          "code": "298",
+          "changes": {
+            "category": {
+              "from": "Giveaways",
+              "to": "Notebooks"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfnwjp00ea13c9xtl83wki",
+          "sku": "299",
+          "code": "299",
+          "changes": {
+            "category": {
+              "from": "Giveaways",
+              "to": "Notebooks"
+            }
+          }
+        }
+      ],
+      "unchanged": [
+        {
+          "itemId": "cmtsfn5km002t13c93ui7zzdu",
+          "sku": "201",
+          "code": "201",
+          "name": "Thermal Mug White"
+        },
+        {
+          "itemId": "cmtsfn5sq002x13c9ubtuwilc",
+          "sku": "202",
+          "code": "202",
+          "name": "Ceramic Coaster White"
+        },
+        {
+          "itemId": "cmtsfn69b003213c9wrwt27o9",
+          "sku": "203",
+          "code": "203",
+          "name": "Ceramic Coaster White"
+        },
+        {
+          "itemId": "cmtsfn6f5003613c90lf1do2z",
+          "sku": "204",
+          "code": "204",
+          "name": "Star Trophy Transparent"
+        },
+        {
+          "itemId": "cmtsfn6p4003a13c9jxl4kiwc",
+          "sku": "205",
+          "code": "205",
+          "name": "Star Trophy Transparent"
+        },
+        {
+          "itemId": "cmtsfn6vz003e13c9io23fq6x",
+          "sku": "206",
+          "code": "206",
+          "name": "Star Trophy Wooden"
+        },
+        {
+          "itemId": "cmtsfn72r003i13c94isofkzj",
+          "sku": "207",
+          "code": "207",
+          "name": "Silver Shield"
+        },
+        {
+          "itemId": "cmtsfn7a0003m13c97erxmy8o",
+          "sku": "208",
+          "code": "208",
+          "name": "GIG Playing Cards"
+        },
+        {
+          "itemId": "cmtsfn7zp003r13c9rgato29x",
+          "sku": "209",
+          "code": "209",
+          "name": "Rectangle Box Indigo"
+        },
+        {
+          "itemId": "cmtsfn8hh003w13c923roa9x5",
+          "sku": "210",
+          "code": "210",
+          "name": "Marketing Business Card"
+        },
+        {
+          "itemId": "cmtsfn93h004113c9esa50l2l",
+          "sku": "211",
+          "code": "211",
+          "name": "General Old Flyer"
+        },
+        {
+          "itemId": "cmtsfn9ba004513c9edzfc86l",
+          "sku": "212",
+          "code": "212",
+          "name": "Rectangle Box White"
+        },
+        {
+          "itemId": "cmtsfn9u4004a13c9su3e1i37",
+          "sku": "213",
+          "code": "213",
+          "name": "Complaints Sticker"
+        },
+        {
+          "itemId": "cmtsfna0p004e13c92ehkjeie",
+          "sku": "214",
+          "code": "214",
+          "name": "Complaints Sticker Sample"
+        },
+        {
+          "itemId": "cmtsfnah2004m13c9g4qlhs9j",
+          "sku": "216",
+          "code": "216",
+          "name": "Survey Sticker"
+        },
+        {
+          "itemId": "cmtsfnamj004q13c95esyu0q7",
+          "sku": "217",
+          "code": "217",
+          "name": "Payment Methods Sticker"
+        },
+        {
+          "itemId": "cmtsfnbn4005013c9nqtca1dg",
+          "sku": "219",
+          "code": "219",
+          "name": "Ramadan Certificates 2026"
+        },
+        {
+          "itemId": "cmtsfnc6p005513c9zjxbgsw4",
+          "sku": "220",
+          "code": "220",
+          "name": "Wrapping Ribbon White"
+        },
+        {
+          "itemId": "cmtsfnce1005913c93duwo57e",
+          "sku": "221",
+          "code": "221",
+          "name": "Job Fair Flyer"
+        },
+        {
+          "itemId": "cmtsfnczw005e13c9xbheeler",
+          "sku": "222",
+          "code": "222",
+          "name": "Hard Cover Certificate Cover"
+        },
+        {
+          "itemId": "cmtsfnd82005i13c9bbnz6t6f",
+          "sku": "223",
+          "code": "223",
+          "name": "Soft Cover Certificate Cover"
+        },
+        {
+          "itemId": "cmtsfndpp005n13c97rsn6dv2",
+          "sku": "224",
+          "code": "224",
+          "name": "Main Wrapping Papers"
+        },
+        {
+          "itemId": "cmtsfnec5005s13c9sjezae28",
+          "sku": "225",
+          "code": "225",
+          "name": "Egyptian T.Shirt"
+        },
+        {
+          "itemId": "cmtsfnend005w13c9r1fyr9a9",
+          "sku": "226",
+          "code": "226",
+          "name": "Seafoam Wrapping Papers"
+        },
+        {
+          "itemId": "cmtsfnf8o006113c9qcqcnvji",
+          "sku": "227",
+          "code": "227",
+          "name": "Acrylic Frames Transparent"
+        },
+        {
+          "itemId": "cmtsfnfqm006613c9kp6vz8pm",
+          "sku": "228",
+          "code": "228",
+          "name": "Anker Airtag"
+        },
+        {
+          "itemId": "cmtsfnfzl006a13c9kt83sldn",
+          "sku": "229",
+          "code": "229",
+          "name": "Pharaonic Tote Bag"
+        },
+        {
+          "itemId": "cmtsfngha006f13c9o7nun4pf",
+          "sku": "230",
+          "code": "230",
+          "name": "Banner Indigo"
+        },
+        {
+          "itemId": "cmtsfngpj006j13c9cjqufryi",
+          "sku": "231",
+          "code": "231",
+          "name": "Marbel Box"
+        },
+        {
+          "itemId": "cmtsfngxb006n13c9gb9581re",
+          "sku": "232",
+          "code": "232",
+          "name": "Papyrus Paper"
+        },
+        {
+          "itemId": "cmtsfnh5r006r13c99g77ygyj",
+          "sku": "233",
+          "code": "233",
+          "name": "Logo Tote Bag"
+        },
+        {
+          "itemId": "cmtsfnhd6006v13c95em9skch",
+          "sku": "234",
+          "code": "234",
+          "name": "Acrylic Frames Transparent"
+        },
+        {
+          "itemId": "cmtsfnhm9006z13c9pas1jrv0",
+          "sku": "235",
+          "code": "235",
+          "name": "Gold Poster Frame"
+        },
+        {
+          "itemId": "cmtsfnhs8007313c9qjh4sh91",
+          "sku": "236",
+          "code": "236",
+          "name": "Metal Black Pen"
+        },
+        {
+          "itemId": "cmtsfnhye007713c9jegr7orw",
+          "sku": "237",
+          "code": "237",
+          "name": "Metal Black & Silver Pen"
+        },
+        {
+          "itemId": "cmtsfnieo007c13c9f3im6484",
+          "sku": "238",
+          "code": "238",
+          "name": "A5 Acrylic Stand"
+        },
+        {
+          "itemId": "cmtsfnipw007g13c9vhor559y",
+          "sku": "239",
+          "code": "239",
+          "name": "Wooden Frame"
+        },
+        {
+          "itemId": "cmtsfnivr007k13c9ic6tuqkw",
+          "sku": "240",
+          "code": "240",
+          "name": "FRA Policy Holders Poster"
+        },
+        {
+          "itemId": "cmtsfnj1l007o13c9atyyz4t9",
+          "sku": "241",
+          "code": "241",
+          "name": "Sunshade"
+        },
+        {
+          "itemId": "cmtsfnjql007t13c9386dgrbn",
+          "sku": "242",
+          "code": "242",
+          "name": "Tack It"
+        },
+        {
+          "itemId": "cmtsfnkd1007y13c9nqyjnaol",
+          "sku": "243",
+          "code": "243",
+          "name": "Counter Flag Egypt"
+        },
+        {
+          "itemId": "cmtsfnkkv008213c9kqwvba8v",
+          "sku": "244",
+          "code": "244",
+          "name": "Counter Flag Canada"
+        },
+        {
+          "itemId": "cmtsfnktr008613c9o6b4u4jx",
+          "sku": "245",
+          "code": "245",
+          "name": "Counter Flag Qatar"
+        },
+        {
+          "itemId": "cmtsfnl1g008a13c9smsgr8xn",
+          "sku": "246",
+          "code": "246",
+          "name": "Counter Flag Algeria"
+        },
+        {
+          "itemId": "cmtsfnl7k008e13c9ivnd26s5",
+          "sku": "247",
+          "code": "247",
+          "name": "Counter Flag Bahrain"
+        },
+        {
+          "itemId": "cmtsfnldn008i13c90yxokw2u",
+          "sku": "248",
+          "code": "248",
+          "name": "Counter Flag Jordan"
+        },
+        {
+          "itemId": "cmtsfnlln008m13c9pfxq62ha",
+          "sku": "249",
+          "code": "249",
+          "name": "Counter Flag Aman"
+        },
+        {
+          "itemId": "cmtsfnlr7008q13c9wg1mxw5v",
+          "sku": "250",
+          "code": "250",
+          "name": "Counter Flag Syria"
+        },
+        {
+          "itemId": "cmtsfnlyc008u13c9pk2ixz85",
+          "sku": "251",
+          "code": "251",
+          "name": "Counter Flag Kuwait"
+        },
+        {
+          "itemId": "cmtsfnm80008y13c9jut8veni",
+          "sku": "252",
+          "code": "252",
+          "name": "Counter Flag Iraq"
+        },
+        {
+          "itemId": "cmtsfnmeu009213c9losv3nnw",
+          "sku": "253",
+          "code": "253",
+          "name": "Counter Flag Suadi Arabia"
+        },
+        {
+          "itemId": "cmtsfnmm8009613c9jb6kgms7",
+          "sku": "254",
+          "code": "254",
+          "name": "Counter Flag UAE"
+        },
+        {
+          "itemId": "cmtsfnmwp009a13c9jvbab5vj",
+          "sku": "255",
+          "code": "255",
+          "name": "Counter Flag Lebanon"
+        },
+        {
+          "itemId": "cmtsfnn4m009e13c98oyy5fvu",
+          "sku": "256",
+          "code": "256",
+          "name": "Counter Flag Turkey"
+        },
+        {
+          "itemId": "cmtsfnnhr009m13c9ay4nmnfh",
+          "sku": "258",
+          "code": "258",
+          "name": "Long GIG Counter Flag Indigo"
+        },
+        {
+          "itemId": "cmtsfnnxc009u13c9m71l8em3",
+          "sku": "260",
+          "code": "260",
+          "name": "Fabric Bag White"
+        },
+        {
+          "itemId": "cmtsfno58009y13c9e9gde9zk",
+          "sku": "261",
+          "code": "261",
+          "name": "GIG Folder"
+        },
+        {
+          "itemId": "cmtsfnobm00a213c98ce7snxg",
+          "sku": "262",
+          "code": "262",
+          "name": "GIG Folder"
+        },
+        {
+          "itemId": "cmtsfnomx00a613c9qhj7dgps",
+          "sku": "263",
+          "code": "263",
+          "name": "GIG Envelope"
+        },
+        {
+          "itemId": "cmtsfnotd00aa13c9jyh6wcnh",
+          "sku": "264",
+          "code": "264",
+          "name": "Tool Box Black"
+        },
+        {
+          "itemId": "cmtsfnpbl00af13c9pfqd40za",
+          "sku": "265",
+          "code": "265",
+          "name": "XO Board"
+        },
+        {
+          "itemId": "cmtsfnplh00aj13c9p1sitz4b",
+          "sku": "266",
+          "code": "266",
+          "name": "XO Pieces"
+        },
+        {
+          "itemId": "cmtsfnps800an13c99xpmslua",
+          "sku": "267",
+          "code": "267",
+          "name": "Vinyl Roll Gray"
+        },
+        {
+          "itemId": "cmtsfnpyj00ar13c9wh0ors1y",
+          "sku": "268",
+          "code": "268",
+          "name": "Wooden Frame"
+        },
+        {
+          "itemId": "cmtsfnqib00aw13c9bzs8f84g",
+          "sku": "269",
+          "code": "269",
+          "name": "Lanyard"
+        },
+        {
+          "itemId": "cmtsfnqp100b013c9vygklivm",
+          "sku": "270",
+          "code": "270",
+          "name": "Racket"
+        },
+        {
+          "itemId": "cmtsfnqvq00b413c9u21slfej",
+          "sku": "271",
+          "code": "271",
+          "name": "Racket"
+        },
+        {
+          "itemId": "cmtsfnrfq00b913c95c872no9",
+          "sku": "272",
+          "code": "272",
+          "name": "Roll Up Boat"
+        },
+        {
+          "itemId": "cmtsfnrnd00bd13c902etsq60",
+          "sku": "273",
+          "code": "273",
+          "name": "Roll Up Strategy"
+        },
+        {
+          "itemId": "cmtsfnrtj00bh13c91tzda0lk",
+          "sku": "274",
+          "code": "274",
+          "name": "Roll Up Meet The Expert"
+        },
+        {
+          "itemId": "cmtsfns1i00bl13c9mjl8pcxb",
+          "sku": "275",
+          "code": "275",
+          "name": "Roll Up Blue Job Fair"
+        },
+        {
+          "itemId": "cmtsfns7200bp13c9zu5znmhy",
+          "sku": "276",
+          "code": "276",
+          "name": "Roll Up Golden Rule"
+        },
+        {
+          "itemId": "cmtsfnsg900bt13c9toil0iew",
+          "sku": "277",
+          "code": "277",
+          "name": "Roll Up Logo indigo"
+        },
+        {
+          "itemId": "cmtsfnsm200bx13c93mitipgq",
+          "sku": "278",
+          "code": "278",
+          "name": "Roll Up Logo White"
+        },
+        {
+          "itemId": "cmtsfnsrn00c113c90tkrh16i",
+          "sku": "279",
+          "code": "279",
+          "name": "Summer Outdoor Flag"
+        },
+        {
+          "itemId": "cmtsfnt0c00c513c93rtq5fww",
+          "sku": "280",
+          "code": "280",
+          "name": "Logo & Slogan Outdoor Flag"
+        },
+        {
+          "itemId": "cmtsfnt7i00c913c90yjx4tye",
+          "sku": "281",
+          "code": "281",
+          "name": "GIG Outdoor Flag"
+        },
+        {
+          "itemId": "cmtsfnted00cd13c929gt5i1g",
+          "sku": "282",
+          "code": "282",
+          "name": "Logo & Slogan Outdoor Flag New Cairo Branch"
+        },
+        {
+          "itemId": "cmtsfntl600ch13c9r3oy5p57",
+          "sku": "283",
+          "code": "283",
+          "name": "Pharonic Tote Bag"
+        },
+        {
+          "itemId": "cmtsfntud00cl13c9yqw2vnb8",
+          "sku": "284",
+          "code": "284",
+          "name": "Tote Bag"
+        },
+        {
+          "itemId": "cmtsfnu5800cp13c9w7v5cne4",
+          "sku": "285",
+          "code": "285",
+          "name": "Black Tote Bag"
+        },
+        {
+          "itemId": "cmtsfnuaw00ct13c98cogp7df",
+          "sku": "286",
+          "code": "286",
+          "name": "General Flyer"
+        },
+        {
+          "itemId": "cmtsfnwp400ee13c9pclgo61j",
+          "sku": "300",
+          "code": "300",
+          "name": "Premium Keychain Black"
+        },
+        {
+          "itemId": "cmtsfnwup00ei13c9afkjmyl8",
+          "sku": "301",
+          "code": "301",
+          "name": "Summer GIG T.Shirt"
+        },
+        {
+          "itemId": "cmtsfnx0i00em13c93s3pm2yw",
+          "sku": "302",
+          "code": "302",
+          "name": "Premium Thermal Mug Black"
+        },
+        {
+          "itemId": "cmtsfnx7n00eq13c9pfdew2jm",
+          "sku": "303",
+          "code": "303",
+          "name": "Premium Pen Black"
+        },
+        {
+          "itemId": "cmtsfnxd000eu13c9apslzf8x",
+          "sku": "304",
+          "code": "304",
+          "name": "Egyptian Paper Flag"
+        },
+        {
+          "itemId": "cmtsfnxjc00ey13c9rp18thwe",
+          "sku": "305",
+          "code": "305",
+          "name": "GIG Customized Bag"
+        }
+      ],
+      "softDelete": [],
+      "warnings": []
+    },
+    "Catering": {
+      "room": "Catering",
+      "roomId": "cmtsfmzx1000213c9chshvj2u",
+      "create": [
+        {
+          "code": "C38",
+          "name": "Velvet Square Logo Cover",
+          "category": "Table Covers",
+          "quantity": 2,
+          "plannedSku": "CATERING-C38"
+        },
+        {
+          "code": "C39",
+          "name": "White Table Cover",
+          "category": "Table Covers",
+          "quantity": 2,
+          "plannedSku": "CATERING-C39"
+        },
+        {
+          "code": "C40",
+          "name": "Navy Satin Table Cover",
+          "category": "Table Covers",
+          "quantity": 1,
+          "plannedSku": "CATERING-C40"
+        },
+        {
+          "code": "C41",
+          "name": "Velvet Table Cover",
+          "category": "Table Covers",
+          "quantity": 3,
+          "plannedSku": "CATERING-C41"
+        },
+        {
+          "code": "C42",
+          "name": "External Catering Items",
+          "category": "Extras",
+          "quantity": 22,
+          "plannedSku": "CATERING-C42"
+        },
+        {
+          "code": "C43",
+          "name": "Seafoam Wrapping Paper",
+          "category": "Wrapping Papers",
+          "quantity": 0,
+          "plannedSku": "CATERING-C43"
+        }
+      ],
+      "update": [
+        {
+          "itemId": "cmtsfo1ld00hk13c9bi860hwd",
+          "sku": "C23",
+          "code": "C23",
+          "changes": {
+            "name": {
+              "from": "Logo cover",
+              "to": "Satin Logo cover White"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo21n00hw13c9ndqwq43u",
+          "sku": "C26",
+          "code": "C26",
+          "changes": {
+            "name": {
+              "from": "Logo cover",
+              "to": "Thin Logo cover Navy"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo2hu00i813c9pe8s0lvm",
+          "sku": "C29",
+          "code": "C29",
+          "changes": {
+            "name": {
+              "from": "Logo cover",
+              "to": "Thin Logo cover White"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo33h00io13c9ptyoq26g",
+          "sku": "C33",
+          "code": "C33",
+          "changes": {
+            "name": {
+              "from": "Catering Box",
+              "to": "GIG Catering Box Big"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo39f00is13c9zcxt50gb",
+          "sku": "C34",
+          "code": "C34",
+          "changes": {
+            "name": {
+              "from": "Catering Box",
+              "to": "GIG Catering Box Small"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo3ex00iw13c9pyrciuiq",
+          "sku": "C35",
+          "code": "C35",
+          "changes": {
+            "name": {
+              "from": "Large Table Cover",
+              "to": "Large Table Cover Navy"
+            },
+            "quantity": {
+              "from": 0,
+              "to": 4
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo3kd00j013c9nntedqg9",
+          "sku": "C36",
+          "code": "C36",
+          "changes": {
+            "name": {
+              "from": "Velvet Square Logo Cover",
+              "to": "Thin Table Cover Navy"
+            },
+            "quantity": {
+              "from": 1,
+              "to": 8
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfo3pr00j413c9j27edgkv",
+          "sku": "C37",
+          "code": "C37",
+          "changes": {
+            "name": {
+              "from": "White Table Cover",
+              "to": "Thick Table Cover Navy"
+            },
+            "quantity": {
+              "from": 1,
+              "to": 2
+            }
+          }
+        }
+      ],
+      "unchanged": [
+        {
+          "itemId": "cmtsfnxy500f313c9rl86bw7u",
+          "sku": "C01",
+          "code": "C01",
+          "name": "Mug"
+        },
+        {
+          "itemId": "cmtsfny3k00f713c9fkwbq47b",
+          "sku": "C02",
+          "code": "C02",
+          "name": "Medium Plate"
+        },
+        {
+          "itemId": "cmtsfny9100fb13c9a8jpqybf",
+          "sku": "C03",
+          "code": "C03",
+          "name": "Large Plate"
+        },
+        {
+          "itemId": "cmtsfnygc00ff13c9gs21sidp",
+          "sku": "C04",
+          "code": "C04",
+          "name": "Coffee Cup plate"
+        },
+        {
+          "itemId": "cmtsfnylv00fj13c97ey5fzpp",
+          "sku": "C05",
+          "code": "C05",
+          "name": "Tea Cup plate"
+        },
+        {
+          "itemId": "cmtsfnyrf00fn13c9297eq7u7",
+          "sku": "C06",
+          "code": "C06",
+          "name": "Coffee Cup"
+        },
+        {
+          "itemId": "cmtsfnywr00fr13c9aflpj2r0",
+          "sku": "C07",
+          "code": "C07",
+          "name": "Tea Cup"
+        },
+        {
+          "itemId": "cmtsfnz2700fv13c9trt176ii",
+          "sku": "C08",
+          "code": "C08",
+          "name": "Tray"
+        },
+        {
+          "itemId": "cmtsfnz7m00fz13c92ql49c9l",
+          "sku": "C09",
+          "code": "C09",
+          "name": "Beverage Glass"
+        },
+        {
+          "itemId": "cmtsfnzd400g313c9ggqu9hse",
+          "sku": "C10",
+          "code": "C10",
+          "name": "Milk container"
+        },
+        {
+          "itemId": "cmtsfnzig00g713c9e91abrru",
+          "sku": "C11",
+          "code": "C11",
+          "name": "Draft Cup"
+        },
+        {
+          "itemId": "cmtsfnznx00gb13c914kcaxe1",
+          "sku": "C12",
+          "code": "C12",
+          "name": "Tissue Box"
+        },
+        {
+          "itemId": "cmtsfnztm00gf13c9ho130kg9",
+          "sku": "C13",
+          "code": "C13",
+          "name": "Tissue Box"
+        },
+        {
+          "itemId": "cmtsfnzz200gj13c9i6snxcmh",
+          "sku": "C14",
+          "code": "C14",
+          "name": "Small Fork"
+        },
+        {
+          "itemId": "cmtsfo04j00gn13c9ojfm6az9",
+          "sku": "C15",
+          "code": "C15",
+          "name": "Fork"
+        },
+        {
+          "itemId": "cmtsfo09z00gr13c9o8w7vfts",
+          "sku": "C16",
+          "code": "C16",
+          "name": "Small Spoon"
+        },
+        {
+          "itemId": "cmtsfo0fc00gv13c9wimo7ncv",
+          "sku": "C17",
+          "code": "C17",
+          "name": "Spoon"
+        },
+        {
+          "itemId": "cmtsfo0kv00gz13c9jmsz1tge",
+          "sku": "C18",
+          "code": "C18",
+          "name": "Knife"
+        },
+        {
+          "itemId": "cmtsfo0qb00h313c96aijbdoi",
+          "sku": "C19",
+          "code": "C19",
+          "name": "Plate Coaster"
+        },
+        {
+          "itemId": "cmtsfo0vv00h713c9nb4zdpn3",
+          "sku": "C20",
+          "code": "C20",
+          "name": "GIG Coaster"
+        },
+        {
+          "itemId": "cmtsfo11e00hb13c95rwbljln",
+          "sku": "C21",
+          "code": "C21",
+          "name": "Coffee Pot"
+        },
+        {
+          "itemId": "cmtsfo17300hf13c9mpsakmdc",
+          "sku": "C22",
+          "code": "C22",
+          "name": "Steel Holder"
+        },
+        {
+          "itemId": "cmtsfo1qq00ho13c9h36zuto8",
+          "sku": "C24",
+          "code": "C24",
+          "name": "Flower Pot"
+        },
+        {
+          "itemId": "cmtsfo1w600hs13c9e2mejo12",
+          "sku": "C25",
+          "code": "C25",
+          "name": "Napkin Holder"
+        },
+        {
+          "itemId": "cmtsfo27000i013c9m95cb53v",
+          "sku": "C27",
+          "code": "C27",
+          "name": "Bevarge Container"
+        },
+        {
+          "itemId": "cmtsfo2cf00i413c9catz07nq",
+          "sku": "C28",
+          "code": "C28",
+          "name": "Bevarge Container"
+        },
+        {
+          "itemId": "cmtsfo2n900ic13c9tfr30032",
+          "sku": "C30",
+          "code": "C30",
+          "name": "Dessert Serving Tong"
+        },
+        {
+          "itemId": "cmtsfo2sj00ig13c9vow8h78i",
+          "sku": "C31",
+          "code": "C31",
+          "name": "Serving Tong"
+        },
+        {
+          "itemId": "cmtsfo2y100ik13c9kw7mzyx7",
+          "sku": "C32",
+          "code": "C32",
+          "name": "Water Boiler"
+        }
+      ],
+      "softDelete": [],
+      "warnings": []
+    },
+    "Ground Floor": {
+      "room": "Ground Floor",
+      "roomId": "cmtsfmznv000013c9fyblbr8d",
+      "create": [],
+      "update": [
+        {
+          "itemId": "cmtsfn0lb000613c9m91seei7",
+          "sku": "G01",
+          "code": "G01",
+          "changes": {
+            "name": {
+              "from": "Box Small",
+              "to": "Navy Set Small"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn0uu000a13c9r79zamix",
+          "sku": "G02",
+          "code": "G02",
+          "changes": {
+            "name": {
+              "from": "Box Small",
+              "to": "Black Set Small"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn10b000e13c9h2o3klzq",
+          "sku": "G03",
+          "code": "G03",
+          "changes": {
+            "name": {
+              "from": "Box Big",
+              "to": "Black Set Big"
+            },
+            "quantity": {
+              "from": 207,
+              "to": 206
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn186000i13c9mn09uoz2",
+          "sku": "G04",
+          "code": "G04",
+          "changes": {
+            "name": {
+              "from": "Leather Cardholder",
+              "to": "Leather Cardholder Black"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn1dl000m13c93bv01dk3",
+          "sku": "G05",
+          "code": "G05",
+          "changes": {
+            "name": {
+              "from": "Leather Cardholder",
+              "to": "Leather Cardholder Havan"
+            },
+            "quantity": {
+              "from": 89,
+              "to": 88
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn1j2000q13c918genz4u",
+          "sku": "G06",
+          "code": "G06",
+          "changes": {
+            "name": {
+              "from": "Leather Bag",
+              "to": "Raffia Leather Bag"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn1ow000u13c9pb74q4ly",
+          "sku": "G07",
+          "code": "G07",
+          "changes": {
+            "name": {
+              "from": "Leather Bag",
+              "to": "Leather Business Bag Brown"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn1ua000y13c9meyffcb9",
+          "sku": "G08",
+          "code": "G08",
+          "changes": {
+            "name": {
+              "from": "Leather Bag",
+              "to": "Leather Business Bag Navy"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn1zv001213c9ip6444ay",
+          "sku": "G09",
+          "code": "G09",
+          "changes": {
+            "name": {
+              "from": "Leather Bag",
+              "to": "Leather Business Bag Black"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn262001613c9y6673wh6",
+          "sku": "G10",
+          "code": "G10",
+          "changes": {
+            "name": {
+              "from": "Leather Sleeve",
+              "to": "Leather Sleeve Without Navy"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn2bm001a13c9eb5rajh2",
+          "sku": "G11",
+          "code": "G11",
+          "changes": {
+            "name": {
+              "from": "Leather Sleeve",
+              "to": "Leather Sleeve Navy"
+            },
+            "quantity": {
+              "from": 33,
+              "to": 32
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn2hc001e13c94al03eqn",
+          "sku": "G12",
+          "code": "G12",
+          "changes": {
+            "name": {
+              "from": "Leather Sleeve",
+              "to": "Leather Sleeve Black"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn36j001j13c9gw6k00fc",
+          "sku": "G13",
+          "code": "G13",
+          "changes": {
+            "name": {
+              "from": "Books",
+              "to": "Fairfax Books"
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn3mb001o13c9q61ome8p",
+          "sku": "G14",
+          "code": "G14",
+          "changes": {
+            "name": {
+              "from": "Bag",
+              "to": "GIG Bag Small Reversed"
+            },
+            "quantity": {
+              "from": 499,
+              "to": 568
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn3sj001s13c9o9erq41q",
+          "sku": "G15",
+          "code": "G15",
+          "changes": {
+            "name": {
+              "from": "Bag",
+              "to": "GIG Bag Big Reversed"
+            },
+            "quantity": {
+              "from": 543,
+              "to": 564
+            }
+          }
+        },
+        {
+          "itemId": "cmtsfn4o2002913c9xmo7bist",
+          "sku": "G19",
+          "code": "G19",
+          "changes": {
+            "quantity": {
+              "from": 495,
+              "to": 494
+            }
+          }
+        }
+      ],
+      "unchanged": [
+        {
+          "itemId": "cmtsfn46n001x13c9osvyisg1",
+          "sku": "G16",
+          "code": "G16",
+          "name": "Beach Mat"
+        },
+        {
+          "itemId": "cmtsfn4cn002113c990phj3vm",
+          "sku": "G17",
+          "code": "G17",
+          "name": "Frisbee"
+        },
+        {
+          "itemId": "cmtsfn4ir002513c9wbfgec17",
+          "sku": "G18",
+          "code": "G18",
+          "name": "Fan"
+        },
+        {
+          "itemId": "cmtsfn4uk002d13c9yr79j5nq",
+          "sku": "G20",
+          "code": "G20",
+          "name": "Buckethead"
+        },
+        {
+          "itemId": "cmtsfn4zu002h13c90kgcsrwn",
+          "sku": "G21",
+          "code": "G21",
+          "name": "Coolerbag"
+        },
+        {
+          "itemId": "cmtsfn55z002l13c9sy39ztc0",
+          "sku": "G22",
+          "code": "G22",
+          "name": "Transparent Bag"
+        },
+        {
+          "itemId": "cmtsfn5d4002p13c9shpx7ey1",
+          "sku": "G23",
+          "code": "G23",
+          "name": "Neck Pillow"
+        }
+      ],
+      "softDelete": [],
+      "warnings": []
+    }
+  },
+  "totals": {
+    "create": 47,
+    "update": 102,
+    "unchanged": 140,
+    "softDelete": 5
+  }
+}
