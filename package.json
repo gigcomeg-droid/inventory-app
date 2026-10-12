@@ -1,8 +1,8 @@
 {
-  "name": "inventory-app",
+  "name": "marketing-inventory-system",
   "version": "1.0.0",
   "private": true,
-  "description": "Local-first multi-room inventory management system (4 storage rooms) - no external APIs.",
+  "description": "Multi-room marketing inventory management system — track stock across storage rooms, giveaways, and marketing materials.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
