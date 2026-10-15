@@ -151,7 +151,7 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
       <div className="flex items-center gap-2.5 px-5 py-5">
         <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-brand-500/15">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Company logo" className="h-full w-full object-cover" />
+          <img src="/logo.png" alt="Marketing Inventory System logo" className="h-full w-full object-cover" />
         </div>
         <div>
           <p className="text-sm font-semibold leading-tight text-white">{t('app.name')}</p>

@@ -43,7 +43,7 @@ export default function LoginPage() {
         <div className="mb-8 flex flex-col items-center gap-3 text-center">
           <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl bg-brand-500/15 shadow-glow">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.png" alt="Company logo" className="h-full w-full object-cover" />
+            <img src="/logo.png" alt="Marketing Inventory System logo" className="h-full w-full object-cover" />
           </div>
           <div>
             <h1 className="text-xl font-semibold tracking-tight text-white">{t('app.name')}</h1>

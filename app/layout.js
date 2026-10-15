@@ -10,9 +10,9 @@ import { SUPPORTED_LOCALES, RTL_LOCALES } from '@/lib/i18n/dictionary';
 // script fine without a webfont.
 
 export const metadata = {
-  title: 'Inventory Ops — Local Inventory Management',
+  title: 'Marketing Inventory System',
   description:
-    'Local-only, multi-room inventory management dashboard. Track stock across storage rooms, monitor low-stock alerts, and manage suppliers and categories.',
+    'Multi-room marketing inventory management dashboard. Track stock across storage rooms, monitor low-stock alerts, and manage suppliers and categories.',
 };
 
 export const viewport = {
